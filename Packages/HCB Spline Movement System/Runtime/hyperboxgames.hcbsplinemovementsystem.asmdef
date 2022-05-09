@@ -1,0 +1,18 @@
+{
+    "name": "hyperboxgames.hcbsplinemovementsystem",
+    "rootNamespace": "HCB.SplineMovementSystem",
+    "references": [
+        "GUID:02f0cfefae8b44556bc0c79177ae623d",
+        "GUID:2fdef4a859838e3449b625605ab13c25",
+        "GUID:688cfbbe2a536604ab4aa06ececa1da3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

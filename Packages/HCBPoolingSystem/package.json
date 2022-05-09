@@ -1,0 +1,28 @@
+{
+  "name": "com.hyperboxgames.hcbpoolingsystem",
+  "version": "1.0.0",
+  "displayName": "HCB Pooling System",
+  "description": "This is a package compitible with Hyper Casual Base",
+  "unity": "2020.3",
+  "unityRelease": "7f1",
+  "keywords": [
+    "Namespace: HCB"
+  ],
+  "samples": [
+    {
+      "displayName": "HCB Initial SetUp",
+      "description": "Use these assets for setting up the HCB Core in your project",
+      "path": "Samples~"
+    }
+  ],
+  "author": "Hyperbox Games <ugurtanerkazan@hyperboxgames.com> (https://www.hyperboxgames.com)",
+  "publishConfig": {
+    "registry": "ttp://localhost:4873"
+  },
+  "hideInEditor": false,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC"
+}

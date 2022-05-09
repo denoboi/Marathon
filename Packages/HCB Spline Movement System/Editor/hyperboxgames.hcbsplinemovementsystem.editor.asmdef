@@ -1,0 +1,17 @@
+{
+    "name": "hyperboxgames.hcbsplinemovementsystem.editor",
+    "rootNamespace": "HCB.SplineMovementSystem.SplineEditor",
+    "references": [
+        "GUID:6056d05e49bc1b349b9d955bf4a74c4d",
+        "GUID:2fdef4a859838e3449b625605ab13c25"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,27 @@
+{
+  "name": "com.hyperboxgames.hcbcharactersystem",
+  "version": "1.0.0",
+  "displayName": "HCB Character System",
+  "description": "This is a package compitible with Hyper Casual Base",
+  "unity": "2020.3",
+  "unityRelease": "7f1",
+  "keywords": [
+    "Namespace: HCB"
+  ],
+  "samples": [
+    {
+      "displayName": "HCB Character SetUp",
+      "description": "Use these assets for setting up the HCB Character System in your project",
+      "path": "Samples~"
+    }
+  ],
+  "author": {
+    "name": "Hyperbox Games",
+    "email": "ugurtanerkazan@hyperboxgames.com",
+    "url": "https://www.hyperboxgames.com"
+  },
+  "hideInEditor": false,
+  "dependencies": {
+    "com.hyperboxgames.hcbcore": ""
+  }
+}

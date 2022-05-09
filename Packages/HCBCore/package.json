@@ -1,0 +1,30 @@
+{
+  "name": "com.hyperboxgames.hcbcore",
+  "version": "1.0.0",
+  "displayName": "HCB Core",
+  "description": "This is the core package for Hyper Casual Base\n\nNamespace: HCB.Core",
+  "unity": "2020.3",
+  "unityRelease": "7f1",
+  "keywords": [
+    "Namespace: HCB"
+  ],
+  "samples": [
+    {
+      "displayName": "HCB Initial SetUp",
+      "description": "Use these assets for setting up the HCB Core in your project",
+      "path": "Samples~/SetUp"
+    },
+    {
+      "displayName": "HCB Core PRefabs",
+      "description": "Core Prefabs for Hyper casual base",
+      "path": "Samples~/Prefabs"
+    }
+  ],
+  "author": {
+    "name": "Hyperbox Games",
+    "email": "ugurtanerkazan@hyperboxgames.com",
+    "url": "https://www.hyperboxgames.com"
+  },
+  "hideInEditor": false,
+  "type": "template"
+}

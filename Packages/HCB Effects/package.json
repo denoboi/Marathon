@@ -1,0 +1,24 @@
+{
+  "name": "com.hyperboxgames.hcbeffects",
+  "version": "1.0.0",
+  "displayName": "HCB Effects",
+  "description": "This is a package compitible with Hyper Casual Base.\nUse this package to entegrate common hyper casual effects to your game.\n\nThis Package includes Ready to use end game effects.\n\nNamespace: HCB.Effects",
+  "unity": "2020.3",
+  "unityRelease": "7f1",
+  "keywords": [
+    "Namespace: HCB"
+  ],
+  "samples": [
+    {
+      "displayName": "HCB Initial SetUp",
+      "description": "Use these assets for setting up the HCB Core in your project",
+      "path": "Samples~"
+    }
+  ],
+  "author": {
+    "name": "Hyperbox Games",
+    "email": "ugurtanerkazan@hyperboxgames.com",
+    "url": "https://www.hyperboxgames.com"
+  },
+  "hideInEditor": false
+}

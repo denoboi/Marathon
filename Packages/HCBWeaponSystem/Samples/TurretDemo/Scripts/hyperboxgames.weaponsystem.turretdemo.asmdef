@@ -1,0 +1,16 @@
+{
+    "name": "hyperboxgames.weaponsystem.turretdemo",
+    "rootNamespace": "HCB.WeaponSystem",
+    "references": [
+        "GUID:35a2d317c632e483aaeac49ce88d8b23"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

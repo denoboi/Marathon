@@ -1,0 +1,20 @@
+{
+    "name": "hyperboxgames.hcbcharactersystem",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d3507309e50ba4093bcdeff6b4fcc490",
+        "GUID:02f0cfefae8b44556bc0c79177ae623d",
+        "GUID:8c4dd21966739024fbd72155091d199e",
+        "GUID:a5b73123c8c384f37b80a1e8975b3ecf",
+        "GUID:7c2b76afac9cd4450a4ce6b0f7d9f8e7"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
