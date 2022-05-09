@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d20837e5ecd714515802b3c4d7db9e35, type: 3}
-  m_Name: ElephantSettings
+  m_Script: {fileID: 11500000, guid: a6259dad7554dbe4b89c1e2513c9a49f, type: 3}
+  m_Name: MovementData
   m_EditorClassIdentifier: 
-  GameID: e70f2071b29991567739f23809254241bd06f46a9012cdee7331b1c26b94440f
-  GameSecret: 140d165a3d93a6504239a30ac129ee48c8fa2f548dfdb17988febe912fdbc0e2
+  DefaultSpeed: 6
+  SlideSpeed: 8
+  SpeedBlendDuration: 1

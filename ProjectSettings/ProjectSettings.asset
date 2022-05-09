@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: None
-  productName: ExampleGame
+  companyName: KaijuGames
+  productName: Marathon
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
@@ -148,9 +148,9 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.none.
+    Android: com.kaijugames.
     Standalone: com.DefaultCompany.ExampleGame
-    iPhone: com.none.
+    iPhone: com.kaijugames.
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -219,7 +219,7 @@ PlayerSettings:
   metalAPIValidation: 1
   iOSRenderExtraFrameOnPause: 0
   iosCopyPluginsCodeInsteadOfSymlink: 0
-  appleDeveloperTeamID: URJGDDD72C
+  appleDeveloperTeamID: 6N5893AVU9
   iOSManualSigningProvisioningProfileID: 
   tvOSManualSigningProvisioningProfileID: 
   iOSManualSigningProvisioningProfileType: 0
