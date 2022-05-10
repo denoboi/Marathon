@@ -43,11 +43,12 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
     void Moving()
     {
+        //Animation event invoke
+        if (Input.GetMouseButtonDown(0))
+            SplineCharacterAnimationController.TriggerAnimation("Run"); //burada bir bug var cozulecek!!! Cok tikladigimda animasyona giriyor.
 
         if (Input.GetMouseButton(0))
         {
-            //Animation event invoke
-            SplineCharacterAnimationController.TriggerAnimation("Run"); //burada bir bug var cozulecek!!! Cok tikladigimda animasyona giriyor.
 
             //staminaDrain
             Stamina.PlayerStamina -= Time.deltaTime * Stamina._staminaDrainMultiplier;

@@ -14,7 +14,7 @@ namespace HCB.SplineMovementSystem
         {
             if (!SplineCharacter.IsControlable)
                 return;
-
+            
             base.Update();
             Rotate();
         }

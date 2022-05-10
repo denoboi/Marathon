@@ -7,6 +7,7 @@ public class Stamina : MonoBehaviour
     [Header("Stamina Main Parameters")]
     public float PlayerStamina = 100.0f;
     public float _maxStamina = 100.0f;
+    public float OpponentStamina = 100.0f;
 
     [HideInInspector] public bool IsRegenerated = true;
 

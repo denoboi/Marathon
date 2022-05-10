@@ -39,8 +39,9 @@ namespace HCB.SplineMovementSystem
         private bool _applyRotationY;
         private bool _applyRotationZ;
 
-        private float _currentSpeed;
-        private void Awake()
+        //Ai speed'i ayarlamak icin protected.
+        protected float _currentSpeed;
+        protected virtual void Awake()
         {
             SetupDefaultValues();
             SetupTweenIds();
@@ -48,15 +49,15 @@ namespace HCB.SplineMovementSystem
         }
         protected virtual void OnEnable()
         {            
-            SplineCharacter.OnSlideStart.AddListener(() => SetSpeed(MovementData.SlideSpeed));
-            SplineCharacter.OnSlideStop.AddListener(() => SetSpeed(MovementData.DefaultSpeed));
+            SplineCharacter.OnSlideStart.AddListener(() => SetSpeed(MovementData.SlideSpeed, MovementData.SpeedBlendDuration));
+            SplineCharacter.OnSlideStop.AddListener(() => SetSpeed(MovementData.DefaultSpeed, MovementData.SpeedBlendDuration));
             SplineCharacter.OnCharacterLocationChanged.AddListener(OnCharacterLocationChanged);            
         }
 
         protected virtual void OnDisable()
         {
-            SplineCharacter.OnSlideStart.RemoveListener(() => SetSpeed(MovementData.SlideSpeed));
-            SplineCharacter.OnSlideStop.RemoveListener(() => SetSpeed(MovementData.DefaultSpeed));
+            SplineCharacter.OnSlideStart.RemoveListener(() => SetSpeed(MovementData.SlideSpeed, MovementData.SpeedBlendDuration));
+            SplineCharacter.OnSlideStop.RemoveListener(() => SetSpeed(MovementData.DefaultSpeed, MovementData.SpeedBlendDuration));
             SplineCharacter.OnCharacterLocationChanged.RemoveListener(OnCharacterLocationChanged);            
         }
 
@@ -109,10 +110,10 @@ namespace HCB.SplineMovementSystem
                 OnTouchGround();
             }
         }
-        private void SetSpeed(float value)
+        public void SetSpeed(float value, float duration)
         {
             DOTween.Kill(_speedTweenId);
-            DOTween.To(() => _currentSpeed, x => _currentSpeed = x, value, MovementData.SpeedBlendDuration).SetId(_speedTweenId);
+            DOTween.To(() => _currentSpeed, x => _currentSpeed = x, value, duration).SetId(_speedTweenId);
         }      
 
         private void SetSplineFollowerApplyRotation(bool x, bool y, bool z) 
