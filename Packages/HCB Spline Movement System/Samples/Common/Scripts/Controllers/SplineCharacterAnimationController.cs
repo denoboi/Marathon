@@ -9,7 +9,11 @@ namespace HCB.SplineMovementSystem.Samples
     public class SplineCharacterAnimationController : MonoBehaviour
     {
         Animator _animator;
-        Animator Animator => _animator == null ? _animator = GetComponentInParent<Animator>() : _animator;
+
+        //buna playercontroller'da ulasmak icin public yaptik asagida da metod olusturduk.
+        public Animator Animator => _animator == null ? _animator = GetComponentInParent<Animator>() : _animator;
+
+
 
         SplineCharacter _splineCharacter;
         SplineCharacter SplineCharacter => _splineCharacter == null ? _splineCharacter = GetComponentInParent<SplineCharacter>() : _splineCharacter;
@@ -84,6 +88,13 @@ namespace HCB.SplineMovementSystem.Samples
             float duration = 0.5f;
             Animator.transform.DOKill();
             Animator.transform.DOLocalRotate(new Vector3(0f, 180f, 0f), duration);
+        }
+
+
+        //bu metodu playercontroller'da animasyonlari invokelamak icin actim
+        public void TriggerAnimation(string ID)
+        {
+            Animator.SetTrigger(ID);
         }
     }
 }

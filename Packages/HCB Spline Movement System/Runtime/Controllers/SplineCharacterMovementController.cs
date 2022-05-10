@@ -16,7 +16,9 @@ namespace HCB.SplineMovementSystem
         Rigidbody Rigidbody => _rigidbody == null ? _rigidbody = GetComponentInChildren<Rigidbody>() : _rigidbody;
 
         SplineCharacter _splineCharacter;
-        SplineCharacter SplineCharacter => _splineCharacter == null ? _splineCharacter = GetComponentInChildren<SplineCharacter>() : _splineCharacter;
+        
+        //sadece kullanacak script(playerController) ve bu biliyor protected.
+        protected SplineCharacter SplineCharacter => _splineCharacter == null ? _splineCharacter = GetComponentInChildren<SplineCharacter>() : _splineCharacter;
 
         SplineFollower _splineFollower;
         SplineFollower SplineFollower => _splineFollower == null ? _splineFollower = GetComponentInChildren<SplineFollower>() : _splineFollower;
@@ -44,21 +46,21 @@ namespace HCB.SplineMovementSystem
             SetupTweenIds();
             SetFollowerInitialPercent();
         }
-        private void OnEnable()
+        protected virtual void OnEnable()
         {            
             SplineCharacter.OnSlideStart.AddListener(() => SetSpeed(MovementData.SlideSpeed));
             SplineCharacter.OnSlideStop.AddListener(() => SetSpeed(MovementData.DefaultSpeed));
             SplineCharacter.OnCharacterLocationChanged.AddListener(OnCharacterLocationChanged);            
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             SplineCharacter.OnSlideStart.RemoveListener(() => SetSpeed(MovementData.SlideSpeed));
             SplineCharacter.OnSlideStop.RemoveListener(() => SetSpeed(MovementData.DefaultSpeed));
             SplineCharacter.OnCharacterLocationChanged.RemoveListener(OnCharacterLocationChanged);            
         }
-       
-        private void Update()
+
+        protected virtual void Update()
         {
             if (!SplineCharacter.CanMoveForward)
                 return;

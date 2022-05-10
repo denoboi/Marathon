@@ -380,7 +380,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795478950}
-  m_LocalRotation: {x: 0.24465388, y: 0.000000025316087, z: -0.000000006387801, w: 0.9696105}
+  m_LocalRotation: {x: 0.24465388, y: -0.00000000383269, z: 9.670716e-10, w: 0.9696105}
   m_LocalPosition: {x: 0, y: 4.514, z: -8.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2773,7 +2773,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737119212}
-  m_LocalRotation: {x: 0.24465388, y: 0.000000025316087, z: -0.000000006387801, w: 0.9696105}
+  m_LocalRotation: {x: 0.24465388, y: -0.00000000383269, z: 9.670716e-10, w: 0.9696105}
   m_LocalPosition: {x: 0, y: 4.514, z: -8.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2792,8 +2792,8 @@ GameObject:
   - component: {fileID: 1879444436}
   - component: {fileID: 1879444435}
   - component: {fileID: 1879444434}
-  - component: {fileID: 1879444433}
-  - component: {fileID: 1879444432}
+  - component: {fileID: 1879444438}
+  - component: {fileID: 1879444437}
   m_Layer: 0
   m_Name: Spline Character
   m_TagString: Untagged
@@ -2801,38 +2801,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1879444432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1879444431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d04e8992a604b144a951206cb53ef61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnSlideStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnSlideStop:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1879444433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1879444431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4b60b4001100ac479628668f086a469, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementData: {fileID: 11400000, guid: f758994dd2d908441ab17eca5c7ce2bb, type: 2}
-  MainCollider: {fileID: 268263870}
 --- !u!114 &1879444434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3325,6 +3293,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1879444437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879444431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22468cd04f0ea7c45af752641a0a2e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnSlideStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSlideStop:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1879444438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879444431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55cbc3c8cd16b8141a6ac9dcff8c1c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementData: {fileID: 11400000, guid: 6dbe3711c4f678f43acb56d576714dc0, type: 2}
+  MainCollider: {fileID: 268263870}
 --- !u!1 &1955419212
 GameObject:
   m_ObjectHideFlags: 3

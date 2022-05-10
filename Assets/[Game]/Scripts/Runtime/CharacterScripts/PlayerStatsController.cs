@@ -5,6 +5,6 @@ using UnityEngine;
 public class PlayerStatsController : MonoBehaviour
 {
    //income, stamina, speed
-
+    
 
 }

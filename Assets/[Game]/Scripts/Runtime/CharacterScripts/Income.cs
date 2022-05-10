@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stamina : PlayerStatsController
+public class Income : MonoBehaviour
 {
-    
+   
 }
