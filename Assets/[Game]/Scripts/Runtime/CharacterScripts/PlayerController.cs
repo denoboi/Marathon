@@ -39,6 +39,8 @@ public class PlayerController : SplineCharacterMovementController //default olar
         
     }
 
+    #region Movement
+
     void Moving()
     {
 
@@ -55,11 +57,12 @@ public class PlayerController : SplineCharacterMovementController //default olar
                 Debug.Log("Boom");
 
             }
-                
+            
+            
 
             SplineCharacter.CanMoveForward = true;
 
-            //this is for update check. 
+            //this is for the update check. 
             Stamina.IsRegenerated = false;
 
         }
@@ -77,6 +80,8 @@ public class PlayerController : SplineCharacterMovementController //default olar
             SplineCharacter.CanMoveForward = false;
         }
     }
+
+    #endregion
 
     void StaminaRegen()
     {
