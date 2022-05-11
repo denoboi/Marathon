@@ -91,7 +91,7 @@ namespace HCB.SplineMovementSystem.Samples
         }
 
 
-        //bu metodu playercontroller'da animasyonlari invokelamak icin actim
+        //bu metodu playercontroller'da animasyonlari invokelamak icin actik
         public void TriggerAnimation(string ID)
         {
             Animator.SetTrigger(ID);
