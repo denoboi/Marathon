@@ -33,7 +33,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
     protected override void Update()
     {
-        StaminaRegen();
+        Stamina.StaminaRegen();
         Moving();
         base.Update();
         
@@ -45,21 +45,12 @@ public class PlayerController : SplineCharacterMovementController //default olar
     {
         //Animation event invoke
         if (Input.GetMouseButtonDown(0))
-            SplineCharacterAnimationController.TriggerAnimation("Run"); //burada bir bug var cozulecek!!! Cok tikladigimda animasyona giriyor.
+            SplineCharacterAnimationController.TriggerAnimation("Run"); //bug cozuldu nasil cozuldu hatirlamiyorum :D
 
         if (Input.GetMouseButton(0))
         {
-
             //staminaDrain
-            Stamina.PlayerStamina -= Time.deltaTime * Stamina._staminaDrainMultiplier;
-            if (Stamina.PlayerStamina <= 0)
-            {
-                Stamina.PlayerStamina = 0f;
-                Debug.Log("Boom");
-
-            }
-            
-            
+            Stamina.StaminaDrain();
 
             SplineCharacter.CanMoveForward = true;
 
@@ -71,35 +62,22 @@ public class PlayerController : SplineCharacterMovementController //default olar
         
         if(Input.GetMouseButtonUp(0))
         {
-            
-            //Stamina can regenerate again.
+
             Stamina.IsRegenerated = true;
 
             SplineCharacterAnimationController.TriggerAnimation("Idle");
 
             //if mouse button released then stop.
             SplineCharacter.CanMoveForward = false;
+
+            if(Stamina.CurrentStamina <= 50)
+            {
+                SplineCharacterAnimationController.TriggerAnimation("Tired");
+            }
         }
     }
 
     #endregion
-
-    void StaminaRegen()
-    {
-
-        if (!Player.IsControlable)
-            return;
-
-        if (!Stamina.IsRegenerated)
-            return;
-
-        if (Stamina.PlayerStamina < Stamina._maxStamina)
-        {
-            Stamina.PlayerStamina += Time.deltaTime * Stamina._staminaRegenMultiplier;
-            if (Stamina.PlayerStamina > Stamina._maxStamina)
-                Stamina.PlayerStamina = Stamina._maxStamina;
-        }
-    }
 
     
 }
