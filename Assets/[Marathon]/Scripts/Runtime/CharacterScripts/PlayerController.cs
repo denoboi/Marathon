@@ -18,7 +18,15 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
     public Player Player { get { return _player == null ? _player = GetComponent<Player>() : _player; } }
 
+
+    //these are for acceleration / deceleration
    
+   [SerializeField] private float _maxSpeed = 10f;
+    
+    public float AccelerationTime = 60;
+   [SerializeField] private float _minSpeed;
+   [SerializeField] private float _time;
+
 
     protected override void OnEnable()
     {
@@ -70,14 +78,20 @@ public class PlayerController : SplineCharacterMovementController //default olar
             //if mouse button released then stop.
             SplineCharacter.CanMoveForward = false;
 
-            if(Stamina.CurrentStamina <= 50)
+            if (Stamina.CurrentStamina <= 50)
             {
                 SplineCharacterAnimationController.TriggerAnimation("Tired");
             }
+
+            else if (Stamina.CurrentStamina >= 70)
+                SplineCharacterAnimationController.TriggerAnimation("Idle");
+
         }
     }
 
     #endregion
+
+  
 
     
 }

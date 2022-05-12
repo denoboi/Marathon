@@ -6,14 +6,17 @@ public class AICollision : MonoBehaviour
 {
     //if other.tranform.position.z < transform.position.z
 
+
     
 
     private void OnTriggerEnter(Collider other)
     {
-        //this is for player hitting Ai
-        if(other.CompareTag("Ai") && other.transform.position.z > transform.position.z)
+
+        
+        if(other.CompareTag("Character"))
         {
-            Debug.Log("Hit the AI");
+            if (transform.position.z < other.transform.position.z)
+                Debug.Log(gameObject.name);
         }
     }
 

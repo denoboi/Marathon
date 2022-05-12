@@ -14,8 +14,8 @@ public class AIMovement : SplineCharacterMovementController
 
     private SplineCharacterAnimationController _splineCharacterAnimationController;
 
-    
 
+    private bool _canRegenerate;
   
 
     public SplineCharacterAnimationController SplineCharacterAnimationController
@@ -40,7 +40,7 @@ public class AIMovement : SplineCharacterMovementController
         base.Awake();
         //Speed'i degistirmek icin currentSpeed'i kullan(splineCharacter) scriptable objelere dokunma.
        
-        _currentSpeed = Random.Range(2, 5);
+        _currentSpeed = Random.Range(2f, 5f);
 
     }
 
@@ -57,6 +57,8 @@ public class AIMovement : SplineCharacterMovementController
 
     protected override void Update()
     {
+        if (_canRegenerate)
+            Stamina.StaminaRegen();
         AIMove();
         AIRightLeft();
 
@@ -89,13 +91,15 @@ public class AIMovement : SplineCharacterMovementController
     IEnumerator WaitForRegenerate()
     {
 
-        while(Stamina.CurrentStamina <= 90)
-        {
+      
             AIStop();
-            yield return null;
-        }
+
+        _canRegenerate = true;
 
         yield return new WaitForSeconds(Random.Range(2, 10));
+
+        _canRegenerate = false;
+
         SplineCharacter.CanMoveForward = true;
         
     }
@@ -105,7 +109,7 @@ public class AIMovement : SplineCharacterMovementController
         SplineCharacter.CanMoveForward = false;
         //SplineCharacterAnimationController.TriggerAnimation("Idle");
 
-        Stamina.StaminaRegen();
+        
     }
 
 
