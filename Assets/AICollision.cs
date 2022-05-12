@@ -16,7 +16,8 @@ public class AICollision : MonoBehaviour
         if(other.CompareTag("Character"))
         {
             if (transform.position.z < other.transform.position.z)
-                Debug.Log(gameObject.name);
+                Debug.Log(gameObject.name + "Collided");
+                
         }
     }
 

@@ -16,6 +16,7 @@ public class AIMovement : SplineCharacterMovementController
 
 
     private bool _canRegenerate;
+    private bool _isGenerating;
   
 
     public SplineCharacterAnimationController SplineCharacterAnimationController
@@ -71,43 +72,70 @@ public class AIMovement : SplineCharacterMovementController
         if (!SplineCharacter.CanMoveForward)
             return;
 
+        
+
         Stamina.StaminaDrain();
 
-        //AI stop
-        if (Stamina.CurrentStamina <= 30)
+        //buraya stamina 0 ise olecek kodu gelecek.
+
+        if(Stamina.CurrentStamina <= 0)
         {
-            
+            Debug.Log(gameObject.name + "Dead");
+        }
+
+        //AI stop
+        if (Stamina.CurrentStamina <= Random.Range(0,30))
+        {
+            if (_isGenerating)
+                return;
+
             StartCoroutine(WaitForRegenerate());
 
                 //SplineCharacterAnimationController.TriggerAnimation("Idle");
-           
-        }
             
-
-        //Kosmaya basladigi zaman animasyon cagir 1 kere.
-
+        }
+ 
     }
 
     IEnumerator WaitForRegenerate()
     {
+        float luck = Random.Range(1, 10);
 
-      
+        _isGenerating = true;
+
+        while (true)
+        {
+            if(luck > 5)
+            {
+                break;
+            }
+            else
+            {
+                yield return new WaitForSeconds(Random.Range(1, 3));
+                luck = Random.Range(1, 10);
+
+            }
+
+        }
             AIStop();
 
         _canRegenerate = true;
 
-        yield return new WaitForSeconds(Random.Range(2, 10));
+        yield return new WaitForSeconds(Random.Range(1, 5));
 
         _canRegenerate = false;
 
         SplineCharacter.CanMoveForward = true;
-        
+        //Kosmaya basladigi zaman animasyon cagir 1 kere.
+        SplineCharacterAnimationController.TriggerAnimation("Run");
+
+        _isGenerating = false;
     }
 
     public void AIStop()
     {
         SplineCharacter.CanMoveForward = false;
-        //SplineCharacterAnimationController.TriggerAnimation("Idle");
+        SplineCharacterAnimationController.TriggerAnimation("Tired");
 
         
     }
@@ -115,7 +143,10 @@ public class AIMovement : SplineCharacterMovementController
 
     void AIRightLeft()
     {
-        if (!GameManager.Instance.IsGameStarted)
+        if (!LevelManager.Instance.IsLevelStarted)
+            return;
+
+        if (_canRegenerate)
             return;
 
         //surekli timer guncelliyoruz.
