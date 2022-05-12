@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HCB.SplineMovementSystem;
 using HCB.SplineMovementSystem.Samples;
+using HCB.Core;
 
 public class AIMovement : SplineCharacterMovementController
 {
@@ -110,6 +111,9 @@ public class AIMovement : SplineCharacterMovementController
 
     void AIRightLeft()
     {
+        if (!GameManager.Instance.IsGameStarted)
+            return;
+
         //surekli timer guncelliyoruz.
         _timer += Time.deltaTime;
 
