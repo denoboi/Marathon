@@ -16,7 +16,7 @@ public class AIMovement : SplineCharacterMovementController
 
 
     private bool _canRegenerate;
-    private bool _isGenerating;
+    private bool _isReplenish;
   
 
     public SplineCharacterAnimationController SplineCharacterAnimationController
@@ -40,8 +40,9 @@ public class AIMovement : SplineCharacterMovementController
     {
         base.Awake();
         //Speed'i degistirmek icin currentSpeed'i kullan(splineCharacter) scriptable objelere dokunma.
-       
-        _currentSpeed = Random.Range(2f, 5f);
+  
+        //SPEED
+        _currentSpeed = Random.Range(1.10f, 5f);
 
     }
 
@@ -72,8 +73,6 @@ public class AIMovement : SplineCharacterMovementController
         if (!SplineCharacter.CanMoveForward)
             return;
 
-        
-
         Stamina.StaminaDrain();
 
         //buraya stamina 0 ise olecek kodu gelecek.
@@ -86,13 +85,12 @@ public class AIMovement : SplineCharacterMovementController
         //AI stop
         if (Stamina.CurrentStamina <= Random.Range(0,30))
         {
-            if (_isGenerating)
+            if (_isReplenish)
                 return;
 
             StartCoroutine(WaitForRegenerate());
 
                 //SplineCharacterAnimationController.TriggerAnimation("Idle");
-            
         }
  
     }
@@ -101,7 +99,7 @@ public class AIMovement : SplineCharacterMovementController
     {
         float luck = Random.Range(1, 10);
 
-        _isGenerating = true;
+        _isReplenish = true;
 
         while (true)
         {
@@ -129,7 +127,7 @@ public class AIMovement : SplineCharacterMovementController
         //Kosmaya basladigi zaman animasyon cagir 1 kere.
         SplineCharacterAnimationController.TriggerAnimation("Run");
 
-        _isGenerating = false;
+        _isReplenish = false;
     }
 
     public void AIStop()
