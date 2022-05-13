@@ -38,6 +38,8 @@ public class Stamina : MonoBehaviour
             Debug.Log("Boom");
         }
 
+
+
         
     }
 
@@ -56,8 +58,6 @@ public class Stamina : MonoBehaviour
                 CurrentStamina = _maxStamina;
         }
 
-       
-        
     }
         
   }

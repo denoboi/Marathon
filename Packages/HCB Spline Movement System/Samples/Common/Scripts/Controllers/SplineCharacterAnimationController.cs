@@ -96,5 +96,10 @@ namespace HCB.SplineMovementSystem.Samples
         {
             Animator.SetTrigger(ID);
         }
+
+        public void BoolAnimation(string ID, bool value)
+        {
+            Animator.SetBool(ID, value);
+        }
     }
 }

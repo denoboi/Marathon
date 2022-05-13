@@ -71,7 +71,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
             if (SplineCharacter.IsSliding)
             {
                 Stamina.IsRegenerated = true;
-                _currentSpeed = 20;
+                _currentSpeed = 15;
             }
 
             else
@@ -92,14 +92,30 @@ public class PlayerController : SplineCharacterMovementController //default olar
             //if mouse button released then stop.
             SplineCharacter.CanMoveForward = false;
 
-            if (Stamina.CurrentStamina <= 50)
+            if (Stamina.CurrentStamina <= 50 )
             {
                 SplineCharacterAnimationController.TriggerAnimation("Tired");
             }
 
-            else if (Stamina.CurrentStamina >= 70)
-                SplineCharacterAnimationController.TriggerAnimation("Idle");
+            else
+            TiredToIdle();
 
+        }
+
+        
+      
+        
+    }
+
+    //this is for when not moving and not tired
+    void TiredToIdle()
+    {
+        if (SplineCharacter.CanMoveForward)
+            return;
+
+        if(Stamina.CurrentStamina >= 60)
+        {
+            SplineCharacterAnimationController.BoolAnimation("IsRefreshed", true);
         }
     }
 
