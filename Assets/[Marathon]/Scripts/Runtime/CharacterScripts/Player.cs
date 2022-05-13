@@ -4,7 +4,7 @@ using UnityEngine;
 using HCB.Core;
 using HCB.SplineMovementSystem;
 
-public class Player : SplineCharacter
+public class Player : SplineCharacter 
 {
     CapsuleCollider _capsuleCollider;
 

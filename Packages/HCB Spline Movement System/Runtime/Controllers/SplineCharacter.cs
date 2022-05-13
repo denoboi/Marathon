@@ -10,7 +10,7 @@ namespace HCB.SplineMovementSystem
     public class LocationEvent : UnityEvent<CharacterLocationState> { }
 
     [RequireComponent(typeof(SplineCharacterMovementController))]
-    public class SplineCharacter : MonoBehaviour
+    public class SplineCharacter : MonoBehaviour 
     {
         #region Properties
         private bool _canMoveForward;
@@ -24,6 +24,12 @@ namespace HCB.SplineMovementSystem
 
         private bool _isSliding;
         public bool IsSliding { get { return _isSliding; } private set { _isSliding = value; } }
+
+
+        //this is mine
+        private bool _isFinished;
+
+        public bool IsFinished { get { return _isFinished; } protected set { _isFinished = value; } }
 
         private CharacterLocationState _previousCharacterLocationState = CharacterLocationState.None;
         public CharacterLocationState PreviousCharacterLocationState { get { return _previousCharacterLocationState; } private set { _previousCharacterLocationState = value; } }
@@ -41,7 +47,7 @@ namespace HCB.SplineMovementSystem
         public UnityEvent OnSlideStop = new UnityEvent();
         #endregion
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             if (Managers.Instance == null)
                 return;
@@ -51,7 +57,7 @@ namespace HCB.SplineMovementSystem
             GameManager.Instance.OnStageFail.AddListener(OnLevelEnd);            
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             if (Managers.Instance == null)
                 return;
@@ -86,9 +92,12 @@ namespace HCB.SplineMovementSystem
             StopSlide();
         }
 
-        public void OnFinishTriggered() 
+        public virtual void OnFinishTriggered() 
         {
             GameManager.Instance.CompeleteStage(true);
+
+            //for finish check
+            IsFinished = true;
         } 
 
         private void CheckSlideStatus() 

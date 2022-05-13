@@ -42,10 +42,10 @@ GameObject:
   - component: {fileID: 5274316271766612221}
   - component: {fileID: 5274316271766612220}
   - component: {fileID: 5274316271766612219}
-  - component: {fileID: 5274316271766612217}
   - component: {fileID: 5274316271766612222}
   - component: {fileID: 5274316271766612218}
   - component: {fileID: 5274316271766612223}
+  - component: {fileID: 5874904476042002692}
   m_Layer: 0
   m_Name: Opponent
   m_TagString: Ai
@@ -545,24 +545,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   editorSetPosition: 1
---- !u!114 &5274316271766612217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5274316271766612216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d04e8992a604b144a951206cb53ef61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnSlideStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnSlideStop:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &5274316271766612222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,6 +593,24 @@ MonoBehaviour:
   IsRegenerated: 1
   _staminaDrainMultiplier: 5.5
   _staminaRegenMultiplier: 4.24
+--- !u!114 &5874904476042002692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5274316271766612216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54dd9a1558b2b14aaba2939206865a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnSlideStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSlideStop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5274316272068595393
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,7 +54,10 @@ public class PlayerController : SplineCharacterMovementController //default olar
         //Animation event invoke
         if (Input.GetMouseButtonDown(0))
         {
-            SplineCharacterAnimationController.TriggerAnimation("Run"); //bug cozuldu nasil cozuldu hatirlamiyorum :D
+            if (!SplineCharacter.IsFinished)
+                SplineCharacterAnimationController.TriggerAnimation("Run"); //bug cozuldu nasil cozuldu hatirlamiyorum :D
+
+
         }
             
 
@@ -68,6 +71,8 @@ public class PlayerController : SplineCharacterMovementController //default olar
             //this is for the update check. 
             Stamina.IsRegenerated = false;
 
+
+            
             if (SplineCharacter.IsSliding)
             {
                 Stamina.IsRegenerated = true;
@@ -84,6 +89,8 @@ public class PlayerController : SplineCharacterMovementController //default olar
         
         if(Input.GetMouseButtonUp(0))
         {
+            if (SplineCharacter.IsFinished)
+                return;
 
             Stamina.IsRegenerated = true;
 
@@ -95,28 +102,29 @@ public class PlayerController : SplineCharacterMovementController //default olar
             if (Stamina.CurrentStamina <= 50 )
             {
                 SplineCharacterAnimationController.TriggerAnimation("Tired");
+               
             }
-
-            else
-            TiredToIdle();
 
         }
 
-        
-      
+
+        TiredToIdle();
         
     }
 
     //this is for when not moving and not tired
     void TiredToIdle()
     {
-        if (SplineCharacter.CanMoveForward)
-            return;
+
 
         if(Stamina.CurrentStamina >= 60)
         {
             SplineCharacterAnimationController.BoolAnimation("IsRefreshed", true);
         }
+        else
+        {
+            SplineCharacterAnimationController.BoolAnimation("IsRefreshed", false);
+        }    
     }
 
     #endregion

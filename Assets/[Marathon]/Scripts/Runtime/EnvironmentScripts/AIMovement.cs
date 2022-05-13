@@ -92,6 +92,14 @@ public class AIMovement : SplineCharacterMovementController
 
                 //SplineCharacterAnimationController.TriggerAnimation("Idle");
         }
+        
+        //If AI finishes first, fail
+        if(SplineCharacter.IsFinished)
+        {
+
+            GameManager.Instance.OnStageFail.Invoke();
+
+        }
  
     }
 
@@ -134,6 +142,8 @@ public class AIMovement : SplineCharacterMovementController
     {
         SplineCharacter.CanMoveForward = false;
         SplineCharacterAnimationController.TriggerAnimation("Tired");
+
+        
 
         
     }
