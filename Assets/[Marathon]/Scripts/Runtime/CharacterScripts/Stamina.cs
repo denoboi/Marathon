@@ -11,7 +11,7 @@ public class Stamina : MonoBehaviour
     private float _maxStamina = 100.0f;
     
 
-    [HideInInspector] public bool IsRegenerated = true ;
+    [HideInInspector] public bool IsRegenerated ;
 
 
     [Header("Stamina Regeneration Parameters")]
@@ -27,6 +27,9 @@ public class Stamina : MonoBehaviour
 
     public void StaminaDrain()
     {
+        if (IsRegenerated)
+            return;
+
         CurrentStamina -= Time.deltaTime * _staminaDrainMultiplier;
 
         if (CurrentStamina <= 0)

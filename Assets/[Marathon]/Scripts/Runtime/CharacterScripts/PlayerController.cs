@@ -53,7 +53,10 @@ public class PlayerController : SplineCharacterMovementController //default olar
     {
         //Animation event invoke
         if (Input.GetMouseButtonDown(0))
+        {
             SplineCharacterAnimationController.TriggerAnimation("Run"); //bug cozuldu nasil cozuldu hatirlamiyorum :D
+        }
+            
 
         if (Input.GetMouseButton(0))
         {
@@ -64,6 +67,17 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
             //this is for the update check. 
             Stamina.IsRegenerated = false;
+
+            if (SplineCharacter.IsSliding)
+            {
+                Stamina.IsRegenerated = true;
+                _currentSpeed = 20;
+            }
+
+            else
+            {
+                _currentSpeed = 6;
+            }
 
         }
 
