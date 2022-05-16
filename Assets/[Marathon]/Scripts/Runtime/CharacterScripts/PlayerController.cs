@@ -59,7 +59,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
         if (Input.GetMouseButtonDown(0))
         {
             if (!SplineCharacter.IsFinished)
-                SplineCharacterAnimationController.TriggerAnimation("Run"); //bug cozuldu nasil cozuldu hatirlamiyorum :D
+                SplineCharacterAnimationController.TriggerAnimation("Run"); //bug cozuldu nasil cozuldu hatirlamiyorum :D Galiba GetMouseButton ile Down'i ayirinca.
 
 
         }

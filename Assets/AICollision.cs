@@ -21,7 +21,7 @@ public class AICollision : MonoBehaviour
 
     public PlayerController PlayerController { get { return _playerController == null ? _playerController = GetComponentInParent<PlayerController>() : _playerController; } }
 
-    //spline character yok?
+    //spline character yok? Olmamasina ragmen kalitim aldigimiz icin mi goruyor? 
     public SplineCharacter SplineCharacter { get { return splineCharacter == null ? splineCharacter = GetComponentInParent<SplineCharacter>() : splineCharacter; } }
 
     private void OnTriggerEnter(Collider other)
@@ -51,7 +51,7 @@ public class AICollision : MonoBehaviour
 
         yield return new WaitForSeconds(3);
 
-        SplineCharacter.CanMoveForward = true;
+        SplineCharacter.CanMoveForward = true;  //burada kucuk bir bug var eger player duserse bekledikten sonra biz tiklamadan kosmaya devam ediyor.
         SplineCharacterAnimationController.TriggerAnimation("Run");
         SplineCharacter.IsControlable = true;
 
