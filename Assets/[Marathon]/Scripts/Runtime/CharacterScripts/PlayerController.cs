@@ -51,6 +51,10 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
     void Moving()
     {
+
+        if (!SplineCharacter.IsControlable)
+            return;
+
         //Animation event invoke
         if (Input.GetMouseButtonDown(0))
         {

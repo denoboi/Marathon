@@ -13,13 +13,5 @@ public class AIStats : MonoBehaviour
 
 
     private bool IsAIStaminaRegenerate;
-
-   
-
-   
-
-
-   
-
    
 }

@@ -61,16 +61,21 @@ public class AIMovement : SplineCharacterMovementController
     {
         if (_canRegenerate)
             Stamina.StaminaRegen();
-        AIMove();
+
         AIRightLeft();
+
+        
+
+        AIMove();
 
         base.Update();
     }
 
     public void AIMove()
     {
-
         if (!SplineCharacter.CanMoveForward)
+            return;
+        if (!SplineCharacter.IsControlable)
             return;
 
         Stamina.StaminaDrain();
