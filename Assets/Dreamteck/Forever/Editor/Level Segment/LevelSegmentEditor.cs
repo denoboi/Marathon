@@ -6,6 +6,7 @@ namespace Dreamteck.Forever.Editor
     using UnityEditor;
     using System.Collections.Generic;
     using Splines;
+    using UnityEditor.Experimental.SceneManagement;
     
 #if DREAMTECK_SPLINES
     using Splines.Editor;
@@ -133,18 +134,18 @@ namespace Dreamteck.Forever.Editor
             internal static bool open = false;
             static PrefabStageCheck()
             {
-                UnityEditor.SceneManagement.PrefabStage.prefabStageOpened -= OnStageOpen;
-                UnityEditor.SceneManagement.PrefabStage.prefabStageOpened += OnStageOpen;
-                UnityEditor.SceneManagement.PrefabStage.prefabStageClosing -= OnStageClose;
-                UnityEditor.SceneManagement.PrefabStage.prefabStageClosing += OnStageClose;
+                PrefabStage.prefabStageOpened -= OnStageOpen;
+                PrefabStage.prefabStageOpened += OnStageOpen;
+                PrefabStage.prefabStageClosing -= OnStageClose;
+               PrefabStage.prefabStageClosing += OnStageClose;
             }
 
-            static void OnStageOpen(UnityEditor.SceneManagement.PrefabStage stage)
+            static void OnStageOpen(PrefabStage stage)
             {
                 open = true;
             }
 
-            static void OnStageClose(UnityEditor.SceneManagement.PrefabStage stage)
+            static void OnStageClose(PrefabStage stage)
             {
                 open = false;
             }
@@ -207,8 +208,8 @@ namespace Dreamteck.Forever.Editor
             if (Application.isPlaying) return;
             for (int i = 0; i < allSegments.Length; i++) allSegments[i].UpdateReferences();
             Undo.undoRedoPerformed += OnUndoRedo;
-            UnityEditor.SceneManagement.PrefabStage.prefabStageClosing -= OnSavingPrefab;
-            UnityEditor.SceneManagement.PrefabStage.prefabStageClosing += OnSavingPrefab;
+            PrefabStage.prefabStageClosing -= OnSavingPrefab;
+            PrefabStage.prefabStageClosing += OnSavingPrefab;
         }
 
 #if !UNITY_2019_1_OR_NEWER
@@ -233,7 +234,7 @@ namespace Dreamteck.Forever.Editor
             LevelSegment segment = (LevelSegment)target;
         }
 
-        void OnSavingPrefab(UnityEditor.SceneManagement.PrefabStage stage)
+        void OnSavingPrefab(PrefabStage stage)
         {
             LevelSegment segment = stage.prefabContentsRoot.GetComponent<LevelSegment>();
             if (segment != null)
@@ -245,7 +246,7 @@ namespace Dreamteck.Forever.Editor
                 PrefabUtility.SaveAsPrefabAsset(segment.gameObject, stage.prefabAssetPath);
 #endif
             }
-            UnityEditor.SceneManagement.PrefabStage.prefabStageClosing -= OnSavingPrefab;
+            PrefabStage.prefabStageClosing -= OnSavingPrefab;
         }
 
         void GetSegments()

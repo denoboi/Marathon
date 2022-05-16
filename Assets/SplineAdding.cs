@@ -10,6 +10,7 @@ public class SplineAdding : MonoBehaviour
     public SplineComputer SplineComputer { get { return splineComputer == null ? splineComputer = GetComponent<SplineComputer>() : splineComputer; } }
 
     void SplineAdd()
-    { SplineComputer.SetPoint( }
+    { }
+    
 
 }
