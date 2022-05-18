@@ -4,11 +4,13 @@ using UnityEngine;
 using HCB.SplineMovementSystem;
 using HCB.SplineMovementSystem.Samples;
 using HCB.Core;
+using Dreamteck.Forever;
 
 public class AIMovement : SplineCharacterMovementController
 {
 
     private Stamina _stamina;
+    private Runner _runner;
 
     public Stamina Stamina { get { return _stamina == null ? _stamina = GetComponent<Stamina>() : _stamina; } }
 
@@ -17,7 +19,8 @@ public class AIMovement : SplineCharacterMovementController
 
     private bool _canRegenerate;
     private bool _isReplenish;
-  
+    
+    public Runner Runner { get { return _runner == null ? _runner = GetComponent<Runner>() : _runner; } }
 
     public SplineCharacterAnimationController SplineCharacterAnimationController
     { get { return _splineCharacterAnimationController == null ? _splineCharacterAnimationController = GetComponentInChildren<SplineCharacterAnimationController>() : _splineCharacterAnimationController; } }
@@ -63,12 +66,11 @@ public class AIMovement : SplineCharacterMovementController
             Stamina.StaminaRegen();
 
         AIRightLeft();
-
-        
-
         AIMove();
 
         base.Update();
+
+        Runner.follow = SplineCharacter.CanMoveForward;
     }
 
     public void AIMove()
@@ -105,7 +107,9 @@ public class AIMovement : SplineCharacterMovementController
             GameManager.Instance.OnStageFail.Invoke();
 
         }
- 
+
+       
+        
     }
 
     IEnumerator WaitForRegenerate()
@@ -128,7 +132,10 @@ public class AIMovement : SplineCharacterMovementController
             }
 
         }
-            AIStop();
+
+        
+
+        AIStop();
 
         _canRegenerate = true;
 
@@ -141,6 +148,7 @@ public class AIMovement : SplineCharacterMovementController
         SplineCharacterAnimationController.TriggerAnimation("Run");
 
         _isReplenish = false;
+
     }
 
     public void AIStop()

@@ -4,12 +4,16 @@ using UnityEngine;
 using HCB.SplineMovementSystem;
 using HCB.Core;
 using HCB.SplineMovementSystem.Samples;
+using Dreamteck.Forever;
                     
 public class PlayerController : SplineCharacterMovementController //default olarak splinemovement sabit hizda
 {
     private SplineCharacterAnimationController _splineCharacterAnimationController;
     private Stamina _stamina;
     private Player _player;
+    private Runner _runner;
+
+    public Runner Runner { get { return _runner == null ? _runner = GetComponent<Runner>() : _runner; } }
 
     public SplineCharacterAnimationController SplineCharacterAnimationController 
     { get { return _splineCharacterAnimationController == null ? _splineCharacterAnimationController = GetComponentInChildren<SplineCharacterAnimationController>() : _splineCharacterAnimationController; } }
@@ -61,7 +65,6 @@ public class PlayerController : SplineCharacterMovementController //default olar
             if (!SplineCharacter.IsFinished)
                 SplineCharacterAnimationController.TriggerAnimation("Run"); //bug cozuldu nasil cozuldu hatirlamiyorum :D Galiba GetMouseButton ile Down'i ayirinca.
 
-
         }
             
 
@@ -110,6 +113,9 @@ public class PlayerController : SplineCharacterMovementController //default olar
             }
 
         }
+
+        //boyle bi sey yapilabiliyomus :D
+        Runner.follow = SplineCharacter.CanMoveForward;
 
 
         TiredToIdle();

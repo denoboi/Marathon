@@ -5,6 +5,7 @@ using DG.Tweening;
 using Dreamteck.Splines;
 using HCB.Core;
 
+
 namespace HCB.SplineMovementSystem
 {
     [RequireComponent(typeof(Rigidbody))]
@@ -16,6 +17,8 @@ namespace HCB.SplineMovementSystem
         Rigidbody Rigidbody => _rigidbody == null ? _rigidbody = GetComponentInChildren<Rigidbody>() : _rigidbody;
 
         SplineCharacter _splineCharacter;
+
+      
         
         //sadece kullanacak script(playerController) ve bu biliyor protected.
         protected SplineCharacter SplineCharacter => _splineCharacter == null ? _splineCharacter = GetComponentInChildren<SplineCharacter>() : _splineCharacter;
@@ -66,7 +69,7 @@ namespace HCB.SplineMovementSystem
             if (!SplineCharacter.CanMoveForward)
                 return;
             
-            SplineFollower.Move(_currentSpeed * Time.deltaTime);
+           // SplineFollower.Move(_currentSpeed * Time.deltaTime);
         }
         public void Jump(float jumpForce)
         {           
