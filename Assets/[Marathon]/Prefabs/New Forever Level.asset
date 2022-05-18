@@ -40,7 +40,7 @@ MonoBehaviour:
       segments:
       - nested: 0
         randomPickChance: 1
-        _prefab: {fileID: 6438734038770437647, guid: 450353785c3ae0546bffed2f0419c6af, type: 3}
+        _prefab: {fileID: 919132147896096904, guid: 450353785c3ae0546bffed2f0419c6af, type: 3}
         _segmentPool: []
         _pool: 0
         _poolParent: {fileID: 0}
@@ -57,7 +57,7 @@ MonoBehaviour:
       segments:
       - nested: 0
         randomPickChance: 1
-        _prefab: {fileID: 142954529834572296, guid: 4fda68d5aaf193740bfff55b39541f2f, type: 3}
+        _prefab: {fileID: 3415948004514901420, guid: 071af7700216bcd4581624ec9c957675, type: 3}
         _segmentPool: []
         _pool: 0
         _poolParent: {fileID: 0}
@@ -74,7 +74,7 @@ MonoBehaviour:
       segments:
       - nested: 0
         randomPickChance: 1
-        _prefab: {fileID: 6691369061402947085, guid: 262dddea4e09b1c4cbd99a8b8f96fd2d, type: 3}
+        _prefab: {fileID: 882622203656056514, guid: b1332afb63e06b648a2ff56d80c36090, type: 3}
         _segmentPool: []
         _pool: 0
         _poolParent: {fileID: 0}
@@ -118,7 +118,7 @@ MonoBehaviour:
       segments:
       - nested: 0
         randomPickChance: 1
-        _prefab: {fileID: 6438734038770437647, guid: 450353785c3ae0546bffed2f0419c6af, type: 3}
+        _prefab: {fileID: 919132147896096904, guid: 450353785c3ae0546bffed2f0419c6af, type: 3}
         _segmentPool: []
         _pool: 0
         _poolParent: {fileID: 0}
@@ -135,7 +135,7 @@ MonoBehaviour:
       segments:
       - nested: 0
         randomPickChance: 1
-        _prefab: {fileID: 142954529834572296, guid: 4fda68d5aaf193740bfff55b39541f2f, type: 3}
+        _prefab: {fileID: 3415948004514901420, guid: 071af7700216bcd4581624ec9c957675, type: 3}
         _segmentPool: []
         _pool: 0
         _poolParent: {fileID: 0}
@@ -152,7 +152,7 @@ MonoBehaviour:
       segments:
       - nested: 0
         randomPickChance: 1
-        _prefab: {fileID: 6691369061402947085, guid: 262dddea4e09b1c4cbd99a8b8f96fd2d, type: 3}
+        _prefab: {fileID: 882622203656056514, guid: b1332afb63e06b648a2ff56d80c36090, type: 3}
         _segmentPool: []
         _pool: 0
         _poolParent: {fileID: 0}

@@ -8,7 +8,8 @@ public class Stamina : MonoBehaviour
     [Header("Stamina Main Parameters")]
     public float CurrentStamina = 100.0f; //isimlendirme sorulacak
     
-    private float _maxStamina = 100.0f;
+    public float MaxStamina = 100.0f;
+
     
 
     [HideInInspector] public bool IsRegenerated;
@@ -16,8 +17,8 @@ public class Stamina : MonoBehaviour
 
     [Header("Stamina Regeneration Parameters")]
     
-    [Range(1.25f, 15f)] public float _staminaDrainMultiplier;
-    [Range(1.25f, 15f)] public float _staminaRegenMultiplier;
+    [Range(1.25f, 15f)] public float StaminaDrainMultiplier;
+    [Range(1.25f, 15f)] public float StaminaRegenMultiplier;
 
     private SplineCharacter _splineCharacter;
 
@@ -30,7 +31,7 @@ public class Stamina : MonoBehaviour
         //if (IsRegenerated)
         //    return;
 
-        CurrentStamina -= Time.deltaTime * _staminaDrainMultiplier;
+        CurrentStamina -= Time.deltaTime * StaminaDrainMultiplier;
 
         if (CurrentStamina <= 0)
         {
@@ -51,11 +52,11 @@ public class Stamina : MonoBehaviour
         if (!IsRegenerated)
             return;
 
-        if (CurrentStamina < _maxStamina)
+        if (CurrentStamina < MaxStamina)
         {
-            CurrentStamina += Time.deltaTime * _staminaRegenMultiplier;
-            if (CurrentStamina > _maxStamina)
-                CurrentStamina = _maxStamina;
+            CurrentStamina += Time.deltaTime * StaminaRegenMultiplier;
+            if (CurrentStamina > MaxStamina)
+                CurrentStamina = MaxStamina;
         }
 
     }
