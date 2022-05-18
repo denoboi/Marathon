@@ -126,8 +126,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
     void TiredToIdle()
     {
 
-
-        if(Stamina.CurrentStamina >= 60)
+        if(Stamina.CurrentStamina >= 50)
         {
             SplineCharacterAnimationController.BoolAnimation("IsRefreshed", true);
         }

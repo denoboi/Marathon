@@ -82,8 +82,7 @@ public class AIMovement : SplineCharacterMovementController
 
         Stamina.StaminaDrain();
 
-        //buraya stamina 0 ise olecek kodu gelecek.
-
+        //buraya stamina 0 ise olum animasyonu gelecek.
         if(Stamina.CurrentStamina <= 0)
         {
             Debug.Log(gameObject.name + "Dead");
@@ -103,13 +102,8 @@ public class AIMovement : SplineCharacterMovementController
         //If AI finishes first, fail
         if(SplineCharacter.IsFinished)
         {
-
             GameManager.Instance.OnStageFail.Invoke();
-
         }
-
-       
-        
     }
 
     IEnumerator WaitForRegenerate()
@@ -128,12 +122,8 @@ public class AIMovement : SplineCharacterMovementController
             {
                 yield return new WaitForSeconds(Random.Range(1, 3));
                 luck = Random.Range(1, 10);
-
             }
-
         }
-
-        
 
         AIStop();
 
@@ -155,12 +145,7 @@ public class AIMovement : SplineCharacterMovementController
     {
         SplineCharacter.CanMoveForward = false;
         SplineCharacterAnimationController.TriggerAnimation("Tired");
-
-        
-
-        
     }
-
 
     void AIRightLeft()
     {
@@ -187,6 +172,5 @@ public class AIMovement : SplineCharacterMovementController
             _timer = 0;
         }
     }
-
 
 }

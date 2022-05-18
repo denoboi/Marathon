@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5660228666621929237}
   - component: {fileID: 2653978219885197035}
   - component: {fileID: 762324809113079575}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: new stadium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,13 +170,13 @@ MonoBehaviour:
     - {fileID: 5660228666621929237}
     _isRoot: 1
   bounds:
-    center: {x: 0.12136459, y: 2.666275, z: 14.999994}
+    center: {x: 0.12136459, y: 2.6662753, z: 14.999994}
     extents: {x: 22.497412, y: 6.5448217, z: 14.999998}
     max: {x: 22.618776, y: 9.211097, z: 29.999992}
-    min: {x: -22.376047, y: -3.8785467, z: -0.0000038146973}
+    min: {x: -22.376047, y: -3.8785462, z: -0.0000038146973}
     size: {x: 44.994823, y: 13.0896435, z: 29.999996}
   builders: []
-  unpacked: 0
+  unpacked: 1
   alwaysDraw: 0
   drawGeneratedSpline: 1
   drawGeneratedSamples: 1
@@ -184,4 +184,4 @@ MonoBehaviour:
   drawEntranceAndExit: 1
   drawBounds: 1
   drawCustomPaths: 1
-  editorChildCount: 1
+  editorChildCount: 0

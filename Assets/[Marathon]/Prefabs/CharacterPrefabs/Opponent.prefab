@@ -47,7 +47,6 @@ GameObject:
   - component: {fileID: 5274316271766612223}
   - component: {fileID: 5874904476042002692}
   - component: {fileID: 8712583740860597667}
-  - component: {fileID: 4471898334167052618}
   m_Layer: 0
   m_Name: Opponent
   m_TagString: Ai
@@ -592,9 +591,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentStamina: 100
+  MaxStamina: 100
   IsRegenerated: 1
-  _staminaDrainMultiplier: 5.5
-  _staminaRegenMultiplier: 4.24
+  StaminaDrainMultiplier: 1.25
+  StaminaRegenMultiplier: 1.25
 --- !u!114 &5874904476042002692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,7 +628,7 @@ MonoBehaviour:
   updateMode: 0
   startPercent: 0
   startDistance: 0
-  startMode: 0
+  startMode: 2
   followSpeed: 1
   follow: 1
   isPlayer: 0
@@ -656,23 +656,6 @@ MonoBehaviour:
     applyScaleX: 0
     applyScaleY: 0
     applyScaleZ: 0
---- !u!114 &4471898334167052618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5274316271766612216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7229980844ad147488029774acc664eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  updateMode: 0
-  updateTime: 0
-  useAccurateMode: 0
-  drawDebug: 0
-  debugColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &5274316272068595393
 GameObject:
   m_ObjectHideFlags: 0

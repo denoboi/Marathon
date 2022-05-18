@@ -10,10 +10,7 @@ public class Stamina : MonoBehaviour
     
     public float MaxStamina = 100.0f;
 
-    
-
     [HideInInspector] public bool IsRegenerated;
-
 
     [Header("Stamina Regeneration Parameters")]
     
@@ -24,13 +21,8 @@ public class Stamina : MonoBehaviour
 
     public SplineCharacter SplineCharacter { get { return _splineCharacter == null ? _splineCharacter = GetComponent<SplineCharacter>() : _splineCharacter; } }
 
-
-
     public void StaminaDrain()
     {
-        //if (IsRegenerated)
-        //    return;
-
         CurrentStamina -= Time.deltaTime * StaminaDrainMultiplier;
 
         if (CurrentStamina <= 0)
@@ -38,9 +30,6 @@ public class Stamina : MonoBehaviour
             CurrentStamina = 0f;
             Debug.Log("Boom");
         }
-
-
-
         
     }
 

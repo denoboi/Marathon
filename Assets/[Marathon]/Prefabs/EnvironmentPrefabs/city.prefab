@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8678570707899262950}
   - component: {fileID: 6790646141113761483}
   - component: {fileID: 2822956197024070048}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: city
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ MonoBehaviour:
       bendMesh: 1
       bendSprite: 0
       bendPolygonCollider: 0
-      applyMeshColors: 0
+      applyMeshColors: 1
     _settingsComponent: {fileID: 0}
     overrideSettingsComponent: 0
     meshFilter: {fileID: 1406224404772288691}

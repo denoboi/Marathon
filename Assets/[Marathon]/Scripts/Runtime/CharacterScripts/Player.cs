@@ -28,9 +28,6 @@ public class Player : SplineCharacter
         
     }
 
-
-
-
     void TiredMaterial()
     {
         _normalizeStamina = NormalizeValue(Stamina.CurrentStamina, 0, maximumStamina);
