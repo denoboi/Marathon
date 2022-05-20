@@ -9,9 +9,14 @@ public class StaminaUpgrader : IdleStatObjectBase
 
     public Stamina Stamina { get { return _stamina == null ? _stamina = GetComponent<Stamina>() : _stamina; } }
 
+   
 
     public override void UpdateStat(string id)
     {
+
         Stamina.CurrentStamina = (float)IdleStat.CurrentValue;
+
+        if (Stamina.CurrentStamina < 100)
+            Stamina.CurrentStamina = 100;
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Stamina : MonoBehaviour
 {
     [Header("Stamina Main Parameters")]
-    public float CurrentStamina = 100.0f; //isimlendirme sorulacak
+    public float CurrentStamina = 100.0f; 
     
     public float MaxStamina = 100.0f;
 

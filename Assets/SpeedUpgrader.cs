@@ -13,6 +13,11 @@ public class SpeedUpgrader : IdleStatObjectBase
 
     public override void UpdateStat(string id)
     {
+       
+
         Runner.followSpeed = (float)IdleStat.CurrentValue;
+
+        if (Runner.followSpeed < 6)
+            Runner.followSpeed = 6;
     }
 }

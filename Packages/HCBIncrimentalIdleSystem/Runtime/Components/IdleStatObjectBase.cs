@@ -9,7 +9,7 @@ namespace HCB.IncrimantalIdleSystem
     public abstract class IdleStatObjectBase : IdleStatBase, IStatObject
     {
         
-        private void Start()
+        protected virtual void Start()
         {
             Initialize();
         }

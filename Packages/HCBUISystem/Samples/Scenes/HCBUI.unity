@@ -448,6 +448,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4933556380829357423, guid: 8b53c2f68301148f793bd44651542a98, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933556380829357423, guid: 8b53c2f68301148f793bd44651542a98, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933556380829357423, guid: 8b53c2f68301148f793bd44651542a98, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933556380829357423, guid: 8b53c2f68301148f793bd44651542a98, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933556380829357423, guid: 8b53c2f68301148f793bd44651542a98, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933556380829357423, guid: 8b53c2f68301148f793bd44651542a98, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HCB.IncrimantalIdleSystem.Examples.IdleUpgradeButton, hcbincrimantalidlesystem.examples
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933556380829357423, guid: 8b53c2f68301148f793bd44651542a98, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b53c2f68301148f793bd44651542a98, type: 3}
 --- !u!224 &1102299883 stripped
@@ -561,8 +589,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -231.02795}
+  m_SizeDelta: {x: 0, y: -462.0558}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1476915188
 MonoBehaviour:
@@ -842,7 +870,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 225.1305}
+  m_SizeDelta: {x: 0, y: 212.9175}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1981928220
 MonoBehaviour:

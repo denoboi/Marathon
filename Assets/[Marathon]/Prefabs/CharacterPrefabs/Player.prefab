@@ -1265,6 +1265,7 @@ GameObject:
   - component: {fileID: 1611514305004644948}
   - component: {fileID: 2032084593812994260}
   - component: {fileID: 6833280204047057409}
+  - component: {fileID: 1907317356112449752}
   m_Layer: 0
   m_Name: Player
   m_TagString: Character
@@ -1820,7 +1821,7 @@ MonoBehaviour:
   updateMode: 0
   updateTime: 0
   useAccurateMode: 0
-  drawDebug: 1
+  drawDebug: 0
   debugColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1611514305004644948
 MonoBehaviour:
@@ -1891,6 +1892,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleStat: {fileID: 11400000, guid: 135eb85c56fa3934ab4c62778a50d2b5, type: 2}
+--- !u!114 &1907317356112449752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5864566569611613994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54dd9a1558b2b14aaba2939206865a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnSlideStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSlideStop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5864566570439654744
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,14 +31,12 @@ public class AICollision : MonoBehaviour
         {
             if (transform.position.z < other.transform.position.z)
             {
-
-                
                 Debug.Log(gameObject.name + "Collided");
                 
                 StartCoroutine(WaitForMoveForward());
-
-               
             }
+
+            SplineCharacterAnimationController.TriggerAnimation("Stumble");
 
             Runner.follow = SplineCharacter.CanMoveForward;
             Runner.follow = SplineCharacter.IsControlable;
