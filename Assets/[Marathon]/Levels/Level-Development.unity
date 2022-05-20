@@ -5398,7 +5398,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795478950}
-  m_LocalRotation: {x: 0.2805206, y: -0.000000023356453, z: 0.0000000068260446, w: 0.95984805}
+  m_LocalRotation: {x: 0.2805206, y: 0.000000023356463, z: -0.0000000068260477, w: 0.95984805}
   m_LocalPosition: {x: 0.855, y: 5.25, z: -8.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -7590,7 +7590,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737119212}
-  m_LocalRotation: {x: 0.2805206, y: -0.000000023356453, z: 0.0000000068260446, w: 0.95984805}
+  m_LocalRotation: {x: 0.2805206, y: 0.000000023356463, z: -0.0000000068260477, w: 0.95984805}
   m_LocalPosition: {x: 0.855, y: 5.25, z: -8.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11103,7 +11103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5864566569611614005, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
       propertyPath: CurrentStamina
-      value: 55
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5864566569611614007, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
       propertyPath: _spline

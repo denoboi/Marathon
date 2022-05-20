@@ -16,7 +16,7 @@ namespace HCB.IncrimantalIdleSystem
         public float InitialValue = 1;
 
         [BoxGroup("StatValues")]
-        [PropertyRange(0.1f, 2)]
+        [PropertyRange(0.1f, 100f)]
         public float UpgradeMultiplier = 1.2f;
 
         [BoxGroup("CostValues")]

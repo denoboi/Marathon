@@ -69,8 +69,8 @@ public class PlayerController : SplineCharacterMovementController //default olar
             if (Stamina.CurrentStamina <= 50)
                 return; //this is because tired running animation will invoke instead of running.
                 SplineCharacterAnimationController.TriggerAnimation("Run"); //bug cozuldu nasil cozuldu hatirlamiyorum :D Galiba GetMouseButton ile Down'i ayirinca.
-            
-           
+
+           //buraya income gelecek.
 
         }
             
