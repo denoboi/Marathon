@@ -1,0 +1,18 @@
+{
+    "name": "hcbincrimantalidlesystem.examples",
+    "rootNamespace": "HCB.IncrimantalIdleSystem.Examples",
+    "references": [
+        "GUID:5a0031d0892fe4f3cb04e91e4e137000",
+        "GUID:02f0cfefae8b44556bc0c79177ae623d",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

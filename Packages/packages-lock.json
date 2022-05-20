@@ -81,6 +81,12 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "com.hyperboxgames.incrimantalidlesystem": {
+      "version": "file:HCBIncrimentalIdleSystem",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.unity.cinemachine": {
       "version": "2.6.4",
       "depth": 0,

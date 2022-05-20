@@ -12,6 +12,8 @@ namespace HCB.Core
         public static UnityEvent OnPlayerDataChange = new UnityEvent();
         public static CurrencyEvent OnCurrencyInteracted = new CurrencyEvent();
 
+        
+        public static StringEvet OnStatUpdated = new StringEvet();
         #region Editor
         public static UnityEvent OnLevelDataChange = new UnityEvent();
         #endregion
@@ -19,4 +21,6 @@ namespace HCB.Core
 
     public class PlayerDataEvent : UnityEvent<PlayerData> { }
     public class CurrencyEvent : UnityEvent<ExchangeType, int> { }
+
+    public class StringEvet : UnityEvent<string> { }
 }

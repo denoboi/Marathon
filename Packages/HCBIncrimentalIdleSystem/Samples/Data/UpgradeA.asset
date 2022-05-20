@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 217a90ea8832740c8b7ab261914d3020, type: 3}
-  m_Name: Level Data
+  m_Script: {fileID: 11500000, guid: adc6b3d6add0a43b9a227d135adba4f0, type: 3}
+  m_Name: UpgradeA
   m_EditorClassIdentifier: 
-  Levels:
-  - LevelTypes: 00000000
-    LoadLevelID: Level-Development
-  - LevelTypes: 
-    LoadLevelID: Level-IdleUpgradeScene
+  StatID: UpgradeA
+  InitialValue: 1
+  UpgradeMultiplier: 1.2
+  InitialCost: 40
+  CostMultiplier: 1.1
+  ExchangeType: 1
