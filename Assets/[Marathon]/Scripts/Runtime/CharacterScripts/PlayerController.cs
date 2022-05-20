@@ -63,7 +63,12 @@ public class PlayerController : SplineCharacterMovementController //default olar
         if (Input.GetMouseButtonDown(0))
         {
             if (!SplineCharacter.IsFinished)
+                TiredRunning();
+
+            if (Stamina.CurrentStamina <= 50)
+                return;
                 SplineCharacterAnimationController.TriggerAnimation("Run"); //bug cozuldu nasil cozuldu hatirlamiyorum :D Galiba GetMouseButton ile Down'i ayirinca.
+            
 
         }
             
@@ -78,6 +83,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
             //this is for the update check. 
             Stamina.IsRegenerated = false;
 
+            
 
             
             if (SplineCharacter.IsSliding)
@@ -134,6 +140,15 @@ public class PlayerController : SplineCharacterMovementController //default olar
         {
             SplineCharacterAnimationController.BoolAnimation("IsRefreshed", false);
         }    
+    }
+
+    void TiredRunning()
+    {
+        if(Stamina.CurrentStamina<= 50)
+        {
+            SplineCharacterAnimationController.TriggerAnimation("TiredRunning");
+            Runner.followSpeed = Runner.followSpeed / 1.2f;
+        }
     }
 
     #endregion
