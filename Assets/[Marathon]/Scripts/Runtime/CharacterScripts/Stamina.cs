@@ -1,4 +1,6 @@
+using HCB.Core;
 using HCB.SplineMovementSystem;
+using HCB.SplineMovementSystem.Samples;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,8 +20,12 @@ public class Stamina : MonoBehaviour
     [Range(1.25f, 15f)] public float StaminaRegenMultiplier;
 
     private SplineCharacter _splineCharacter;
+    private SplineCharacterAnimationController _splineCharacterAnimationController;
 
     public SplineCharacter SplineCharacter { get { return _splineCharacter == null ? _splineCharacter = GetComponent<SplineCharacter>() : _splineCharacter; } }
+
+    public SplineCharacterAnimationController SplineCharacterAnimationController
+    { get { return _splineCharacterAnimationController == null ? _splineCharacterAnimationController = GetComponentInChildren<SplineCharacterAnimationController>() : _splineCharacterAnimationController; } }
 
     public void StaminaDrain()
     {
@@ -29,6 +35,9 @@ public class Stamina : MonoBehaviour
         {
             CurrentStamina = 0f;
             Debug.Log("Boom");
+            
+            //LevelManager.Instance.OnLevelFinish.Invoke();
+
         }
         
     }

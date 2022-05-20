@@ -58,6 +58,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
         if (!SplineCharacter.IsControlable)
             return;
+        
 
         //Animation event invoke
         if (Input.GetMouseButtonDown(0))
@@ -66,9 +67,10 @@ public class PlayerController : SplineCharacterMovementController //default olar
                 TiredRunning();
 
             if (Stamina.CurrentStamina <= 50)
-                return;
+                return; //this is because tired running animation will invoke instead of running.
                 SplineCharacterAnimationController.TriggerAnimation("Run"); //bug cozuldu nasil cozuldu hatirlamiyorum :D Galiba GetMouseButton ile Down'i ayirinca.
             
+           
 
         }
             
@@ -85,7 +87,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
             
 
-            
+            //Slide
             if (SplineCharacter.IsSliding)
             {
                 Stamina.IsRegenerated = true;
@@ -97,6 +99,24 @@ public class PlayerController : SplineCharacterMovementController //default olar
                 _currentSpeed = 6;
             }
 
+            //Death
+            if (Stamina.CurrentStamina <= 0)
+            {
+                SplineCharacterAnimationController.TriggerAnimation("Dead");
+                SplineCharacter.IsControlable = false;
+                SplineCharacter.CanMoveForward = false;
+                StartCoroutine(Dead());
+
+                
+            }
+                
+
+        }
+
+        IEnumerator Dead()
+        {
+            yield return new WaitForSeconds(3.5f);
+            GameManager.Instance.OnStageFail.Invoke();
         }
 
         
@@ -139,6 +159,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
         else
         {
             SplineCharacterAnimationController.BoolAnimation("IsRefreshed", false);
+            
         }    
     }
 
@@ -147,7 +168,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
         if(Stamina.CurrentStamina<= 50)
         {
             SplineCharacterAnimationController.TriggerAnimation("TiredRunning");
-            Runner.followSpeed = Runner.followSpeed / 1.2f;
+            //Runner.followSpeed = Runner.followSpeed / 1.2f;
         }
     }
 

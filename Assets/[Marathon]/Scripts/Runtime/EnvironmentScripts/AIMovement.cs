@@ -85,15 +85,18 @@ public class AIMovement : SplineCharacterMovementController
 
         Stamina.StaminaDrain();
 
-        //buraya stamina 0 ise olum animasyonu gelecek.
-        if(Stamina.CurrentStamina <= 0)
+        if (Stamina.CurrentStamina <= 0)
         {
-            Debug.Log(gameObject.name + "Dead");
+
+            SplineCharacterAnimationController.TriggerAnimation("Dead");
+            Runner.followSpeed = 0;
+            //IEnumerator eklenip gameobje yok olacak.
         }
 
         //AI stop
         if (Stamina.CurrentStamina <= Random.Range(0,30))
         {
+            //buraya terleme particle gelecek
             if (_isReplenish)
                 return;
 
@@ -107,6 +110,9 @@ public class AIMovement : SplineCharacterMovementController
         {
             GameManager.Instance.OnStageFail.Invoke();
         }
+
+        //AI Death
+       
     }
 
     IEnumerator WaitForRegenerate()
