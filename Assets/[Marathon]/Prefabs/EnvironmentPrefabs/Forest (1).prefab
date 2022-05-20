@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5940381875589751126}
   - component: {fileID: 5940381875589751125}
   - component: {fileID: 5940381875589751124}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Forest (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ MonoBehaviour:
     min: {x: -21.724123, y: -3.753601, z: 0}
     size: {x: 43.707138, y: 10.266234, z: 30}
   builders: []
-  unpacked: 0
+  unpacked: 1
   alwaysDraw: 0
   drawGeneratedSpline: 1
   drawGeneratedSamples: 1
@@ -186,4 +186,4 @@ MonoBehaviour:
   drawEntranceAndExit: 1
   drawBounds: 1
   drawCustomPaths: 1
-  editorChildCount: 1
+  editorChildCount: 0

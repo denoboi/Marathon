@@ -30,7 +30,7 @@ public class AIMovement : SplineCharacterMovementController
 
 
     public float XPos;
-    public Vector3 DesiredPos;
+    private Vector3 _desiredPos;
     public float Speed = 2.0f;
 
     private float _timer = 0;
@@ -43,9 +43,12 @@ public class AIMovement : SplineCharacterMovementController
     {
         base.Awake();
         //Speed'i degistirmek icin currentSpeed'i kullan(splineCharacter) scriptable objelere dokunma.
-  
+        
         //SPEED
         _currentSpeed = Random.Range(1.10f, 5f);
+
+        //tanimlamadigimiz icin 0 geliyordu karakteri ortaya koyuyordu oyun basinda, simdi grafigin pozisyonuna esitledik.
+        _desiredPos = Graphic.transform.localPosition;
 
     }
 
@@ -158,15 +161,15 @@ public class AIMovement : SplineCharacterMovementController
         //surekli timer guncelliyoruz.
         _timer += Time.deltaTime;
 
-        Graphic.transform.localPosition = Vector3.Lerp(Graphic.transform.localPosition, DesiredPos, Time.deltaTime * Speed);
+        Graphic.transform.localPosition = Vector3.Lerp(Graphic.transform.localPosition, _desiredPos, Time.deltaTime * Speed);
 
         if (_timer >= timeToMove)
         {
            
-            if (Vector3.Distance(Graphic.transform.localPosition, DesiredPos) <= 0.01f)
+            if (Vector3.Distance(Graphic.transform.localPosition, _desiredPos) <= 0.01f)
             {
                 XPos = Random.Range(-ClampData.MovementWidth /2, ClampData.MovementWidth / 2);
-                DesiredPos = new Vector3(XPos, Graphic.transform.localPosition.y, Graphic.transform.localPosition.z);
+                _desiredPos = new Vector3(XPos, Graphic.transform.localPosition.y, Graphic.transform.localPosition.z);
             }
 
             _timer = 0;

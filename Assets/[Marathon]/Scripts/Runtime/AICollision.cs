@@ -35,8 +35,11 @@ public class AICollision : MonoBehaviour
                 
                 StartCoroutine(WaitForMoveForward());
             }
+            else
+                SplineCharacterAnimationController.TriggerAnimation("Stumble");
 
-            SplineCharacterAnimationController.TriggerAnimation("Stumble");
+
+
 
             Runner.follow = SplineCharacter.CanMoveForward;
             Runner.follow = SplineCharacter.IsControlable;

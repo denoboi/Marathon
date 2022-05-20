@@ -31,10 +31,10 @@ namespace HCB.SplineMovementSystem
 
         public bool IsFinished { get { return _isFinished; } protected set { _isFinished = value; } }
 
-        private CharacterLocationState _previousCharacterLocationState = CharacterLocationState.None;
+        private CharacterLocationState _previousCharacterLocationState = CharacterLocationState.OnGround;
         public CharacterLocationState PreviousCharacterLocationState { get { return _previousCharacterLocationState; } private set { _previousCharacterLocationState = value; } }
 
-        private CharacterLocationState _characterLocationState = CharacterLocationState.None;
+        private CharacterLocationState _characterLocationState = CharacterLocationState.OnGround;
         public CharacterLocationState CurrentCharacterLocationState { get { return _characterLocationState; } private set { _characterLocationState = value; } }
         #endregion
 

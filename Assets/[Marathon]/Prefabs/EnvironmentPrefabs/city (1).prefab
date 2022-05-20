@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2339597020478099122}
   - component: {fileID: 8500991944144288572}
   - component: {fileID: 1305338737750540037}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: city (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ MonoBehaviour:
     min: {x: -21.724123, y: -3.7536006, z: -0.000000092682384}
     size: {x: 43.707138, y: 10.185572, z: 29.999998}
   builders: []
-  unpacked: 0
+  unpacked: 1
   alwaysDraw: 0
   drawGeneratedSpline: 1
   drawGeneratedSamples: 1
@@ -184,4 +184,4 @@ MonoBehaviour:
   drawEntranceAndExit: 1
   drawBounds: 1
   drawCustomPaths: 1
-  editorChildCount: 1
+  editorChildCount: 0
