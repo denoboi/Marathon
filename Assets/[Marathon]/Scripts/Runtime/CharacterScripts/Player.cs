@@ -4,19 +4,17 @@ using UnityEngine;
 using HCB.Core;
 using HCB.SplineMovementSystem;
 
-public class Player : SplineCharacter 
+public class Player : SplineCharacter
 {
-    private CapsuleCollider _capsuleCollider;
-
-    CapsuleCollider CapsuleCollider { get { return _capsuleCollider == null ? GetComponentInChildren<CapsuleCollider>() : _capsuleCollider; } }
-
-    //hepsinin kullandigi bir componenti get et.
+    private int _lastPositionZ;
 
     private SkinnedMeshRenderer _playerMat;
     private Stamina _stamina;
+    private IncomeManager _incomeManager;
 
     public SkinnedMeshRenderer SkinnedMeshRenderer { get { return _playerMat == null ? _playerMat = GetComponentInChildren<SkinnedMeshRenderer>() : _playerMat; } }
     public Stamina Stamina { get { return _stamina == null ? _stamina = GetComponent<Stamina>() : _stamina; } }
+    public IncomeManager IncomeManager { get { return _incomeManager == null ? _incomeManager = GetComponent<IncomeManager>() : _incomeManager; } }
 
     private float _normalizeStamina;
     private float maximumStamina;
@@ -25,7 +23,7 @@ public class Player : SplineCharacter
     private void Awake()
     {
         maximumStamina = Stamina.MaxStamina / 2;
-        
+
     }
 
     void TiredMaterial()
@@ -38,6 +36,7 @@ public class Player : SplineCharacter
     private void Update()
     {
         TiredMaterial();
+        CheckDistanceTravelled();
     }
 
     private float NormalizeValue(float value, float min, float max)
@@ -52,6 +51,26 @@ public class Player : SplineCharacter
     }
 
 
+    private void CheckDistanceTravelled()
+    {
 
 
+        int roundedPos = Mathf.RoundToInt(transform.position.z);
+
+        if (roundedPos > _lastPositionZ)
+        {
+            _lastPositionZ = roundedPos;
+
+
+            GameManager.Instance.PlayerData.CurrencyData[HCB.ExchangeType.Coin] += (int)IncomeManager.IdleStat.CurrentValue;
+
+
+            HCB.Core.EventManager.OnPlayerDataChange.Invoke();
+            //VisualController.CreateFloatingText("+" + income.statValue.ToString("N1") + " $", Color.green, 1f);
+        }
+
+
+
+
+    }
 }
