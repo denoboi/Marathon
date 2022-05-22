@@ -12,6 +12,7 @@ namespace HCB.IncrimantalIdleSystem
         protected virtual void Start()
         {
             Initialize();
+            UpdateStat(IdleStat.StatID);
         }
 
         protected virtual void OnEnable()

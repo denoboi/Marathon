@@ -27,6 +27,12 @@ public class Stamina : MonoBehaviour
     public SplineCharacterAnimationController SplineCharacterAnimationController
     { get { return _splineCharacterAnimationController == null ? _splineCharacterAnimationController = GetComponentInChildren<SplineCharacterAnimationController>() : _splineCharacterAnimationController; } }
 
+
+    public void Update()
+    {
+        SplineCharacterAnimationController.SetStamina(HCB.Utilities.HCBUtilities.Normalize01(CurrentStamina, MaxStamina));
+    }
+
     public void StaminaDrain()
     {
         CurrentStamina -= Time.deltaTime * StaminaDrainMultiplier;

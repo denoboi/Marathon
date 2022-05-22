@@ -44,6 +44,9 @@ namespace HCB.SplineMovementSystem
 
         //Ai speed'i ayarlamak icin protected.
         protected float _currentSpeed;
+
+        public float maxSpeed;
+
         protected virtual void Awake()
         {
             SetupDefaultValues();
@@ -171,6 +174,17 @@ namespace HCB.SplineMovementSystem
         private void OnValidate()
         {
             SplineFollower.RebuildImmediate();
+        }
+
+        private Vector3 previousPosition;
+        private float curSpeed;
+
+        public float CurrentSpeed()
+        {
+            Vector3 curMove = transform.position - previousPosition;
+            curSpeed = curMove.magnitude / Time.deltaTime;
+            previousPosition = transform.position;
+            return HCB.Utilities.HCBUtilities.Normalize01(curSpeed, maxSpeed);
         }
     }
 }

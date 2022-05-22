@@ -25,7 +25,6 @@ namespace HCB.SplineMovementSystem
         private bool _isSliding;
         public bool IsSliding { get { return _isSliding; } private set { _isSliding = value; } }
 
-
         //this is mine
         private bool _isFinished;
 

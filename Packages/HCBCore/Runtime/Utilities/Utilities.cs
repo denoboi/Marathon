@@ -112,6 +112,11 @@ namespace HCB.Utilities
             else result = Score.ToString("F2") + ScoreNames[i];
             return result;
         }
+
+        public static float Normalize01(float currentValue, float maxValue)
+        {
+            return Mathf.Abs((currentValue - 0) / (maxValue - 0));
+        }
     }
 
 

@@ -18,6 +18,12 @@ namespace HCB.SplineMovementSystem.Samples
         SplineCharacter _splineCharacter;
         SplineCharacter SplineCharacter => _splineCharacter == null ? _splineCharacter = GetComponentInParent<SplineCharacter>() : _splineCharacter;
 
+        SplineCharacterMovementController _splineCharacterMovementController;
+        SplineCharacterMovementController SplineCharacterMovementController => _splineCharacterMovementController == null ? _splineCharacterMovementController = GetComponentInParent<SplineCharacterMovementController>() : _splineCharacterMovementController;
+
+
+        private const string SPEED_PARAMETER = "Speed";
+        private const string STAMINA_PARAMETER = "Stamina";
         private const string JUMP_PARAMETER = "Jump";
         private const string ROLL_PARAMETER = "Roll";
         private const string RUN_PARAMETER = "Run";
@@ -46,6 +52,17 @@ namespace HCB.SplineMovementSystem.Samples
             SplineCharacter.OnCharacterLocationChanged.RemoveListener(OnCharacterLocationChanged);
             SplineCharacter.OnSlideStart.RemoveListener(OnSlideStart);
             SplineCharacter.OnSlideStop.RemoveListener(OnSlideStop);
+        }
+
+        private void Update()
+        {
+            Animator.SetFloat(SPEED_PARAMETER, SplineCharacterMovementController.CurrentSpeed());
+
+        }
+
+        public void SetStamina(float value)
+        {
+            Animator.SetFloat(STAMINA_PARAMETER, value);
         }
 
         private void OnCharacterLocationChanged(CharacterLocationState characterLocationState) 

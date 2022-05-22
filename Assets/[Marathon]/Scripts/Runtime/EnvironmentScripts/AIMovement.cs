@@ -46,6 +46,7 @@ public class AIMovement : SplineCharacterMovementController
         
         //SPEED
         _currentSpeed = Random.Range(1.10f, 5f);
+        maxSpeed = _currentSpeed;
 
         //tanimlamadigimiz icin 0 geliyordu karakteri ortaya koyuyordu oyun basinda, simdi grafigin pozisyonuna esitledik.
         _desiredPos = Graphic.transform.localPosition;
