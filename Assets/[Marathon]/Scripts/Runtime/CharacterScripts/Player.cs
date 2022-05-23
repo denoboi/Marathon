@@ -6,6 +6,7 @@ using HCB.SplineMovementSystem;
 using TMPro;
 using HCB.PoolingSystem;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class Player : SplineCharacter
 {
@@ -15,10 +16,12 @@ public class Player : SplineCharacter
     private Stamina _stamina;
     private IncomeManager _incomeManager;
     private TextMeshProUGUI _textMeshProUGUI;
+    private SplineCharacterClampController _splineCharacterClampController;
 
     public SkinnedMeshRenderer SkinnedMeshRenderer { get { return _playerMat == null ? _playerMat = GetComponentInChildren<SkinnedMeshRenderer>() : _playerMat; } }
     public Stamina Stamina { get { return _stamina == null ? _stamina = GetComponent<Stamina>() : _stamina; } }
     public IncomeManager IncomeManager { get { return _incomeManager == null ? _incomeManager = GetComponent<IncomeManager>() : _incomeManager; } }
+    public SplineCharacterClampController SplineCharacterClampController { get { return _splineCharacterClampController == null ? _splineCharacterClampController = GetComponentInChildren<SplineCharacterClampController>() : _splineCharacterClampController; } }
 
     private float _normalizeStamina;
     private float maximumStamina;
@@ -73,7 +76,7 @@ public class Player : SplineCharacter
     }
         public void CreateFloatingText(string s, Color color, float delay)
         {
-            TextMeshPro text = PoolingSystem.Instance.InstantiateAPS("text", transform.position).GetComponent<TextMeshPro>();
+            TextMeshPro text = PoolingSystem.Instance.InstantiateAPS("text", SplineCharacterClampController.gameObject.transform.position).GetComponent<TextMeshPro>();
             text.transform.LookAt(Camera.main.transform);
             text.SetText(s);
             text.DOFade(1, 0);
