@@ -66,10 +66,8 @@ public class PlayerController : SplineCharacterMovementController //default olar
                 TiredRunning();
 
             if (Stamina.CurrentStamina <= 50)
-                return; //this is because tired running animation will invoke instead of running.
-                 //bug cozuldu nasil cozuldu hatirlamiyorum :D Galiba GetMouseButton ile Down'i ayirinca.
-
-           //buraya income gelecek.
+                return; 
+                 
 
         }
             
@@ -133,10 +131,14 @@ public class PlayerController : SplineCharacterMovementController //default olar
    
     void TiredRunning()
     {
-        if(Stamina.CurrentStamina<= 20)
+        if(Stamina.CurrentStamina<= 15)
         {
-            
-            //Runner.followSpeed = Runner.followSpeed / 1.2f;
+
+            //Runner.followSpeed = IdleStat.CurrentValue / 1.2f; //Interface ekleyip yap bunu.
+        }
+        else
+        {
+
         }
     }
 
