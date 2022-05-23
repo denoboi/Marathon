@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using HCB.Core;
 using HCB.SplineMovementSystem;
+using TMPro;
+using HCB.PoolingSystem;
+using DG.Tweening;
 
 public class Player : SplineCharacter
 {
@@ -11,6 +14,7 @@ public class Player : SplineCharacter
     private SkinnedMeshRenderer _playerMat;
     private Stamina _stamina;
     private IncomeManager _incomeManager;
+    private TextMeshProUGUI _textMeshProUGUI;
 
     public SkinnedMeshRenderer SkinnedMeshRenderer { get { return _playerMat == null ? _playerMat = GetComponentInChildren<SkinnedMeshRenderer>() : _playerMat; } }
     public Stamina Stamina { get { return _stamina == null ? _stamina = GetComponent<Stamina>() : _stamina; } }
@@ -37,6 +41,7 @@ public class Player : SplineCharacter
     {
         TiredMaterial();
         CheckDistanceTravelled();
+       
     }
 
     private float NormalizeValue(float value, float min, float max)
@@ -52,25 +57,31 @@ public class Player : SplineCharacter
 
 
     private void CheckDistanceTravelled()
-    {
-
-
+    { 
         int roundedPos = Mathf.RoundToInt(transform.position.z);
 
         if (roundedPos > _lastPositionZ)
         {
             _lastPositionZ = roundedPos;
 
-
             GameManager.Instance.PlayerData.CurrencyData[HCB.ExchangeType.Coin] += (int)IncomeManager.IdleStat.CurrentValue;
 
-
             HCB.Core.EventManager.OnPlayerDataChange.Invoke();
-            //VisualController.CreateFloatingText("+" + income.statValue.ToString("N1") + " $", Color.green, 1f);
+            CreateFloatingText("+" + IncomeManager.IdleStat.CurrentValue.ToString("N0") + " $", Color.green, 1f);
         }
 
-
-
-
     }
+        public void CreateFloatingText(string s, Color color, float delay)
+        {
+            TextMeshPro text = PoolingSystem.Instance.InstantiateAPS("text", transform.position).GetComponent<TextMeshPro>();
+            text.transform.LookAt(Camera.main.transform);
+            text.SetText(s);
+            text.DOFade(1, 0);
+            text.color = color;
+            text.transform.DOMoveY(text.transform.position.y + 1f, delay);
+            text.DOFade(0, delay / 2)
+                .SetDelay(delay / 2)
+                .OnComplete(() => PoolingSystem.Instance.DestroyAPS(text.gameObject));
+        }
+    
 }

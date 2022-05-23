@@ -204,9 +204,9 @@ namespace HCB.PoolingSystem
 
         public void DestroyAPS(GameObject clone)
         {
-            clone.transform.position = transform.position;
-            clone.transform.rotation = transform.rotation;
-            clone.transform.localScale = Vector3.one;
+            //clone.transform.position = transform.position;
+            //clone.transform.rotation = transform.rotation;
+            //clone.transform.localScale = Vector3.one;
             clone.transform.SetParent(transform);
 
             //ForEach e al

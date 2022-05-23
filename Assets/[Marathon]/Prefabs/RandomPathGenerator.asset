@@ -47,9 +47,9 @@ MonoBehaviour:
   maxRandomStep: {x: 10, y: 45, z: 0}
   minTurnRate: {x: 3, y: 5, z: 0}
   maxTurnRate: {x: 3, y: 15, z: 0}
-  startTargetOrientation: {x: 0, y: 0, z: 0}
-  useStartPitchTarget: 0
-  useStartYawTarget: 0
+  startTargetOrientation: {x: 1, y: 1, z: 0}
+  useStartPitchTarget: 1
+  useStartYawTarget: 1
   useStartRollTarget: 0
   minColor:
     serializedVersion: 2
