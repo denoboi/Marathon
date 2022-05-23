@@ -58,7 +58,6 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
         if (!SplineCharacter.IsControlable)
             return;
-        
 
         //Animation event invoke
         if (Input.GetMouseButtonDown(0))
@@ -68,7 +67,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
             if (Stamina.CurrentStamina <= 50)
                 return; //this is because tired running animation will invoke instead of running.
-                SplineCharacterAnimationController.TriggerAnimation("Run"); //bug cozuldu nasil cozuldu hatirlamiyorum :D Galiba GetMouseButton ile Down'i ayirinca.
+                 //bug cozuldu nasil cozuldu hatirlamiyorum :D Galiba GetMouseButton ile Down'i ayirinca.
 
            //buraya income gelecek.
 
@@ -84,8 +83,6 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
             //this is for the update check. 
             Stamina.IsRegenerated = false;
-
-            
 
             //Slide
             if (SplineCharacter.IsSliding)
@@ -105,11 +102,8 @@ public class PlayerController : SplineCharacterMovementController //default olar
                 SplineCharacterAnimationController.TriggerAnimation("Dead");
                 SplineCharacter.IsControlable = false;
                 SplineCharacter.CanMoveForward = false;
-                StartCoroutine(Dead());
-
-                
+                StartCoroutine(Dead());    
             }
-                
 
         }
 
@@ -127,47 +121,21 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
             Stamina.IsRegenerated = true;
 
-            SplineCharacterAnimationController.TriggerAnimation("Idle");
-
             //if mouse button released then stop.
             SplineCharacter.CanMoveForward = false;
-
-            if (Stamina.CurrentStamina <= 50 )
-            {
-                SplineCharacterAnimationController.TriggerAnimation("Tired");
-               
-            }
-
         }
 
         //boyle bi sey yapilabiliyomus :D
         Runner.follow = SplineCharacter.CanMoveForward;
 
-
-        TiredToIdle();
-        
     }
 
-    //this is for when not moving and not tired
-    void TiredToIdle()
-    {
-
-        if(Stamina.CurrentStamina >= 50)
-        {
-            SplineCharacterAnimationController.BoolAnimation("IsRefreshed", true);
-        }
-        else
-        {
-            SplineCharacterAnimationController.BoolAnimation("IsRefreshed", false);
-            
-        }    
-    }
-
+   
     void TiredRunning()
     {
-        if(Stamina.CurrentStamina<= 50)
+        if(Stamina.CurrentStamina<= 20)
         {
-            SplineCharacterAnimationController.TriggerAnimation("TiredRunning");
+           
             //Runner.followSpeed = Runner.followSpeed / 1.2f;
         }
     }

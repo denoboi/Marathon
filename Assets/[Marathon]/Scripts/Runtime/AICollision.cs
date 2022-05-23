@@ -38,9 +38,6 @@ public class AICollision : MonoBehaviour
             else
                 SplineCharacterAnimationController.TriggerAnimation("Stumble");
 
-
-
-
             Runner.follow = SplineCharacter.CanMoveForward;
             Runner.follow = SplineCharacter.IsControlable;
         }
@@ -55,13 +52,8 @@ public class AICollision : MonoBehaviour
         yield return new WaitForSeconds(3);
 
             SplineCharacter.CanMoveForward = true;  //burada kucuk bir bug var onemli olmayabilir. eger player duserse bekledikten sonra biz tiklamadan kosmaya devam ediyor. (Aslinda onemli tiklamadigim icin stamina dusmuyor)
-            SplineCharacterAnimationController.TriggerAnimation("Run");
+            
             SplineCharacter.IsControlable = true;
-      
-       
-
-        
-
     }
 
     

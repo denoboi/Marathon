@@ -145,7 +145,7 @@ public class AIMovement : SplineCharacterMovementController
 
         SplineCharacter.CanMoveForward = true;
         //Kosmaya basladigi zaman animasyon cagir 1 kere.
-        SplineCharacterAnimationController.TriggerAnimation("Run");
+        
 
         _isReplenish = false;
 
@@ -154,7 +154,6 @@ public class AIMovement : SplineCharacterMovementController
     public void AIStop()
     {
         SplineCharacter.CanMoveForward = false;
-        SplineCharacterAnimationController.TriggerAnimation("Tired");
     }
 
     void AIRightLeft()
