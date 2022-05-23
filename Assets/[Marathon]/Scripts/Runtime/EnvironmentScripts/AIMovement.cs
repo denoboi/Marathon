@@ -124,7 +124,7 @@ public class AIMovement : SplineCharacterMovementController
 
         while (true)
         {
-            if(luck > 5)
+            if(luck > 3)
             {
                 break;
             }

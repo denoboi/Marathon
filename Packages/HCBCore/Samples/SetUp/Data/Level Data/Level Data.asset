@@ -15,5 +15,3 @@ MonoBehaviour:
   Levels:
   - LevelTypes: 00000000
     LoadLevelID: Level-Development
-  - LevelTypes: 
-    LoadLevelID: Level-IdleUpgradeScene

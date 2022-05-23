@@ -45,6 +45,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
     protected override void Update()
     {
+
         Stamina.StaminaRegen();
         Moving();
         base.Update();
@@ -55,7 +56,8 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
     void Moving()
     {
-
+        if (GameManager.Instance.IsStageCompleted)
+            return;
         if (!SplineCharacter.IsControlable)
             return;
 
