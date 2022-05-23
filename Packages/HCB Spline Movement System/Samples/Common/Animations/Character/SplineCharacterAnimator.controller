@@ -278,7 +278,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 353630709820734459, guid: d61b22884a515b74d91df3ccd72b4476, type: 3}
+  m_Motion: {fileID: 7400000, guid: a6ca942a65974584ca7524979812ff33, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -763,7 +763,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 8273325049105940540, guid: d61b22884a515b74d91df3ccd72b4476, type: 3}
+  m_Motion: {fileID: 7400000, guid: d65d21046e364a443a8ebc83b0067db4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -778,7 +778,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -6102705196975119192, guid: 3aa7d8e12960eac419b8593c396304d8, type: 3}
+    m_Motion: {fileID: 7400000, guid: efa8ee81e01aa3c4ba672ad3d6a27f58, type: 2}
     m_Threshold: 0.2
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -817,7 +817,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -6091586759031022685, guid: d61b22884a515b74d91df3ccd72b4476, type: 3}
+    m_Motion: {fileID: 7400000, guid: 5314f3ae1a8c43b46a649d052e3b32f2, type: 2}
     m_Threshold: 0.2
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -888,31 +888,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Speed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Stumble
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Dead
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Fall
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -976,7 +976,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 5917537482288442099, guid: d61b22884a515b74d91df3ccd72b4476, type: 3}
+  m_Motion: {fileID: 7400000, guid: 5e822c42a7b87134eab4ff5b1096ba60, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1289,7 +1289,7 @@ AnimatorStateMachine:
     m_Position: {x: 320, y: 560, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6394171648868904523}
-    m_Position: {x: 320, y: 370, z: 0}
+    m_Position: {x: 460, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6088341762402032665}
     m_Position: {x: -110, y: 420, z: 0}

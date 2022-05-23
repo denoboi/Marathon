@@ -135,7 +135,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
     {
         if(Stamina.CurrentStamina<= 20)
         {
-           
+            
             //Runner.followSpeed = Runner.followSpeed / 1.2f;
         }
     }

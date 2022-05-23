@@ -27,6 +27,7 @@ public class Player : SplineCharacter
     private float maximumStamina;
 
     [SerializeField] private ParticleSystem _sweatingParticle;
+    [SerializeField] private float _headChangeSpeed;
 
     private void Awake()
     {
@@ -34,19 +35,23 @@ public class Player : SplineCharacter
 
     }
 
+
     void TiredMaterial()
     {
-        _normalizeStamina = NormalizeValue(Stamina.CurrentStamina, 0, maximumStamina);
+        
+        _normalizeStamina = NormalizeValue(Stamina.CurrentStamina, 0, maximumStamina); // bunu tam anlamadim
 
         SkinnedMeshRenderer.material.SetFloat("_Postion", _normalizeStamina);
 
-        if(Stamina.CurrentStamina < maximumStamina)
+        if(Stamina.CurrentStamina < maximumStamina / 2)
         {
             Sweat();
+            SkinnedMeshRenderer.SetBlendShapeWeight(0, Mathf.Clamp(Mathf.Sin(Time.time * _headChangeSpeed) * 100, 0, 100));
         }
         else
         {
             StopSweat();
+            SkinnedMeshRenderer.SetBlendShapeWeight(0, Mathf.Lerp(SkinnedMeshRenderer.GetBlendShapeWeight(0), 0, Time.deltaTime * _headChangeSpeed));
         }
     }
 
