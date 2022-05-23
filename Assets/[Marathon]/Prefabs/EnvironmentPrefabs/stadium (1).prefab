@@ -173,10 +173,10 @@ MonoBehaviour:
     center: {x: 0.12342262, y: 2.753866, z: 14.999999}
     extents: {x: 22.374025, y: 6.5074673, z: 15.000001}
     max: {x: 22.497448, y: 9.261333, z: 30}
-    min: {x: -22.250603, y: -3.7536016, z: -0.0000019073414}
+    min: {x: -22.250603, y: -3.7536016, z: -0.0000019073486}
     size: {x: 44.74805, y: 13.014935, z: 30.000002}
   builders: []
-  unpacked: 1
+  unpacked: 0
   alwaysDraw: 0
   drawGeneratedSpline: 1
   drawGeneratedSamples: 1
@@ -184,4 +184,4 @@ MonoBehaviour:
   drawEntranceAndExit: 1
   drawBounds: 1
   drawCustomPaths: 1
-  editorChildCount: 0
+  editorChildCount: 1

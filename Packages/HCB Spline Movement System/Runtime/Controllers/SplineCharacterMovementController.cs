@@ -184,7 +184,7 @@ namespace HCB.SplineMovementSystem
             Vector3 curMove = transform.position - previousPosition;
             curSpeed = curMove.magnitude / Time.deltaTime;
             previousPosition = transform.position;
-            return HCB.Utilities.HCBUtilities.Normalize01(curSpeed, maxSpeed);
+            return curSpeed;
         }
     }
 }
