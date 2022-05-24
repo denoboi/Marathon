@@ -3105,18 +3105,6 @@ PrefabInstance:
       propertyPath: timeToMove
       value: 23.7
       objectReference: {fileID: 0}
-    - target: {fileID: 5274316271766612223, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
-      propertyPath: StaminaDrainMultiplier
-      value: 3.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5274316271766612223, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
-      propertyPath: StaminaRegenMultiplier
-      value: 2.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 5274316271766612223, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
-      propertyPath: _staminaRegenMultiplier
-      value: 8.26
-      objectReference: {fileID: 0}
     - target: {fileID: 5274316272068595393, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
       propertyPath: m_Name
       value: AI2
@@ -10380,18 +10368,6 @@ PrefabInstance:
     - target: {fileID: 5274316271766612222, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
       propertyPath: timeToMove
       value: 23.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5274316271766612223, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
-      propertyPath: StaminaDrainMultiplier
-      value: 3.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5274316271766612223, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
-      propertyPath: StaminaRegenMultiplier
-      value: 2.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 5274316271766612223, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
-      propertyPath: _staminaRegenMultiplier
-      value: 8.26
       objectReference: {fileID: 0}
     - target: {fileID: 5274316272068595393, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
       propertyPath: m_Name
