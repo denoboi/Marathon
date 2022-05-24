@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StatID: Income
   InitialValue: 1
-  UpgradeMultiplier: 1.2
+  UpgradeMultiplier: 1.05
   InitialCost: 40
-  CostMultiplier: 1.1
+  CostMultiplier: 1.5
   ExchangeType: 1

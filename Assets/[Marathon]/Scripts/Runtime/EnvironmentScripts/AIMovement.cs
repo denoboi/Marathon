@@ -91,6 +91,7 @@ public class AIMovement : SplineCharacterMovementController
 
             SplineCharacterAnimationController.TriggerAnimation("Dead");
             Runner.followSpeed = 0;
+            SplineCharacter.IsControlable = false;
             //IEnumerator eklenip gameobje yok olacak.
         }
 
@@ -112,7 +113,7 @@ public class AIMovement : SplineCharacterMovementController
             GameManager.Instance.OnStageFail.Invoke();
         }
 
-        //AI Death
+      
        
     }
 
@@ -159,6 +160,8 @@ public class AIMovement : SplineCharacterMovementController
     void AIRightLeft()
     {
         if (!LevelManager.Instance.IsLevelStarted)
+            return;
+        if (!SplineCharacter.CanMoveForward)
             return;
 
         if (_canRegenerate)

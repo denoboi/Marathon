@@ -21,6 +21,15 @@ EditorBuildSettings:
     path: Assets/[Marathon]/Levels/Level-Development.unity
     guid: 63562e2866d6042f9a0cd68a8482b663
   - enabled: 1
-    path: Packages/com.hyperboxgames.incrimantalidlesystem/Samples/Scene/Level-IdleUpgradeScene.unity
-    guid: a7711ee9eef3d4fbeb4e4222844c70b9
+    path: Assets/[Marathon]/Levels/Level 02.unity
+    guid: 6338167d7d65d4449a12bba88ad2ae01
+  - enabled: 1
+    path: Assets/[Marathon]/Levels/Level 03.unity
+    guid: c306bb62d446d5d41b12cfecdedb4d02
+  - enabled: 1
+    path: Assets/[Marathon]/Levels/Level 04.unity
+    guid: 59f15de150a3fe84587b90f7ac37d6d2
+  - enabled: 1
+    path: Assets/[Marathon]/Levels/Level 05.unity
+    guid: d4fd0e5f8e990d44ea898ed8e9d9140a
   m_configObjects: {}

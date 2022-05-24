@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Dreamteck.Forever;
+using HCB.Core;
 
 public class AICollision : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class AICollision : MonoBehaviour
             if (transform.position.z < other.transform.position.z)
             {
                 Debug.Log(gameObject.name + "Collided");
+                HapticManager.Haptic(HapticTypes.RigidImpact);
                 
                 StartCoroutine(WaitForMoveForward());
 

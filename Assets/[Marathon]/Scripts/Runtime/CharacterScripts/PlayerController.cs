@@ -78,7 +78,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
         {
             //staminaDrain
             Stamina.StaminaDrain();
-
+            HapticManager.Haptic(HapticTypes.SoftImpact);
             SplineCharacter.CanMoveForward = true;
 
             //this is for the update check. 
@@ -100,6 +100,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
             if (Stamina.CurrentStamina <= 0)
             {
                 SplineCharacterAnimationController.TriggerAnimation("Dead");
+                HapticManager.Haptic(HapticTypes.RigidImpact);
                 SplineCharacter.IsControlable = false;
                 SplineCharacter.CanMoveForward = false;
                 StartCoroutine(Dead());    
