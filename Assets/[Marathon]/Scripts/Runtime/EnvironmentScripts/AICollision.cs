@@ -56,13 +56,17 @@ public class AICollision : MonoBehaviour
         yield return new WaitForSeconds(3);
         SplineCharacter.IsControlable = true;
 
+        
+            
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Runner.isPlayer)
         {
             SplineCharacter.CanMoveForward = true;  //burada kucuk bir bug var onemli olmayabilir. eger player duserse bekledikten sonra biz tiklamadan kosmaya devam ediyor. (Aslinda onemli tiklamadigim icin stamina dusmuyor)
             //COZULDU
-
-            
+        }
+        else if(!Runner.isPlayer)
+        {
+            SplineCharacter.CanMoveForward = true;
         }
 
     }
