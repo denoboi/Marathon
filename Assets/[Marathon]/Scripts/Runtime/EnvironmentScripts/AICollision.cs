@@ -61,6 +61,7 @@ public class AICollision : MonoBehaviour
         {
             SplineCharacter.CanMoveForward = true;  //burada kucuk bir bug var onemli olmayabilir. eger player duserse bekledikten sonra biz tiklamadan kosmaya devam ediyor. (Aslinda onemli tiklamadigim icin stamina dusmuyor)
             //COZULDU
+
             
         }
 
