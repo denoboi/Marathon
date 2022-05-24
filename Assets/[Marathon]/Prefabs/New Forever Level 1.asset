@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 084b3ccb74b9f0a47b8c5c809ac9ee7f, type: 3}
-  m_Name: New Forever Level
+  m_Name: New Forever Level 1
   m_EditorClassIdentifier: 
   _enabled: 1
   _pathGenerator: {fileID: 11400000, guid: 7b6b10539e0febd48b991024f9bf282f, type: 2}
@@ -75,7 +75,7 @@ MonoBehaviour:
       segments:
       - nested: 0
         randomPickChance: 1
-        _prefab: {fileID: 5940381875589751123, guid: e7328da360e69ed40aad3156daaf5811, type: 3}
+        _prefab: {fileID: 3612118502671526823, guid: 6757bc09ae2bab447b1c7ddceea9fc26, type: 3}
         _segmentPool: []
         _pool: 0
         _poolParent: {fileID: 0}
@@ -184,7 +184,7 @@ MonoBehaviour:
       segments:
       - nested: 0
         randomPickChance: 1
-        _prefab: {fileID: 5940381875589751123, guid: e7328da360e69ed40aad3156daaf5811, type: 3}
+        _prefab: {fileID: 3612118502671526823, guid: 6757bc09ae2bab447b1c7ddceea9fc26, type: 3}
         _segmentPool: []
         _pool: 0
         _poolParent: {fileID: 0}
