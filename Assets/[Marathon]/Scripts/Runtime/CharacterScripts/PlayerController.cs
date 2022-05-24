@@ -67,9 +67,13 @@ public class PlayerController : SplineCharacterMovementController //default olar
             if (!SplineCharacter.IsFinished)
                 TiredRunning();
 
+            
+
             if (Stamina.CurrentStamina <= 50)
-                return; 
-                 
+                return;
+
+           
+
 
         }
             
@@ -79,6 +83,9 @@ public class PlayerController : SplineCharacterMovementController //default olar
             //staminaDrain
             Stamina.StaminaDrain();
             HapticManager.Haptic(HapticTypes.SoftImpact);
+
+            EventManager.OnMoneyEarned.Invoke();
+
             SplineCharacter.CanMoveForward = true;
 
             //this is for the update check. 
