@@ -16,6 +16,8 @@ public class CoinTextController : MonoBehaviour
         HCB.Core.EventManager.OnPlayerDataChange.AddListener(UpdateText);
 
         SceneController.Instance.OnSceneLoaded.AddListener(UpdateText);
+
+        
     }
 
     private void OnDisable()
@@ -32,6 +34,7 @@ public class CoinTextController : MonoBehaviour
     void UpdateText()
     {
         CoinText.text = GameManager.Instance.PlayerData.CurrencyData[HCB.ExchangeType.Coin].ToString();
+        
     }
 
 }

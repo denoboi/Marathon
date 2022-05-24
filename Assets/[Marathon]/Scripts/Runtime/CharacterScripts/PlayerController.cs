@@ -84,7 +84,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
             Stamina.StaminaDrain();
             HapticManager.Haptic(HapticTypes.SoftImpact);
 
-            EventManager.OnMoneyEarned.Invoke();
+            
 
             SplineCharacter.CanMoveForward = true;
 

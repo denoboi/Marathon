@@ -23,7 +23,7 @@ public class MoneyImage : MonoBehaviour
     {
         if (_punchTween != null) //to prevent punchtween bug(it was too big on UI)
             _punchTween.Kill(true);
-        _punchTween = transform.DOPunchScale(Vector3.one * 0.1f, 0.5f);
+        _punchTween = transform.DOPunchScale(Vector3.one * 0.05f, 0.9f);
     }
 
      

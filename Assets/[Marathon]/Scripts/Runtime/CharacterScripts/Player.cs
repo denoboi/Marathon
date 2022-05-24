@@ -86,6 +86,7 @@ public class Player : SplineCharacter
             GameManager.Instance.PlayerData.CurrencyData[HCB.ExchangeType.Coin] += (int)IncomeManager.IdleStat.CurrentValue;
 
             HCB.Core.EventManager.OnPlayerDataChange.Invoke();
+            EventManager.OnMoneyEarned.Invoke();
             CreateFloatingText("+" + IncomeManager.IdleStat.CurrentValue.ToString("N0") + " $", Color.green, 1f);
         }
 
