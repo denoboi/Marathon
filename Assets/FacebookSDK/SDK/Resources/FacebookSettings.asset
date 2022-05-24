@@ -17,9 +17,9 @@ MonoBehaviour:
   - 
   - 
   appIds:
-  - 123
+  - 2181197878723426
   appLabels:
-  - App Name
+  - MarathonRun
   - New App
   cookie: 1
   logging: 1
