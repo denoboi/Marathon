@@ -131,6 +131,7 @@ public class AIMovement : SplineCharacterMovementController
 
         _isReplenish = true;
 
+        //beklemesini sagliyoruz galiba daha dogrusu surekli bu donguye girip bazilarinin durmasini onluyoruz AI stoptan once.(ki olsunler)
         while (true)
         {
             if(luck > 3)
