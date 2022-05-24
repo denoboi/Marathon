@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StatID: Speed
   InitialValue: 6
-  UpgradeMultiplier: 1.1
+  UpgradeMultiplier: 1.01
   InitialCost: 40
   CostMultiplier: 1.1
   ExchangeType: 1

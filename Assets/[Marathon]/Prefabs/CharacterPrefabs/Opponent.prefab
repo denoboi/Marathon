@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 5274316271766612223}
   - component: {fileID: 5874904476042002692}
   - component: {fileID: 8712583740860597667}
+  - component: {fileID: 8900366327643556081}
   m_Layer: 0
   m_Name: Opponent
   m_TagString: Character
@@ -548,10 +549,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementData: {fileID: 11400000, guid: 823986343445fc04d8b73a1458fc53bf, type: 2}
   MainCollider: {fileID: 5274316272068595394}
+  maxSpeed: 0
   ClampData: {fileID: 11400000, guid: 4cfbb53157a14f6488342cb1d3c8c378, type: 2}
   Graphic: {fileID: 5274316272068595393}
   XPos: 0
-  DesiredPos: {x: 0, y: 0, z: 0}
   Speed: 2
   timeToMove: 11.05
 --- !u!114 &5274316271766612218
@@ -644,6 +645,19 @@ MonoBehaviour:
     applyScaleX: 0
     applyScaleY: 0
     applyScaleZ: 0
+--- !u!114 &8900366327643556081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5274316271766612216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b1187da85abca4c9a76bc8bb344dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleStat: {fileID: 11400000, guid: 135eb85c56fa3934ab4c62778a50d2b5, type: 2}
 --- !u!1 &5274316272068595393
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using HCB.SplineMovementSystem;
 using HCB.SplineMovementSystem.Samples;
 using HCB.Core;
 using Dreamteck.Forever;
+using HCB.IncrimantalIdleSystem;
 
 public class AIMovement : SplineCharacterMovementController
 {
@@ -15,18 +16,24 @@ public class AIMovement : SplineCharacterMovementController
     public Stamina Stamina { get { return _stamina == null ? _stamina = GetComponent<Stamina>() : _stamina; } }
 
     private SplineCharacterAnimationController _splineCharacterAnimationController;
+   
 
 
     private bool _canRegenerate;
     private bool _isReplenish;
+
+    private IdleStat idleStat;
     
     public Runner Runner { get { return _runner == null ? _runner = GetComponent<Runner>() : _runner; } }
 
     public SplineCharacterAnimationController SplineCharacterAnimationController
     { get { return _splineCharacterAnimationController == null ? _splineCharacterAnimationController = GetComponentInChildren<SplineCharacterAnimationController>() : _splineCharacterAnimationController; } }
 
+    
+
     public SplineClampData ClampData;
     public GameObject Graphic;
+    
 
 
     public float XPos;
@@ -84,11 +91,12 @@ public class AIMovement : SplineCharacterMovementController
         if (!SplineCharacter.IsControlable)
             return;
 
+
         Stamina.StaminaDrain();
 
         if (Stamina.CurrentStamina <= 0)
         {
-
+            
             SplineCharacterAnimationController.TriggerAnimation("Dead");
             Runner.followSpeed = 0;
             SplineCharacter.IsControlable = false;
@@ -185,4 +193,5 @@ public class AIMovement : SplineCharacterMovementController
         }
     }
 
+   
 }

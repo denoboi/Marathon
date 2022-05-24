@@ -67,14 +67,9 @@ public class PlayerController : SplineCharacterMovementController //default olar
             if (!SplineCharacter.IsFinished)
                 TiredRunning();
 
-            
 
             if (Stamina.CurrentStamina <= 50)
                 return;
-
-           
-
-
         }
             
 
