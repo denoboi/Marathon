@@ -22,6 +22,7 @@ public class FinishTrigger : MonoBehaviour
         {
             GameManager.Instance.CompeleteStage(true);
             splineCharacterAnimationController.TriggerAnimation("Win");
+            HapticManager.Haptic(HapticTypes.Success);
             Debug.Log(gameObject.name);
             
             player.Runner.followSpeed = 0;
@@ -30,6 +31,7 @@ public class FinishTrigger : MonoBehaviour
         else if(AIMovement!= null)
         {
             GameManager.Instance.CompeleteStage(false);
+            HapticManager.Haptic(HapticTypes.Failure);
         }
 
         
