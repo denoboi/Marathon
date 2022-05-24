@@ -222,7 +222,7 @@ MonoBehaviour:
       bendMesh: 1
       bendSprite: 0
       bendPolygonCollider: 0
-      applyMeshColors: 0
+      applyMeshColors: 1
     _settingsComponent: {fileID: 0}
     overrideSettingsComponent: 0
     meshFilter: {fileID: 5222225153989136307}
@@ -246,7 +246,7 @@ MonoBehaviour:
       height: 0
     extrudedCollisionMesh: {fileID: 0}
     _extrusionSettings:
-      meshColliderHandling: 0
+      meshColliderHandling: 1
       bendSpline: 0
       boundsInclusion: -1
       indexing: 0
@@ -280,7 +280,7 @@ MonoBehaviour:
       height: 0
     extrudedCollisionMesh: {fileID: 0}
     _extrusionSettings:
-      meshColliderHandling: 0
+      meshColliderHandling: 1
       bendSpline: 0
       boundsInclusion: -1
       indexing: 0
@@ -314,7 +314,7 @@ MonoBehaviour:
       height: 0
     extrudedCollisionMesh: {fileID: 0}
     _extrusionSettings:
-      meshColliderHandling: 0
+      meshColliderHandling: 1
       bendSpline: 0
       boundsInclusion: -1
       indexing: 0
@@ -337,13 +337,13 @@ MonoBehaviour:
     - {fileID: 3985193500526233760}
     _isRoot: 0
   bounds:
-    center: {x: 0.06642628, y: 2.0786085, z: 15}
+    center: {x: 0.06642628, y: 2.0786088, z: 15}
     extents: {x: 21.916588, y: 5.832206, z: 15}
     max: {x: 21.983015, y: 7.9108143, z: 30}
-    min: {x: -21.850163, y: -3.7535973, z: 0}
+    min: {x: -21.850163, y: -3.7535968, z: 0}
     size: {x: 43.833176, y: 11.664412, z: 30}
   builders: []
-  unpacked: 0
+  unpacked: 1
   alwaysDraw: 0
   drawGeneratedSpline: 1
   drawGeneratedSamples: 1
@@ -351,7 +351,7 @@ MonoBehaviour:
   drawEntranceAndExit: 1
   drawBounds: 1
   drawCustomPaths: 1
-  editorChildCount: 4
+  editorChildCount: 3
 --- !u!1001 &585443317869528290
 PrefabInstance:
   m_ObjectHideFlags: 0

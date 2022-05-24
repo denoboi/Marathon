@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 4137402948079218973}
   - component: {fileID: 1064214668268371640}
   - component: {fileID: 2963420042222733938}
-  - component: {fileID: 2339597020478099122}
   - component: {fileID: 8500991944144288572}
   - component: {fileID: 1305338737750540037}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: city (1) 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,8 +27,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3612118502671526823}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 1.02}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -42,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3612118502671526823}
-  m_Mesh: {fileID: -7467855677800490459, guid: c4c41e84685a6174eb63baa4d9512041, type: 3}
+  m_Mesh: {fileID: -7467855677800490459, guid: 063a4912d281aa34cbaceae968413ae6, type: 3}
 --- !u!23 &2963420042222733938
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4874126678125670354, guid: c4c41e84685a6174eb63baa4d9512041, type: 3}
+  - {fileID: 4874126678125670354, guid: 063a4912d281aa34cbaceae968413ae6, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2339597020478099122
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3612118502671526823}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7467855677800490459, guid: c4c41e84685a6174eb63baa4d9512041, type: 3}
 --- !u!54 &8500991944144288572
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -162,18 +147,17 @@ MonoBehaviour:
     _settingsComponent: {fileID: 0}
     overrideSettingsComponent: 0
     meshFilter: {fileID: 1064214668268371640}
-    meshCollider: {fileID: 2339597020478099122}
+    meshCollider: {fileID: 0}
     spriteRenderer: {fileID: 0}
     splineComputer: {fileID: 0}
     editSplinePoints: []
-    colliders:
-    - {fileID: 2339597020478099122}
+    colliders: []
     _isRoot: 1
   bounds:
     center: {x: 0.12944603, y: 1.3391855, z: 14.999999}
     extents: {x: 21.853569, y: 5.092786, z: 14.999999}
     max: {x: 21.983015, y: 6.4319715, z: 29.999998}
-    min: {x: -21.724123, y: -3.7536006, z: -0.00000011920929}
+    min: {x: -21.724123, y: -3.7536006, z: -0.000000092682384}
     size: {x: 43.707138, y: 10.185572, z: 29.999998}
   builders: []
   unpacked: 0
