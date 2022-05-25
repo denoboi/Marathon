@@ -234,6 +234,13 @@ namespace Dreamteck.Forever
             Traverse(_result);
             OnFollow(_result);
         }
+        
+        public void Fix()
+        {
+            StartFollow();
+            Traverse(_result);
+            OnFollow(_result);
+        }
 
         protected virtual void DoFollow(float move, Spline.Direction direction)
         {

@@ -48,15 +48,24 @@ public class AIMovement : SplineCharacterMovementController
 
     protected override void Awake()
     {
+
+        
+
         base.Awake();
         //Speed'i degistirmek icin currentSpeed'i kullan(splineCharacter) scriptable objelere dokunma.
+
+
         
-        //SPEED
-        _currentSpeed = Random.Range(1.10f, 5f);
-        maxSpeed = _currentSpeed;
 
         //tanimlamadigimiz icin 0 geliyordu karakteri ortaya koyuyordu oyun basinda, simdi grafigin pozisyonuna esitledik.
+        
+
+    }
+
+    protected void Start()
+    {
         _desiredPos = Graphic.transform.localPosition;
+        
 
     }
 
@@ -80,6 +89,11 @@ public class AIMovement : SplineCharacterMovementController
         AIMove();
 
         base.Update();
+
+    }
+
+    public void LateUpdate()
+    {
 
         Runner.follow = SplineCharacter.CanMoveForward;
     }

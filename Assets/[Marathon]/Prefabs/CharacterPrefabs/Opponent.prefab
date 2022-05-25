@@ -615,10 +615,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   updateMode: 0
-  startPercent: 0
-  startDistance: 0
+  startPercent: 0.10199999809265137
+  startDistance: 2.34
   startMode: 2
-  followSpeed: 6
+  followSpeed: 7
   follow: 1
   isPlayer: 0
   loop: 0

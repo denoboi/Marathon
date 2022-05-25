@@ -43,8 +43,8 @@ MonoBehaviour:
   useSizes: 0
   minOrientation: {x: -5, y: -90, z: 0}
   maxOrientation: {x: 15, y: 90, z: 0}
-  minRandomStep: {x: 5, y: 10, z: 0}
-  maxRandomStep: {x: 10, y: 45, z: 0}
+  minRandomStep: {x: 0, y: 10, z: 0}
+  maxRandomStep: {x: 3, y: 45, z: 0}
   minTurnRate: {x: 3, y: 5, z: 0}
   maxTurnRate: {x: 3, y: 15, z: 0}
   startTargetOrientation: {x: 1, y: 1, z: 0}
