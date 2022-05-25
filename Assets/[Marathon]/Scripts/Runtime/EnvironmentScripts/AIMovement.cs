@@ -114,6 +114,9 @@ public class AIMovement : SplineCharacterMovementController
             SplineCharacterAnimationController.TriggerAnimation("Dead");
             Runner.followSpeed = 0;
             SplineCharacter.IsControlable = false;
+            
+            //When Dead, Collider off
+            SplineCharacter.GetComponentInChildren<CapsuleCollider>().enabled = false;
             //IEnumerator eklenip gameobje yok olacak.
         }
 
@@ -185,6 +188,8 @@ public class AIMovement : SplineCharacterMovementController
         if (!LevelManager.Instance.IsLevelStarted)
             return;
         if (!SplineCharacter.CanMoveForward)
+            return;
+        if (!SplineCharacter.IsControlable)
             return;
 
         if (_canRegenerate)
