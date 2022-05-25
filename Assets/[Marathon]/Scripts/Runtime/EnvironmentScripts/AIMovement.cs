@@ -135,7 +135,7 @@ public class AIMovement : SplineCharacterMovementController
         //If AI finishes first, fail
         if(SplineCharacter.IsFinished)
         {
-            GameManager.Instance.OnStageFail.Invoke();
+            
         }
 
       

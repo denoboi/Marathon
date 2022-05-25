@@ -41,9 +41,7 @@ public class Stamina : MonoBehaviour
         {
             CurrentStamina = 0f;
             Debug.Log("Boom");
-            
             //LevelManager.Instance.OnLevelFinish.Invoke();
-
         }
         
     }
