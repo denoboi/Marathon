@@ -33,10 +33,6 @@ public class FinishTrigger : MonoBehaviour
             GameManager.Instance.CompeleteStage(false);
             HapticManager.Haptic(HapticTypes.Failure);
         }
-
-        
     }
-
-    
 
 }

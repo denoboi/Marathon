@@ -19,14 +19,13 @@ public class AICollision : MonoBehaviour
     public SplineCharacterAnimationController SplineCharacterAnimationController
     { get { return _splineCharacterAnimationController == null ? _splineCharacterAnimationController = GetComponentInChildren<SplineCharacterAnimationController>() : _splineCharacterAnimationController; } }
 
-    
 
     //spline character yok? Olmamasina ragmen kalitim aldigimiz icin mi goruyor? 
     public SplineCharacter SplineCharacter { get { return splineCharacter == null ? splineCharacter = GetComponentInParent<SplineCharacter>() : splineCharacter; } }
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
 
         if (other.CompareTag("Character"))
         {
@@ -34,13 +33,14 @@ public class AICollision : MonoBehaviour
             {
                 Debug.Log(gameObject.name + "Collided");
                 HapticManager.Haptic(HapticTypes.RigidImpact);
-                
-                StartCoroutine(WaitForMoveForward());
 
-               
+                StartCoroutine(WaitForMoveForward());
             }
             else
+            {
                 SplineCharacterAnimationController.TriggerAnimation("Stumble");
+                HapticManager.Haptic(HapticTypes.SoftImpact);
+            }    
 
             Runner.follow = SplineCharacter.CanMoveForward;
             Runner.follow = SplineCharacter.IsControlable;
@@ -56,8 +56,6 @@ public class AICollision : MonoBehaviour
         yield return new WaitForSeconds(3);
         SplineCharacter.IsControlable = true;
 
-        
-            
 
         if (Input.GetMouseButtonDown(0) && Runner.isPlayer)
         {
@@ -71,8 +69,4 @@ public class AICollision : MonoBehaviour
 
     }
 
-    
-
-
-   
 }

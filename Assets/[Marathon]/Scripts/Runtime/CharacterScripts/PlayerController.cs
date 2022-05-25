@@ -45,11 +45,9 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
     protected override void Update()
     {
-
         Stamina.StaminaRegen();
         Moving();
         base.Update();
-        
     }
 
     #region Movement
@@ -77,8 +75,6 @@ public class PlayerController : SplineCharacterMovementController //default olar
         {
             //staminaDrain
             Stamina.StaminaDrain();
-            HapticManager.Haptic(HapticTypes.SoftImpact);
-
             
 
             SplineCharacter.CanMoveForward = true;
@@ -102,7 +98,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
             if (Stamina.CurrentStamina <= 0)
             {
                 SplineCharacterAnimationController.TriggerAnimation("Dead");
-                HapticManager.Haptic(HapticTypes.RigidImpact);
+                HapticManager.Haptic(HapticTypes.Failure);
                 SplineCharacter.IsControlable = false;
                 SplineCharacter.CanMoveForward = false;
                 StartCoroutine(Dead());    
@@ -130,10 +126,8 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
         //boyle bi sey yapilabiliyomus :D
         Runner.follow = SplineCharacter.CanMoveForward;
-
     }
 
-   
     void TiredRunning()
     {
         if(Stamina.CurrentStamina<= 15)
