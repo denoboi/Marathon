@@ -6,6 +6,7 @@ using HCB.SplineMovementSystem.Samples;
 using HCB.Core;
 using Dreamteck.Forever;
 using HCB.IncrimantalIdleSystem;
+using Sirenix.OdinInspector;
 
 public class AIMovement : SplineCharacterMovementController
 {
@@ -33,10 +34,13 @@ public class AIMovement : SplineCharacterMovementController
 
     public SplineClampData ClampData;
     public GameObject Graphic;
-    
 
+    [Space]
+    [Header("AIRightLeft")]
+    [SerializeField] private float _xPos;
+    [SerializeField] private float _leanSpeed;
+    [SerializeField] [Range(0f, 5f)] private float timeToMove;
 
-    private float XPos;
     private Vector3 _desiredPos;
     
 
@@ -44,26 +48,19 @@ public class AIMovement : SplineCharacterMovementController
 
     private bool _canMove = true;
    
-    [SerializeField]  private float timeToMove = 4f;
+    
 
     protected override void Awake()
     {
 
-        
-
         base.Awake();
         //Speed'i degistirmek icin currentSpeed'i kullan(splineCharacter) scriptable objelere dokunma.
-
-
-        
-
-        //tanimlamadigimiz icin 0 geliyordu karakteri ortaya koyuyordu oyun basinda, simdi grafigin pozisyonuna esitledik.
-        
 
     }
 
     protected void Start()
     {
+        //tanimlamadigimiz icin 0 geliyordu karakteri ortaya koyuyordu oyun basinda, simdi grafigin pozisyonuna esitledik.
         _desiredPos = Graphic.transform.localPosition;
         
 
@@ -198,15 +195,15 @@ public class AIMovement : SplineCharacterMovementController
         //surekli timer guncelliyoruz.
         _timer += Time.deltaTime;
 
-        Graphic.transform.localPosition = Vector3.Lerp(Graphic.transform.localPosition, _desiredPos, Time.deltaTime * Speed);
+        Graphic.transform.localPosition = Vector3.Lerp(Graphic.transform.localPosition, _desiredPos, Time.deltaTime * _leanSpeed);
 
         if (_timer >= timeToMove)
         {
            
             if (Vector3.Distance(Graphic.transform.localPosition, _desiredPos) <= 0.01f)
             {
-                XPos = Random.Range(-ClampData.MovementWidth /2, ClampData.MovementWidth / 2);
-                _desiredPos = new Vector3(XPos, Graphic.transform.localPosition.y, Graphic.transform.localPosition.z);
+                _xPos = Random.Range(-ClampData.MovementWidth /2, ClampData.MovementWidth / 2);
+                _desiredPos = new Vector3(_xPos, Graphic.transform.localPosition.y, Graphic.transform.localPosition.z);
             }
 
             _timer = 0;

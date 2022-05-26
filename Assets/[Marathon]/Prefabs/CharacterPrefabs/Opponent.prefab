@@ -552,9 +552,10 @@ MonoBehaviour:
   maxSpeed: 0
   ClampData: {fileID: 11400000, guid: 4cfbb53157a14f6488342cb1d3c8c378, type: 2}
   Graphic: {fileID: 5274316272068595393}
-  XPos: 0
-  Speed: 2
-  timeToMove: 11.05
+  _xPos: 2
+  _leanSpeed: 1.34
+  _desiredPos: {x: 0.94, y: 0, z: 0}
+  timeToMove: 6.49
 --- !u!114 &5274316271766612218
 MonoBehaviour:
   m_ObjectHideFlags: 0
