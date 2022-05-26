@@ -11,30 +11,37 @@ namespace HCB.UI
         private TextMeshProUGUI levelDisplayText;
         public TextMeshProUGUI LevelDisplayText { get { return (levelDisplayText == null) ? levelDisplayText = GetComponent<TextMeshProUGUI>() : levelDisplayText; } }
 
+        private void Awake()
+        {
+            int fakeLevel = PlayerPrefs.GetInt("FakeLevel", 1);
+            LevelDisplayText.SetText("Level " + fakeLevel);
+        }
         private void OnEnable()
         {
             if (Managers.Instance == null)
                 return;
 
-            SceneController.Instance.OnSceneLoaded.AddListener(SetFakeLevel);
+            GameManager.Instance.OnStageSuccess.AddListener(SetFakeLevel);
         }
 
         private void OnDisable()
         {
             if (Managers.Instance == null)
                 return;
-            
-            SceneController.Instance.OnSceneLoaded.RemoveListener(SetFakeLevel);
+
+            GameManager.Instance.OnStageSuccess.RemoveListener(SetFakeLevel);
         }
 
 
         private void SetFakeLevel()
         {
             int fakeLevel = PlayerPrefs.GetInt("FakeLevel", 1);
-            LevelDisplayText.SetText("Level " + fakeLevel);
 
             fakeLevel++;
             PlayerPrefs.SetInt("FakeLevel", fakeLevel);
+
+            
+            LevelDisplayText.SetText("Level " + fakeLevel);
         }
     }
 }
