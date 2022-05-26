@@ -51,6 +51,7 @@ public class Player : SplineCharacter
             SkinnedMeshRenderer.SetBlendShapeWeight(0, Mathf.Clamp(Mathf.Sin(Time.time * _headChangeSpeed) * 100, 0, 100));
 
             Events.OnStaminaLow.Invoke();
+            HapticManager.Haptic(HapticTypes.RigidImpact); // sor
         }
         else
         {

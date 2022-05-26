@@ -70,11 +70,13 @@ public class AIMovement : SplineCharacterMovementController
     {
         //splineCharacterMovementController'daki base bu, once yazarsak bunu aliyor.
         base.OnEnable();
+        LevelManager.Instance.OnLevelFinish.AddListener(AIStop);
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
+        LevelManager.Instance.OnLevelFinish.RemoveListener(AIStop);
     }
 
     protected override void Update()

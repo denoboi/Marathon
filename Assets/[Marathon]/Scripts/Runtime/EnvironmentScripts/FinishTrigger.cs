@@ -9,7 +9,7 @@ using HCB.UI;
 
 public class FinishTrigger : MonoBehaviour
 {
-    
+    private bool _isAiEntered = false;
     private bool isCompleteStage = false;
 
     private void OnTriggerEnter(Collider other) //trigger'a girdigi zaman digerlerinin componentini alabiliyoruz hangisi girerse.
@@ -27,12 +27,23 @@ public class FinishTrigger : MonoBehaviour
             isCompleteStage = true;
             player.Runner.follow = false;
             
-            GameManager.Instance.CompeleteStage(true);
-            splineCharacterAnimationController.TriggerAnimation("Win");
-            HapticManager.Haptic(HapticTypes.Success);
+            
+            if (_isAiEntered)
+            {
+                HapticManager.Haptic(HapticTypes.Failure);
+                splineCharacterAnimationController.TriggerAnimation("Defeat");
+                GameManager.Instance.OnStageFail.Invoke();
+            }
 
+            else
+            {
+                GameManager.Instance.CompeleteStage(true);
+                splineCharacterAnimationController.TriggerAnimation("Win");
+                HapticManager.Haptic(HapticTypes.Success);
+                
+            }
             //Ai bug'i icin ama cozulmuyor :(
-            AIMovement.Runner.follow = false;
+
 
 
 
@@ -40,11 +51,11 @@ public class FinishTrigger : MonoBehaviour
 
         else if(AIMovement!= null)
         {
+           
+            AIMovement.Runner.follow = false;
+            _isAiEntered = true;
             
-            isCompleteStage = true;
-            //GameManager.Instance.CompeleteStage(false);
-            HapticManager.Haptic(HapticTypes.Failure);
-            Events.OnEliminated.Invoke();
+           
           
         }
     }
