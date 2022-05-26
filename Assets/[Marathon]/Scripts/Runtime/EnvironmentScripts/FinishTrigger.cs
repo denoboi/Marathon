@@ -23,17 +23,15 @@ public class FinishTrigger : MonoBehaviour
 
         if (player != null)
         {
-            
-
-            
 
             isCompleteStage = true;
             player.Runner.follow = false;
+            
             GameManager.Instance.CompeleteStage(true);
             splineCharacterAnimationController.TriggerAnimation("Win");
             HapticManager.Haptic(HapticTypes.Success);
 
-            //Ai bug'i icin
+            //Ai bug'i icin ama cozulmuyor :(
             AIMovement.Runner.follow = false;
 
 

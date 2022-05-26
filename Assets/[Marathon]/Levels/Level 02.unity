@@ -3093,18 +3093,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5274316271766612222, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
-      propertyPath: Speed
-      value: 4.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 5274316271766612222, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5274316271766612222, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
-      propertyPath: timeToMove
-      value: 23.7
-      objectReference: {fileID: 0}
     - target: {fileID: 5274316272068595393, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
       propertyPath: m_Name
       value: AI2
@@ -10353,18 +10341,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5274316271766612222, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
-      propertyPath: Speed
-      value: 4.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 5274316271766612222, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5274316271766612222, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
-      propertyPath: timeToMove
-      value: 23.7
-      objectReference: {fileID: 0}
     - target: {fileID: 5274316272068595393, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
       propertyPath: m_Name
       value: AI2
@@ -13259,18 +13235,6 @@ PrefabInstance:
     - target: {fileID: 5274316271766612221, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5274316271766612222, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
-      propertyPath: Speed
-      value: 4.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 5274316271766612222, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5274316271766612222, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
-      propertyPath: timeToMove
-      value: 23.7
       objectReference: {fileID: 0}
     - target: {fileID: 5274316272068595393, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
       propertyPath: m_Name

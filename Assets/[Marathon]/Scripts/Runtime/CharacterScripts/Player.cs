@@ -43,16 +43,22 @@ public class Player : SplineCharacter
 
         SkinnedMeshRenderer.material.SetFloat("_Postion", _normalizeStamina);
 
+
+
         if(Stamina.CurrentStamina < maximumStamina / 2) // hotfix (sonra duzeltilsin)
         {
             Sweat();
             SkinnedMeshRenderer.SetBlendShapeWeight(0, Mathf.Clamp(Mathf.Sin(Time.time * _headChangeSpeed) * 100, 0, 100));
 
+            Events.OnStaminaLow.Invoke();
         }
         else
         {
             StopSweat();
             SkinnedMeshRenderer.SetBlendShapeWeight(0, Mathf.Lerp(SkinnedMeshRenderer.GetBlendShapeWeight(0), 0, Time.deltaTime * _headChangeSpeed));
+
+            Events.OnStaminaNormal.Invoke();
+            
         }
     }
 

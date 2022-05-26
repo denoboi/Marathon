@@ -5386,7 +5386,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795478950}
-  m_LocalRotation: {x: 0.2709206, y: 0.000000023423464, z: -0.0000000065924457, w: 0.9626017}
+  m_LocalRotation: {x: 0.2709206, y: -0.000000023423466, z: 0.000000006592446, w: 0.9626017}
   m_LocalPosition: {x: 0.855, y: 5.97, z: -9.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -11903,7 +11903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5274316271766612222, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
       propertyPath: timeToMove
-      value: 23.7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5274316271766612223, guid: aa86fab95803e704680ae2af31fdd86b, type: 3}
       propertyPath: _staminaRegenMultiplier
@@ -11976,11 +11976,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 191950857602704929, guid: dde1fc16f75ba20459e60497073b1c0b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000023423464
+      value: -0.000000023423466
       objectReference: {fileID: 0}
     - target: {fileID: 191950857602704929, guid: dde1fc16f75ba20459e60497073b1c0b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000065924457
+      value: 0.000000006592446
       objectReference: {fileID: 0}
     - target: {fileID: 191950857602704929, guid: dde1fc16f75ba20459e60497073b1c0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

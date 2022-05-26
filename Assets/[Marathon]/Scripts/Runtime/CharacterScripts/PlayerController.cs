@@ -23,15 +23,6 @@ public class PlayerController : SplineCharacterMovementController //default olar
     public Player Player { get { return _player == null ? _player = GetComponent<Player>() : _player; } }
 
 
-    //these are for acceleration / deceleration
-   
-   [SerializeField] private float _maxSpeed = 10f;
-    
-    public float AccelerationTime = 60;
-   [SerializeField] private float _minSpeed;
-   [SerializeField] private float _time;
-
-
     protected override void OnEnable()
     {
         //splineCharacterMovementController'daki base bu, once yazarsak bunu aliyor.

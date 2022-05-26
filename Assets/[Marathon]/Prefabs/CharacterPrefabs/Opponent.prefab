@@ -728,7 +728,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 93f02c56eccf37943a1cc6814fc2912b, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1862,7 +1862,7 @@ MonoBehaviour:
   Graphic: {fileID: 5274316272068595393}
   _xPos: 2
   _leanSpeed: 1.34
-  timeToMove: 5
+  timeToMove: 2.5
 --- !u!114 &5274316271766612218
 MonoBehaviour:
   m_ObjectHideFlags: 0
