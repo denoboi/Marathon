@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Stamina
   m_EditorClassIdentifier: 
   StatID: Stamina
-  InitialValue: 1
-  UpgradeMultiplier: 1.5
+  InitialValue: 100
+  UpgradeMultiplier: 1.1
   InitialCost: 40
   CostMultiplier: 1.1
   ExchangeType: 1

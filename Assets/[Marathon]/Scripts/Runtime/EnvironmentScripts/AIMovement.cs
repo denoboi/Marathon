@@ -36,9 +36,9 @@ public class AIMovement : SplineCharacterMovementController
     
 
 
-    public float XPos;
+    private float XPos;
     private Vector3 _desiredPos;
-    public float Speed = 2.0f;
+    
 
     private float _timer = 0;
 

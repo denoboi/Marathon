@@ -15,8 +15,5 @@ public class StaminaUpgrader : IdleStatObjectBase
     {
 
         Stamina.CurrentStamina = (float)IdleStat.CurrentValue;
-
-        if (Stamina.CurrentStamina < 100)
-            Stamina.CurrentStamina = 100;
     }
 }

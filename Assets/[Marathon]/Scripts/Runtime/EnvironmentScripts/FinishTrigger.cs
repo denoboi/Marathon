@@ -9,7 +9,7 @@ using HCB.UI;
 
 public class FinishTrigger : MonoBehaviour
 {
-    [SerializeField] EliminatedUI _eliminatedUI;
+    
     private bool isCompleteStage = false;
 
     private void OnTriggerEnter(Collider other) //trigger'a girdigi zaman digerlerinin componentini alabiliyoruz hangisi girerse.
@@ -23,16 +23,21 @@ public class FinishTrigger : MonoBehaviour
 
         if (player != null)
         {
+            
+
+            
+
             isCompleteStage = true;
+            player.Runner.follow = false;
             GameManager.Instance.CompeleteStage(true);
             splineCharacterAnimationController.TriggerAnimation("Win");
             HapticManager.Haptic(HapticTypes.Success);
-            
+
             //Ai bug'i icin
             AIMovement.Runner.follow = false;
-            
-            player.Runner.followSpeed = 0;
-           
+
+
+
         }
 
         else if(AIMovement!= null)
