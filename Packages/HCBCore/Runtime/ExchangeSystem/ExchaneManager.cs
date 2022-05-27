@@ -10,7 +10,7 @@ namespace HCB.Core
     {
 
         private bool isInitialized = false;
-        private Dictionary<ExchangeType, int> data = new Dictionary<ExchangeType, int>();
+        private Dictionary<ExchangeType, float> data = new Dictionary<ExchangeType, float>();
 
         public static UnityEvent OnExchange = new UnityEvent();
 
@@ -20,7 +20,7 @@ namespace HCB.Core
             isInitialized = true;
         }
 
-        public int GetData(ExchangeType exchangeType)
+        public float GetData(ExchangeType exchangeType)
         {
 
             if (!isInitialized)
@@ -38,7 +38,7 @@ namespace HCB.Core
 
         [Button]
         // returns if result clamped to 0
-        public bool DoExchange(ExchangeType exchangeType, int diff)
+        public bool DoExchange(ExchangeType exchangeType, float diff)
         {
             if (data.ContainsKey(exchangeType))
             {

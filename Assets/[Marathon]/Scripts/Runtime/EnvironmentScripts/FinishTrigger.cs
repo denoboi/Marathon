@@ -32,7 +32,7 @@ public class FinishTrigger : MonoBehaviour
             {
                 HapticManager.Haptic(HapticTypes.Failure);
                 splineCharacterAnimationController.TriggerAnimation("Defeat");
-                GameManager.Instance.OnStageFail.Invoke();
+                GameManager.Instance.CompeleteStage(false);
             }
 
             else

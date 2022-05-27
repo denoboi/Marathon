@@ -12,6 +12,6 @@ public class SpeedUpgraderAI : IdleStatObjectBase
 
     public override void UpdateStat(string id)
     {
-        Runner.followSpeed = (float)IdleStat.CurrentValue + Random.Range(-2, +3);
+        Runner.followSpeed = (float)IdleStat.CurrentValue + Random.Range(-1, +3f);
     }
 }

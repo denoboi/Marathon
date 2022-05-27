@@ -13,7 +13,7 @@ public class StaminaUpgrader : IdleStatObjectBase
 
     public override void UpdateStat(string id)
     {
-
         Stamina.CurrentStamina = (float)IdleStat.CurrentValue;
+        Stamina.MaxStamina = Stamina.CurrentStamina;
     }
 }

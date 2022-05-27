@@ -1356,6 +1356,7 @@ GameObject:
   - component: {fileID: 5874904476042002692}
   - component: {fileID: 8712583740860597667}
   - component: {fileID: 8900366327643556081}
+  - component: {fileID: 3801065725509972780}
   m_Layer: 0
   m_Name: Opponent
   m_TagString: Character
@@ -1966,6 +1967,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleStat: {fileID: 11400000, guid: 135eb85c56fa3934ab4c62778a50d2b5, type: 2}
+--- !u!114 &3801065725509972780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5274316271766612216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccae4bde66ccc0a4594b9153abae091d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleStat: {fileID: 11400000, guid: 8928927f9c8f49447bb1bab5568b9027, type: 2}
 --- !u!1 &5274316272068595393
 GameObject:
   m_ObjectHideFlags: 0

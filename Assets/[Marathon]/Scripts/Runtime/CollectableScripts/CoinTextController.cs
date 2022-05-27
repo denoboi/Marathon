@@ -33,7 +33,7 @@ public class CoinTextController : MonoBehaviour
 
     void UpdateText()
     {
-        CoinText.text = GameManager.Instance.PlayerData.CurrencyData[HCB.ExchangeType.Coin].ToString();
+        CoinText.text = GameManager.Instance.PlayerData.CurrencyData[HCB.ExchangeType.Coin].ToString("N1");
         
     }
 

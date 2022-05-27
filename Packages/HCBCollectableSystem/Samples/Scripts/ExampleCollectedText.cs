@@ -27,7 +27,7 @@ namespace HCB.CollectableSystem.Examples
             EventManager.OnCurrencyInteracted.RemoveListener(UpdateText);
         }
 
-        private void UpdateText(ExchangeType exchangeType, int amount)
+        private void UpdateText(ExchangeType exchangeType, float amount)
         {
             if(exchangeType == ExchangeType.Coin)
             {

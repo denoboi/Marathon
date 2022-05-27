@@ -1982,10 +1982,6 @@ MonoBehaviour:
   movementData: {fileID: 11400000, guid: 6dbe3711c4f678f43acb56d576714dc0, type: 2}
   MainCollider: {fileID: 5864566570439654747}
   maxSpeed: 0
-  _maxSpeed: 14.28
-  AccelerationTime: 6.3
-  _minSpeed: 0
-  _time: 0
 --- !u!114 &5864566569611614000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2021,8 +2017,8 @@ MonoBehaviour:
   CurrentStamina: 100
   MaxStamina: 100
   IsRegenerated: 1
-  StaminaDrainMultiplier: 7
-  StaminaRegenMultiplier: 4
+  StaminaDrainMultiplier: 8
+  StaminaRegenMultiplier: 9.03
 --- !u!114 &3459794098662154043
 MonoBehaviour:
   m_ObjectHideFlags: 0

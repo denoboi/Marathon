@@ -22,7 +22,7 @@ namespace HCB.Core
     }
 
     public class PlayerDataEvent : UnityEvent<PlayerData> { }
-    public class CurrencyEvent : UnityEvent<ExchangeType, int> { }
+    public class CurrencyEvent : UnityEvent<ExchangeType, float> { }
 
     public class StringEvet : UnityEvent<string> { }
 }

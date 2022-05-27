@@ -9,7 +9,6 @@ using HCB.Utilities;
 
 namespace HCB.Core
 {
-
     public class LevelManager : Singleton<LevelManager>
     {
         [BoxGroup("Level Data")]
@@ -29,8 +28,6 @@ namespace HCB.Core
         [ReadOnly]
         [ShowInInspector]
         public bool IsLevelStarted { get { return isLevelStarted; } set { isLevelStarted = value; } }
-
-
 
         public int LevelIndex
         {
@@ -74,7 +71,6 @@ namespace HCB.Core
             SceneController.Instance.LoadScene(CurrentLevel.LoadLevelID);
         }
 
-
         public void LoadLastLevel()
         {
             FinishLevel();
@@ -85,7 +81,6 @@ namespace HCB.Core
         public void LoadNextLevel()
         {
             FinishLevel();
-
             LevelIndex++;
             if (LevelIndex > LevelData.Levels.Count - 1)
             {
@@ -104,7 +99,6 @@ namespace HCB.Core
             if (LevelIndex <= -1)
             {
                 LevelIndex = LevelData.Levels.Count - 1;
-
             }
 
             SceneController.Instance.LoadScene(CurrentLevel.LoadLevelID);

@@ -92,7 +92,8 @@ public class PlayerController : SplineCharacterMovementController //default olar
                 HapticManager.Haptic(HapticTypes.Failure);
                 SplineCharacter.IsControlable = false;
                 SplineCharacter.CanMoveForward = false;
-                StartCoroutine(Dead());    
+                StartCoroutine(Dead());
+                Player.GetComponentInChildren<CapsuleCollider>().enabled = false;
             }
 
         }

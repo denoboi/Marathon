@@ -24,28 +24,39 @@ public class Player : SplineCharacter
     public SplineCharacterClampController SplineCharacterClampController { get { return _splineCharacterClampController == null ? _splineCharacterClampController = GetComponentInChildren<SplineCharacterClampController>() : _splineCharacterClampController; } }
 
     private float _normalizeStamina;
-    private float maximumStamina;
+    private bool _isGameFinished;
+    
 
     [SerializeField] private ParticleSystem _sweatingParticle;
     [SerializeField] private float _headChangeSpeed;
 
-    private void Awake()
+    protected override void OnEnable()
     {
-        maximumStamina = Stamina.MaxStamina / 2;
+        base.OnEnable();
+        GameManager.Instance.OnStageSuccess.AddListener(OnLevelFinish); //LevelManager ile degistirdik, bu hemen cagriliyor. Level Manager bolum degistikten sonra.
+        GameManager.Instance.OnStageFail.AddListener(OnLevelFinish);
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        GameManager.Instance.OnStageSuccess.RemoveListener(OnLevelFinish);
+        GameManager.Instance.OnStageFail.RemoveListener(OnLevelFinish);
 
     }
 
-
     void TiredMaterial()
     {
+        if (_isGameFinished)
+            return;
         
-        _normalizeStamina = NormalizeValue(Stamina.CurrentStamina, 0, maximumStamina); // bunu tam anlamadim
+        _normalizeStamina = NormalizeValue(Stamina.CurrentStamina, 0, Stamina.MaxStamina); // bunu tam anlamadim
 
         SkinnedMeshRenderer.material.SetFloat("_Postion", _normalizeStamina);
 
 
 
-        if(Stamina.CurrentStamina < maximumStamina / 2) // hotfix (sonra duzeltilsin)
+        if(Stamina.CurrentStamina < Stamina.MaxStamina / 7) // hotfix (sonra duzeltilsin)
         {
             Sweat();
             SkinnedMeshRenderer.SetBlendShapeWeight(0, Mathf.Clamp(Mathf.Sin(Time.time * _headChangeSpeed) * 100, 0, 100));
@@ -66,8 +77,14 @@ public class Player : SplineCharacter
     private void Update()
     {
         TiredMaterial();
+
         CheckDistanceTravelled();
-       
+
+        Debug.Log("NormalizeStamina: " + _normalizeStamina );
+        Debug.Log("CurrentStamina: " + Stamina.CurrentStamina);
+        Debug.Log("MaxStamina: " + Stamina.MaxStamina);
+
+
     }
 
     private float NormalizeValue(float value, float min, float max)
@@ -90,11 +107,11 @@ public class Player : SplineCharacter
         {
             _lastPositionZ = roundedPos;
 
-            GameManager.Instance.PlayerData.CurrencyData[HCB.ExchangeType.Coin] += (int)IncomeManager.IdleStat.CurrentValue;
+            GameManager.Instance.PlayerData.CurrencyData[HCB.ExchangeType.Coin] += (float)IncomeManager.IdleStat.CurrentValue;
 
             HCB.Core.EventManager.OnPlayerDataChange.Invoke();
             EventManager.OnMoneyEarned.Invoke();
-            CreateFloatingText("+" + IncomeManager.IdleStat.CurrentValue.ToString("N0") + " $", Color.green, 1f);
+            CreateFloatingText("+" + IncomeManager.IdleStat.CurrentValue.ToString("N1") + " $", Color.green, 1f);
         }
 
     }
@@ -121,6 +138,13 @@ public class Player : SplineCharacter
     {
         var emission = _sweatingParticle.emission;
         emission.rateOverTime = 0;
+    }
+
+    void OnLevelFinish()
+    {
+        _isGameFinished = true;
+        StopSweat();
+       
     }
 
 }

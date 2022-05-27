@@ -68,15 +68,19 @@ public class AIMovement : SplineCharacterMovementController
 
     protected override void OnEnable()
     {
+
+        GameManager.Instance.OnStageSuccess.AddListener(AIFinishStop);
         //splineCharacterMovementController'daki base bu, once yazarsak bunu aliyor.
         base.OnEnable();
-        LevelManager.Instance.OnLevelFinish.AddListener(AIStop);
+       
+
     }
 
     protected override void OnDisable()
     {
+        GameManager.Instance.OnStageSuccess.RemoveListener(AIFinishStop);
         base.OnDisable();
-        LevelManager.Instance.OnLevelFinish.RemoveListener(AIStop);
+       
     }
 
     protected override void Update()
@@ -93,7 +97,6 @@ public class AIMovement : SplineCharacterMovementController
 
     public void LateUpdate()
     {
-
         Runner.follow = SplineCharacter.CanMoveForward;
     }
 
@@ -103,6 +106,8 @@ public class AIMovement : SplineCharacterMovementController
             return;
         if (!SplineCharacter.IsControlable)
             return;
+        
+
 
 
         Stamina.StaminaDrain();
@@ -130,15 +135,6 @@ public class AIMovement : SplineCharacterMovementController
 
                 //SplineCharacterAnimationController.TriggerAnimation("Idle");
         }
-        
-        //If AI finishes first, fail
-        if(SplineCharacter.IsFinished)
-        {
-            
-        }
-
-      
-       
     }
 
     IEnumerator WaitForRegenerate()
@@ -147,10 +143,10 @@ public class AIMovement : SplineCharacterMovementController
 
         _isReplenish = true;
 
-        //beklemesini sagliyoruz galiba daha dogrusu surekli bu donguye girip bazilarinin durmasini onluyoruz AI stoptan once.(ki olsunler)
+        //surekli bu donguye girip bazilarinin durmasini onluyoruz AI stoptan once.(ki olsunler) Luck dongusunu kirip kurtulmalari gerek olumden ve durmalilar.
         while (true)
         {
-            if(luck > 3)
+            if(luck > 2)
             {
                 break;
             }
@@ -180,6 +176,7 @@ public class AIMovement : SplineCharacterMovementController
     public void AIStop()
     {
         SplineCharacter.CanMoveForward = false;
+        Runner.follow = false;
     }
 
     void AIRightLeft()
@@ -212,5 +209,11 @@ public class AIMovement : SplineCharacterMovementController
         }
     }
 
-   
+    public void AIFinishStop()
+    {
+        SplineCharacter.CanMoveForward = false;
+        Runner.follow = false;
+    }
+
+
 }

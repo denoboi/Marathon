@@ -12,7 +12,7 @@ namespace HCB.Utilities
 
         public PlayerData()
         {
-            CurrencyData = new Dictionary<ExchangeType, int>();
+            CurrencyData = new Dictionary<ExchangeType, float>();
             CurrencyData[ExchangeType.Coin] = 0;
             CurrentSkin = "None";
         }
@@ -29,13 +29,13 @@ namespace HCB.Utilities
 
         [BoxGroup("Skin Data")]
         [ShowInInspector]
-        public int CurrentLoadingSkinTier;
+        public float CurrentLoadingSkinTier;
 
-        private Dictionary<ExchangeType, int> currencyData = new Dictionary<ExchangeType, int>();
+        private Dictionary<ExchangeType, float> currencyData = new Dictionary<ExchangeType, float>();
         [BoxGroup("Currency Data")]
         [ShowInInspector]
         [OnValueChanged("NotifyChange")]
-        public Dictionary<ExchangeType, int> CurrencyData
+        public Dictionary<ExchangeType, float> CurrencyData
         {
             get
             {
