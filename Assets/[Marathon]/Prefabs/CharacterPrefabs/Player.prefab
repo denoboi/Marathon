@@ -2018,7 +2018,7 @@ MonoBehaviour:
   MaxStamina: 100
   IsRegenerated: 1
   StaminaDrainMultiplier: 8
-  StaminaRegenMultiplier: 9.03
+  StaminaRegenMultiplier: 10
 --- !u!114 &3459794098662154043
 MonoBehaviour:
   m_ObjectHideFlags: 0
