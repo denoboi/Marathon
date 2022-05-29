@@ -13,11 +13,13 @@ public class AICollision : MonoBehaviour
     private SplineCharacterAnimationController _splineCharacterAnimationController;
     private SplineCharacter splineCharacter;
     private Runner _runner;
+    private Stamina _stamina;
 
     public Runner Runner { get { return _runner == null ? _runner = GetComponentInParent<Runner>() : _runner; } }
 
     public SplineCharacterAnimationController SplineCharacterAnimationController
     { get { return _splineCharacterAnimationController == null ? _splineCharacterAnimationController = GetComponentInChildren<SplineCharacterAnimationController>() : _splineCharacterAnimationController; } }
+    public Stamina Stamina { get { return _stamina == null ? _stamina = GetComponentInParent<Stamina>() : _stamina; } }
 
 
     //spline character yok? Olmamasina ragmen kalitim aldigimiz icin mi goruyor? 
@@ -52,6 +54,7 @@ public class AICollision : MonoBehaviour
         SplineCharacterAnimationController.TriggerAnimation("Fall");
         SplineCharacter.CanMoveForward = false;
         SplineCharacter.IsControlable = false;
+        
 
         yield return new WaitForSeconds(3);
         SplineCharacter.IsControlable = true;
