@@ -69,7 +69,7 @@ public class AIMovement : SplineCharacterMovementController
     protected override void OnEnable()
     {
 
-        GameManager.Instance.OnStageSuccess.AddListener(AIFinishStop);
+        LevelManager.Instance.OnLevelFinish.AddListener(AIFinishStop);
         //splineCharacterMovementController'daki base bu, once yazarsak bunu aliyor.
         base.OnEnable();
        
@@ -78,7 +78,7 @@ public class AIMovement : SplineCharacterMovementController
 
     protected override void OnDisable()
     {
-        GameManager.Instance.OnStageSuccess.RemoveListener(AIFinishStop);
+        LevelManager.Instance.OnLevelFinish.RemoveListener(AIFinishStop);
         base.OnDisable();
        
     }
@@ -166,9 +166,6 @@ public class AIMovement : SplineCharacterMovementController
         _canRegenerate = false;
 
         SplineCharacter.CanMoveForward = true;
-        //Kosmaya basladigi zaman animasyon cagir 1 kere.
-        
-
         _isReplenish = false;
 
     }
@@ -213,6 +210,7 @@ public class AIMovement : SplineCharacterMovementController
     {
         SplineCharacter.CanMoveForward = false;
         Runner.follow = false;
+        SplineCharacter.IsControlable = false;
     }
 
 

@@ -23,7 +23,6 @@ public class FinishTrigger : MonoBehaviour
 
         if (player != null)
         {
-
             isCompleteStage = true;
             player.Runner.follow = false;
             
@@ -40,7 +39,8 @@ public class FinishTrigger : MonoBehaviour
                 GameManager.Instance.CompeleteStage(true);
                 splineCharacterAnimationController.TriggerAnimation("Win");
                 HapticManager.Haptic(HapticTypes.Success);
-                
+                AIMovement.AIStop();
+
             }
             //Ai bug'i icin ama cozulmuyor :(
 
@@ -51,12 +51,7 @@ public class FinishTrigger : MonoBehaviour
 
         else if(AIMovement!= null)
         {
-           
-            AIMovement.Runner.follow = false;
             _isAiEntered = true;
-            
-           
-          
         }
     }
 
