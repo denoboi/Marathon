@@ -10976,62 +10976,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 359969422048051527, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 5652783142191542466, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
+      propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1048562254244520979, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
-      propertyPath: m_BlendShapeWeights.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2095467855278825662, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2438339235556749712, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2582722361628311469, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3038247659935491960, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3057657999725859374, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3312309218016653968, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4357724210113981727, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4357724210113981727, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 166fecbccb33069419f6b5aa17d2769a, type: 2}
-    - target: {fileID: 5598478995002028203, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: 297f7d75615a6b7408bf436e9d10b215, type: 3}
     - target: {fileID: 5864566569611613994, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5864566569611614000, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
-      propertyPath: _headChangeSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5864566569611614000, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
-      propertyPath: _sweatingParticle
-      value: 
-      objectReference: {fileID: 5864566570416790760}
     - target: {fileID: 5864566569611614001, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -11080,19 +11032,5 @@ PrefabInstance:
       propertyPath: _spline
       value: 
       objectReference: {fileID: 528508994}
-    - target: {fileID: 6453966253955468608, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6520147894026023307, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3401655213747147705, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
---- !u!198 &5864566570416790760 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7926977158876174074, guid: 0a8fbe3cd4bcf3d4cbd6e5e56885909a, type: 3}
-  m_PrefabInstance: {fileID: 5864566570416790757}
-  m_PrefabAsset: {fileID: 0}
