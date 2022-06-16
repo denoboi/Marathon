@@ -9,7 +9,7 @@ public class StaminaUpgrader : IdleStatObjectBase
 
     public Stamina Stamina { get { return _stamina == null ? _stamina = GetComponent<Stamina>() : _stamina; } }
 
-   
+    
 
     public override void UpdateStat(string id)
     {

@@ -60,7 +60,7 @@ namespace HCB.SplineMovementSystem.Samples
 
         }
 
-        public void SetStamina(float value)
+        public void SetStamina(float value) //mert
         {
             Animator.SetFloat(STAMINA_PARAMETER, value);
         }

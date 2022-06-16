@@ -19,7 +19,6 @@ public class AIOpponent : SplineCharacter
     private void Awake()
     {
         maximumStamina = Stamina.MaxStamina / 2;
-
     }
 
     void TiredMaterial()
