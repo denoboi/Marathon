@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/[Marathon]/Levels/Level 05.unity
     guid: d4fd0e5f8e990d44ea898ed8e9d9140a
+  - enabled: 1
+    path: Assets/[Marathon]/Levels/Level Treadmill.unity
+    guid: 8841edf43402ffd49b606b1b162bdd38
+  - enabled: 1
+    path: Assets/[Marathon]/Levels/Level CPI Treadmill.unity
+    guid: 430f1a92d40050949a0f7fb9157e5ed9
   m_configObjects: {}

@@ -23,3 +23,7 @@ MonoBehaviour:
     LoadLevelID: Level 04
   - LevelTypes: 
     LoadLevelID: Level 05
+  - LevelTypes: 
+    LoadLevelID: Level Treadmill
+  - LevelTypes: 
+    LoadLevelID: Level CPI Treadmill
