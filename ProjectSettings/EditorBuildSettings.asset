@@ -32,4 +32,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/[Marathon]/Levels/Level 05.unity
     guid: d4fd0e5f8e990d44ea898ed8e9d9140a
+  - enabled: 1
+    path: Assets/[Marathon]/Levels/Level CPI Stadium Straight.unity
+    guid: 1f662afabb2bea84f9f25012c8d3c495
+  - enabled: 1
+    path: Assets/[Marathon]/Levels/Level CPI Stadium Roll.unity
+    guid: af9adae4fc1c4f243beb59305af76474
+  - enabled: 1
+    path: Assets/[Marathon]/Levels/Level CPI Stadium Standard.unity
+    guid: 8597a33a4706c7948b6b6ffac56482a7
   m_configObjects: {}

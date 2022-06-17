@@ -23,3 +23,9 @@ MonoBehaviour:
     LoadLevelID: Level 04
   - LevelTypes: 
     LoadLevelID: Level 05
+  - LevelTypes: 
+    LoadLevelID: Level CPI Stadium Straight
+  - LevelTypes: 
+    LoadLevelID: Level CPI Stadium Roll
+  - LevelTypes: 
+    LoadLevelID: Level CPI Stadium Standard

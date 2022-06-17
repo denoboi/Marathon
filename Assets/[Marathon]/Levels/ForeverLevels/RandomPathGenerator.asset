@@ -39,22 +39,22 @@ MonoBehaviour:
   usePitch: 1
   useYaw: 1
   useRoll: 0
-  useColors: 0
+  useColors: 1
   useSizes: 0
   minOrientation: {x: -5, y: -90, z: 0}
   maxOrientation: {x: 15, y: 90, z: 0}
-  minRandomStep: {x: 0, y: 10, z: 0}
-  maxRandomStep: {x: 3, y: 45, z: 0}
-  minTurnRate: {x: 3, y: 5, z: 0}
-  maxTurnRate: {x: 3, y: 15, z: 0}
+  minRandomStep: {x: 0, y: 10, z: 2.07}
+  maxRandomStep: {x: 3, y: 45, z: 5.08}
+  minTurnRate: {x: 3, y: 5, z: 4.01}
+  maxTurnRate: {x: 3, y: 15, z: 9.22}
   startTargetOrientation: {x: 1, y: 1, z: 0}
   useStartPitchTarget: 1
   useStartYawTarget: 1
   useStartRollTarget: 0
   minColor:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 0.7830189, g: 0.20240295, b: 0.6992186, a: 1}
+    key1: {r: 0.92156863, g: 0.54509807, b: 0.57607985, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -82,9 +82,9 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   maxColor:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0, g: 0.7607843, b: 1, a: 0.84313726}
+    key1: {r: 0, g: 0.7607843, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 1}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
@@ -99,8 +99,8 @@ MonoBehaviour:
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 65535
-    atime2: 0
+    atime1: 32768
+    atime2: 65535
     atime3: 0
     atime4: 0
     atime5: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
     atime7: 0
     m_Mode: 0
     m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
+    m_NumAlphaKeys: 3
   minSize:
     serializedVersion: 2
     m_Curve: []
