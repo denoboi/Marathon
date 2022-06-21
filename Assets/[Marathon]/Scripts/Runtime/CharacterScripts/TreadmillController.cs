@@ -36,8 +36,8 @@ public class TreadmillController : MonoBehaviour
             if(Stamina.CurrentStamina <= 0)
             {
                 _isDead = true;
-                GetComponent<RagdollController>().EnableRagdollWithForce(Vector3.back, 0.25f); //sahneyi yanlis kurmusum once forward sonra back olmaliydi
-                Run.After(0.75f, () => GetComponent<RagdollController>().EnableRagdollWithForce(Vector3.forward, 860f));
+                GetComponent<RagdollController>().EnableRagdollWithForce(Vector3.forward, 100f); //sahneyi yanlis kurmusum once forward sonra back olmaliydi
+                Run.After(0.75f, () => GetComponent<RagdollController>().EnableRagdollWithForce(Vector3.back, 860f));
                 
 
             }
