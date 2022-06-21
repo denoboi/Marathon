@@ -8,7 +8,7 @@ using HCB.PoolingSystem;
 using DG.Tweening;
 using UnityEngine.UI;
 
-public class Player : SplineCharacter
+public class PlayerVisual : SplineCharacter
 {
     private int _lastPositionZ;
 

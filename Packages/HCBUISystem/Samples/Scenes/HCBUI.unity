@@ -369,7 +369,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -153}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &380336757
@@ -1244,7 +1244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1581538293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2465,6 +2465,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1679639512}
     m_Modifications:
+    - target: {fileID: 7075970566976900999, guid: 8408f222b483c456bb794eb26dd0cfd0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000061035156
+      objectReference: {fileID: 0}
     - target: {fileID: 7075970567159850049, guid: 8408f222b483c456bb794eb26dd0cfd0, type: 3}
       propertyPath: m_Name
       value: DebugPanel
@@ -2552,6 +2556,10 @@ PrefabInstance:
     - target: {fileID: 7075970567159850050, guid: 8408f222b483c456bb794eb26dd0cfd0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075970568081489288, guid: 8408f222b483c456bb794eb26dd0cfd0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000061035156
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8408f222b483c456bb794eb26dd0cfd0, type: 3}

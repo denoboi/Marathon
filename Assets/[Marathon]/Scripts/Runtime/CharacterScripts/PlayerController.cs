@@ -10,7 +10,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
 {
     private SplineCharacterAnimationController _splineCharacterAnimationController;
     private Stamina _stamina;
-    private Player _player;
+    private PlayerVisual _player;
     private Runner _runner;
 
     public Runner Runner { get { return _runner == null ? _runner = GetComponent<Runner>() : _runner; } }
@@ -20,7 +20,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
     public Stamina Stamina { get { return _stamina == null ? _stamina = GetComponent<Stamina>(): _stamina; } }
 
-    public Player Player { get { return _player == null ? _player = GetComponent<Player>() : _player; } }
+    public PlayerVisual Player { get { return _player == null ? _player = GetComponent<PlayerVisual>() : _player; } }
 
 
     protected override void OnEnable()

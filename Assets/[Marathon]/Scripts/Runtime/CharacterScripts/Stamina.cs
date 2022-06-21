@@ -4,13 +4,29 @@ using HCB.SplineMovementSystem.Samples;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Stamina : MonoBehaviour
 {
+
     [Header("Stamina Main Parameters")]
-    public float CurrentStamina = 100.0f; 
-    
-    public float MaxStamina = 100.0f;
+
+    [SerializeField] private float _currentStamina = 100f;
+
+        public float MaxStamina = 100.0f;
+
+    public float CurrentStamina
+    {
+        get
+        {
+            return _currentStamina;
+        }
+
+        set
+        {
+            _currentStamina = value < 0 ? 0 : value;
+        }
+    }
 
     [HideInInspector] public bool IsRegenerated;
 
@@ -22,15 +38,31 @@ public class Stamina : MonoBehaviour
     private SplineCharacter _splineCharacter;
     private SplineCharacterAnimationController _splineCharacterAnimationController;
 
+    
+    private string _staminaTweenID;
+    private const float STAMINATWEENDURATION = 0.35F;
+
+
     public SplineCharacter SplineCharacter { get { return _splineCharacter == null ? _splineCharacter = GetComponent<SplineCharacter>() : _splineCharacter; } }
 
     public SplineCharacterAnimationController SplineCharacterAnimationController
     { get { return _splineCharacterAnimationController == null ? _splineCharacterAnimationController = GetComponentInChildren<SplineCharacterAnimationController>() : _splineCharacterAnimationController; } }
 
 
+    private void Awake()
+    {
+        _staminaTweenID = GetInstanceID() + "_staminaTweenID";
+    }
+
+    public void StaminaTween(float endValue)
+    {
+        DOTween.Kill(_staminaTweenID);
+        DOTween.To(() => CurrentStamina, x => CurrentStamina = x, endValue, STAMINATWEENDURATION).SetId(_staminaTweenID).SetEase(Ease.Linear);
+    }
+
     public void Update()
     {
-        SplineCharacterAnimationController.SetStamina(HCB.Utilities.HCBUtilities.Normalize01(CurrentStamina, MaxStamina));
+        //SplineCharacterAnimationController.SetStamina(HCB.Utilities.HCBUtilities.Normalize01(CurrentStamina, MaxStamina));
     }
 
     public void StaminaDrain()
@@ -47,11 +79,8 @@ public class Stamina : MonoBehaviour
 
     public void StaminaRegen()
     {
-        if (!SplineCharacter.IsControlable)
-            return;
-
-        if (!IsRegenerated)
-            return;
+        
+       
 
         if (CurrentStamina < MaxStamina)
         {

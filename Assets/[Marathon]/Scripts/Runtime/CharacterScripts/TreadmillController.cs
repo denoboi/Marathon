@@ -5,14 +5,17 @@ using UnityEngine;
 public class TreadmillController : MonoBehaviour
 {
     private Animator _animator;
+    private Stamina _stamina;
 
     public Animator Animator { get { return _animator == null ?  _animator = GetComponent<Animator>() : _animator; } }
+    public Stamina Stamina { get { return _stamina == null ? _stamina = GetComponent<Stamina>() : _stamina; } }
 
      private float _speed;
 
     void Update()
     {
         Run();
+        
     }
 
     void Run()
@@ -22,10 +25,12 @@ public class TreadmillController : MonoBehaviour
             _speed += 0.03f;
             Animator.SetTrigger("Run");
             //time delta time ile carpmaya gerek yok button olsaydi ya da update olsaydi gerekebilirdi
+            Stamina.StaminaTween(Stamina.CurrentStamina -2f);
+
         }
 
         SlowDown();
-       
+
     }
 
     void SlowDown()
@@ -35,6 +40,9 @@ public class TreadmillController : MonoBehaviour
 
         if (_speed <= 0)
             _speed = 0;
+
+        
+        Stamina.StaminaRegen();
     }
 
 }
