@@ -452,6 +452,8 @@ GameObject:
   - component: {fileID: 141432168646067670}
   - component: {fileID: 3670884163807253986}
   - component: {fileID: 8767512704191949160}
+  - component: {fileID: 5482440108504272715}
+  - component: {fileID: 2969070801590127058}
   m_Layer: 0
   m_Name: Gym_Treadmill
   m_TagString: Untagged
@@ -522,3 +524,30 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5482440108504272715
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7637945985431945238}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8386462074304593831, guid: c693116e2983283409f73fb58983a046, type: 3}
+--- !u!65 &2969070801590127058
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7637945985431945238}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2789015, y: 0.27236474, z: 2.7344081}
+  m_Center: {x: -0.010714591, y: 0.1274037, z: 1.2526342}

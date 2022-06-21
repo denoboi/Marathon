@@ -11,21 +11,36 @@ public class TreadmillController : MonoBehaviour
     public Stamina Stamina { get { return _stamina == null ? _stamina = GetComponent<Stamina>() : _stamina; } }
 
      private float _speed;
+    private bool _isDead;
 
     void Update()
     {
-        Run();
+        Move();
         
     }
 
-    void Run()
+    void Move()
     {
+
+        if (_isDead)
+            return;
+
+
         if (Input.GetMouseButtonDown(0))
         {
             _speed += 0.03f;
             Animator.SetTrigger("Run");
             //time delta time ile carpmaya gerek yok button olsaydi ya da update olsaydi gerekebilirdi
-            Stamina.StaminaTween(Stamina.CurrentStamina -2f);
+            Stamina.StaminaTween(Stamina.CurrentStamina -3f);
+
+            if(Stamina.CurrentStamina <= 0)
+            {
+                _isDead = true;
+                GetComponent<RagdollController>().EnableRagdoll();
+                Run.After(1f, () => GetComponent<RagdollController>().EnableRagdollWithForce(Vector3.forward, 750f));
+                
+
+            }
 
         }
 

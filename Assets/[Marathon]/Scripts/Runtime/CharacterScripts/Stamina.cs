@@ -79,8 +79,6 @@ public class Stamina : MonoBehaviour
 
     public void StaminaRegen()
     {
-        
-       
 
         if (CurrentStamina < MaxStamina)
         {
