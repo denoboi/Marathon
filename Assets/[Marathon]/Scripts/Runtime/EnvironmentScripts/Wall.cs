@@ -40,10 +40,11 @@ public class Wall : MonoBehaviour
         
 
         Ragdoll player = other.GetComponent<Ragdoll>();
+        Dumbbell dumbbell = other.GetComponent<Dumbbell>();
 
-        
 
-        if (player != null && !isCollided)
+
+        if (player != null || dumbbell !=null && !isCollided)
         {
             isCollided = true;
             Debug.Log(other.name);
