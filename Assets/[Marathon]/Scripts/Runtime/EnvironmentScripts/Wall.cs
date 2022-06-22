@@ -37,12 +37,16 @@ public class Wall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        PlayerCPIVisual playerCPIVisual = other.GetComponent<PlayerCPIVisual>();
+        
 
-        if (playerCPIVisual != null && !isCollided)
+        Ragdoll player = other.GetComponent<Ragdoll>();
+
+        
+
+        if (player != null && !isCollided)
         {
             isCollided = true;
-
+            Debug.Log(other.name);
             //StackController sc = splineCharacter.GetComponent<StackController>();
 
             //if (sc == null) return;

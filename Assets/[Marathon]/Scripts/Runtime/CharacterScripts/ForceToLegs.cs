@@ -19,7 +19,7 @@ public class ForceToLegs : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
+        
 
         Rigidbody rb = other.GetComponent<Rigidbody>();
 
@@ -28,8 +28,7 @@ public class ForceToLegs : MonoBehaviour
             rigidbodies.Add(rb);
         }
 
-        Debug.Log(rb.gameObject.name + rigidbodies.Count);
-           
+       
         
     }
 
