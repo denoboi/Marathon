@@ -16,7 +16,8 @@ public class TreadmillController : MonoBehaviour
     void Update()
     {
         Move();
-        
+        SlowDown();
+
     }
 
     void Move()
@@ -28,23 +29,31 @@ public class TreadmillController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            _speed += 0.03f;
+            _speed += 0.1f;
             Animator.SetTrigger("Run");
             //time delta time ile carpmaya gerek yok button olsaydi ya da update olsaydi gerekebilirdi
-            Stamina.StaminaTween(Stamina.CurrentStamina -3f);
+            Stamina.StaminaTween(Stamina.CurrentStamina - 10f);
+            
 
-            if(Stamina.CurrentStamina <= 0)
+
+
+            if (Stamina.CurrentStamina <= 0)
             {
                 _isDead = true;
-                GetComponent<RagdollController>().EnableRagdollWithForce(Vector3.forward, 100f); //sahneyi yanlis kurmusum once forward sonra back olmaliydi
-                Run.After(0.75f, () => GetComponent<RagdollController>().EnableRagdollWithForce(Vector3.back, 860f));
+
+                GetComponent<RagdollController>().EnableRagdollWithForce(Vector3.forward, 100);
+                Run.After(0.1f, () => Events.OnPlayerFall.Invoke());
                 
 
             }
 
         }
 
-        SlowDown();
+
+
+        Events.OnOffsetPositive.Invoke();
+
+
 
     }
 
@@ -56,7 +65,7 @@ public class TreadmillController : MonoBehaviour
         if (_speed <= 0)
             _speed = 0;
 
-        
+        Events.OnOffsetNegative.Invoke();
         Stamina.StaminaRegen();
     }
 

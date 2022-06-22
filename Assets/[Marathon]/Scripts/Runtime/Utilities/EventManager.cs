@@ -9,4 +9,8 @@ public static class Events
     public static UnityEvent OnEliminated = new UnityEvent();
     public static UnityEvent OnStaminaLow = new UnityEvent();
     public static UnityEvent OnStaminaNormal = new UnityEvent();
+    public static UnityEvent OnOffsetPositive = new UnityEvent();
+    public static UnityEvent OnOffsetNegative = new UnityEvent();
+    public static UnityEvent OnPlayerFall = new UnityEvent();
+
 }
