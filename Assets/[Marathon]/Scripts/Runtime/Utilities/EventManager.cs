@@ -12,5 +12,7 @@ public static class Events
     public static UnityEvent OnOffsetPositive = new UnityEvent();
     public static UnityEvent OnOffsetNegative = new UnityEvent();
     public static UnityEvent OnPlayerFall = new UnityEvent();
+    public static UnityEvent OnShaking = new UnityEvent();
+
 
 }

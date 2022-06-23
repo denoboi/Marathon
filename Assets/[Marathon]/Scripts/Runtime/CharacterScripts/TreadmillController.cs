@@ -10,13 +10,14 @@ public class TreadmillController : MonoBehaviour
     public Animator Animator { get { return _animator == null ?  _animator = GetComponent<Animator>() : _animator; } }
     public Stamina Stamina { get { return _stamina == null ? _stamina = GetComponent<Stamina>() : _stamina; } }
 
-     private float _speed;
+     public float Speed;
     private bool _isDead;
+    
 
     void Update()
     {
         Move();
-        SlowDown();
+        SlowDown(); //update'de event invokelama inayi
 
     }
 
@@ -27,14 +28,17 @@ public class TreadmillController : MonoBehaviour
             return;
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            _speed += 0.1f;
+            Speed += 0.2f * Time.deltaTime;
             Animator.SetTrigger("Run");
             //time delta time ile carpmaya gerek yok button olsaydi ya da update olsaydi gerekebilirdi
-            Stamina.StaminaTween(Stamina.CurrentStamina - 10f);
+            Stamina.StaminaTween(Stamina.CurrentStamina - 5f);
             
-
+            if(Stamina.CurrentStamina <= 20)
+            {
+                Events.OnShaking.Invoke();
+            }
 
 
             if (Stamina.CurrentStamina <= 0)
@@ -43,30 +47,24 @@ public class TreadmillController : MonoBehaviour
 
                 GetComponent<RagdollController>().EnableRagdollWithForce(Vector3.forward, 100);
                 Run.After(0.1f, () => Events.OnPlayerFall.Invoke());
-                
-
+ 
             }
-
+            
         }
-
-
-
-        Events.OnOffsetPositive.Invoke();
-
-
 
     }
 
     void SlowDown()
     {
-        _speed -= 0.04f * Time.deltaTime;
-        Animator.SetFloat("Speed", _speed);
 
-        if (_speed <= 0)
-            _speed = 0;
+            Speed -= 0.05f * Time.deltaTime;
+            Animator.SetFloat("Speed", Speed);
 
-        Events.OnOffsetNegative.Invoke();
-        Stamina.StaminaRegen();
+            if (Speed <= 0)
+                Speed = 0;
+
+            Stamina.StaminaRegen();
+
     }
 
 }

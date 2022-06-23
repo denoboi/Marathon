@@ -8,6 +8,7 @@ using HCB.SplineMovementSystem;
 public class Wall : MonoBehaviour
 {
     [SerializeField] private GameObject[] wallPieces;
+    [SerializeField] private ParticleSystem _destructionParticle;
 
     private void Awake()
     {
@@ -48,20 +49,13 @@ public class Wall : MonoBehaviour
         {
             isCollided = true;
             Debug.Log(other.name);
-            //StackController sc = splineCharacter.GetComponent<StackController>();
-
-            //if (sc == null) return;
-
+            
             DestructWall();
+            
 
-            //if (sc.CurrentCollectibles.Count == 0)
-            //{
-            //    GameManager.Instance.CompeleteStage(false);
-            //    return;
-            //}
-
-            //sc.CurrentCollectibles[sc.CurrentCollectibles.Count - 1].Uncollect(sc);
+           
             HapticManager.Haptic(HapticTypes.RigidImpact);
+            _destructionParticle.Play();
         }
     }
 }
