@@ -35,12 +35,7 @@ public class TreadmillController : MonoBehaviour
             //time delta time ile carpmaya gerek yok button olsaydi ya da update olsaydi gerekebilirdi
             Stamina.StaminaTween(Stamina.CurrentStamina - 5f);
             
-            if(Stamina.CurrentStamina <= 20)
-            {
-                Events.OnShaking.Invoke();
-            }
-
-
+       
             if (Stamina.CurrentStamina <= 0)
             {
                 _isDead = true;

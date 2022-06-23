@@ -15,6 +15,13 @@ public class Treadmill : MonoBehaviour
     public TreadmillController TreadmillController;
 
     private float _offset;
+    
+
+    [SerializeField] private ParticleSystem _brokenParticle;
+    [SerializeField] private ParticleSystem _fireParticle1;
+    [SerializeField] private ParticleSystem _fireParticle2;
+    [SerializeField] private ParticleSystem _fireParticle3;
+    [SerializeField] private ParticleSystem _fireParticle4;
 
 
     private void OnEnable()
@@ -32,6 +39,8 @@ public class Treadmill : MonoBehaviour
     private void Update()
     {
         MaterialOffsetPositive();
+        Shaking();
+        StopShaking();
     }
 
     void MaterialOffsetPositive()
@@ -44,10 +53,47 @@ public class Treadmill : MonoBehaviour
 
     }
 
-   
+
 
     void Shaking()
     {
-        Animator.SetTrigger("Shake");
+        if(TreadmillController.Stamina.CurrentStamina <= 20)
+        {
+            Animator.SetBool("Shake", true) ;
+            var emission = _brokenParticle.emission;
+            emission.rateOverTime = 30f;
+            emission = _fireParticle1.emission;
+            emission.rateOverTime = 30f;
+            emission = _fireParticle2.emission;
+            emission.rateOverTime = 30f;
+            emission = _fireParticle3.emission;
+            emission.rateOverTime = 30f;
+            emission = _fireParticle4.emission;
+            emission.rateOverTime = 30f;
+
+        }
+
+       
+        
+    }
+
+    void StopShaking()
+    {
+
+        if(TreadmillController.Stamina.CurrentStamina >= 20)
+        {
+            Animator.SetBool("Shake",false);
+            var emission = _brokenParticle.emission;
+            emission.rateOverTime = 0f;
+            emission = _fireParticle1.emission;
+            emission.rateOverTime = 0f;
+            emission = _fireParticle2.emission;
+            emission.rateOverTime = 0f;
+            emission = _fireParticle3.emission;
+            emission.rateOverTime = 0f;
+            emission = _fireParticle4.emission;
+            emission.rateOverTime = 0f;
+        }
+       
     }
 }

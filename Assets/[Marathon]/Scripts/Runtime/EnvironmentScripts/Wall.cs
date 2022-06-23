@@ -55,7 +55,15 @@ public class Wall : MonoBehaviour
 
            
             HapticManager.Haptic(HapticTypes.RigidImpact);
-            _destructionParticle.Play();
+            DestructionParticle();
         }
     }
+
+    private void DestructionParticle()
+    {
+        var emission = _destructionParticle.emission;
+        emission.rateOverTime = 30;
+    }
+
+    
 }
