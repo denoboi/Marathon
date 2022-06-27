@@ -13,7 +13,17 @@ public class TreadmillController : MonoBehaviour
      public float Speed;
     private bool _isDead;
     public float MaxSpeed = 3.0f;
-    
+
+
+    private void OnEnable()
+    {
+        Events.OnStageComplete.AddListener(OnStageComplete);
+    }
+
+    private void OnDisable()
+    {
+        Events.OnStageComplete.RemoveListener(OnStageComplete);
+    }
 
 
     void Update()
@@ -32,10 +42,10 @@ public class TreadmillController : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            Speed += 0.35f * Time.deltaTime;
+            Speed += 1.1f * Time.deltaTime;
             Animator.SetTrigger("Run");
             //time delta time ile carpmaya gerek yok button olsaydi ya da update olsaydi gerekebilirdi
-            Stamina.StaminaTween(Stamina.CurrentStamina - 4.5f);
+            Stamina.StaminaTween(Stamina.CurrentStamina - 5f);
             
        
             if (Stamina.CurrentStamina <= 0)
@@ -56,7 +66,7 @@ public class TreadmillController : MonoBehaviour
     void SlowDown()
     {
 
-            Speed -= 0.1f * Time.deltaTime;
+            Speed -= 0.75f * Time.deltaTime;
             Animator.SetFloat("Speed", Speed);
 
             if (Speed <= 0)
@@ -64,6 +74,13 @@ public class TreadmillController : MonoBehaviour
 
             Stamina.StaminaRegen();
 
+    }
+
+    void OnStageComplete()
+    {
+        
+        Animator.SetTrigger("Win");
+       
     }
 
 }

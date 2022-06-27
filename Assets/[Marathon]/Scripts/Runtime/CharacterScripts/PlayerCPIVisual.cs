@@ -15,6 +15,7 @@ public class PlayerCPIVisual : MonoBehaviour
     private Stamina _stamina;
     public TreadmillController TreadmillController;
     private float timer;
+    private float finishTimer;
 
 
     public SkinnedMeshRenderer SkinnedMeshRenderer { get { return _playerMat == null ? _playerMat = GetComponentInChildren<SkinnedMeshRenderer>() : _playerMat; } }
@@ -26,8 +27,7 @@ public class PlayerCPIVisual : MonoBehaviour
     [SerializeField] Transform StaminaTextPos;
 
     private float _normalizeStamina;
-
-    
+    private int rateOverTime;
 
     private void Update()
     {
@@ -35,14 +35,23 @@ public class PlayerCPIVisual : MonoBehaviour
 
 
 
-        if(TreadmillController.Speed > 2 && TreadmillController.Speed < 3)
+        if(TreadmillController.Speed > 2.5f && TreadmillController.Speed < 3)
         {
             timer += Time.deltaTime;
+            finishTimer += Time.deltaTime;
 
             if(timer > 0.5f)
             {
                 timer = 0;
                 CreateFloatingText("+" + "Stamina", Color.green, 1f);
+            }
+
+            if(finishTimer >= 10)
+            {
+                finishTimer = 10;
+                Events.OnStageComplete.Invoke();
+                GameManager.Instance.CompeleteStage(true);
+                TreadmillController.Speed -= 2;
             }
             
             
@@ -93,7 +102,9 @@ public class PlayerCPIVisual : MonoBehaviour
     private void Sweat()
     {
         var emission = _sweatingParticle.emission;
+        rateOverTime += 1;
         emission.rateOverTime = 30;
+        
     }
 
     public void StopSweat()
@@ -106,7 +117,7 @@ public class PlayerCPIVisual : MonoBehaviour
     {
 
         Vector3 offset = new Vector3(1f, -1f, 0);
-        TextMeshPro text = PoolingSystem.Instance.InstantiateAPS("staminaText", StaminaTextPos.position + offset).GetComponent<TextMeshPro>();
+        TextMeshPro text = PoolingSystem.Instance.InstantiateAPS("staminaText", StaminaTextPos.position).GetComponent<TextMeshPro>();
         text.transform.LookAt(Camera.main.transform);
         text.SetText(s);
         text.DOFade(1, 0);
