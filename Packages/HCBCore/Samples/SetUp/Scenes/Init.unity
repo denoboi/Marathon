@@ -159,6 +159,12 @@ MonoBehaviour:
     AllowGrow: 1
     AutoDestroy: 1
     clones: []
+  - ID: staminaText
+    SourcePrefab: {fileID: 918302614858646112, guid: 01315e8ca9a8f524c8a22c5f6f637f81, type: 3}
+    MinNumberOfObject: 0
+    AllowGrow: 1
+    AutoDestroy: 1
+    clones: []
   DefaultCount: 0
 --- !u!4 &334324349
 Transform:

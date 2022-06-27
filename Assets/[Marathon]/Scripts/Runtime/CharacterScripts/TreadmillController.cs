@@ -12,7 +12,9 @@ public class TreadmillController : MonoBehaviour
 
      public float Speed;
     private bool _isDead;
+    public float MaxSpeed = 3.0f;
     
+
 
     void Update()
     {
@@ -30,10 +32,10 @@ public class TreadmillController : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            Speed += 0.2f * Time.deltaTime;
+            Speed += 0.35f * Time.deltaTime;
             Animator.SetTrigger("Run");
             //time delta time ile carpmaya gerek yok button olsaydi ya da update olsaydi gerekebilirdi
-            Stamina.StaminaTween(Stamina.CurrentStamina - 5f);
+            Stamina.StaminaTween(Stamina.CurrentStamina - 4.5f);
             
        
             if (Stamina.CurrentStamina <= 0)
@@ -42,6 +44,8 @@ public class TreadmillController : MonoBehaviour
 
                 GetComponent<RagdollController>().EnableRagdollWithForce(Vector3.forward, 100);
                 Run.After(0.1f, () => Events.OnPlayerFall.Invoke());
+
+                Speed = 0;
  
             }
             
@@ -52,7 +56,7 @@ public class TreadmillController : MonoBehaviour
     void SlowDown()
     {
 
-            Speed -= 0.05f * Time.deltaTime;
+            Speed -= 0.1f * Time.deltaTime;
             Animator.SetFloat("Speed", Speed);
 
             if (Speed <= 0)

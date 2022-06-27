@@ -2,11 +2,19 @@ using HCB.Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using HCB.PoolingSystem;
+using DG.Tweening;
+
+
+
 
 public class PlayerCPIVisual : MonoBehaviour
 {
     private SkinnedMeshRenderer _playerMat;
     private Stamina _stamina;
+    public TreadmillController TreadmillController;
+    private float timer;
 
 
     public SkinnedMeshRenderer SkinnedMeshRenderer { get { return _playerMat == null ? _playerMat = GetComponentInChildren<SkinnedMeshRenderer>() : _playerMat; } }
@@ -15,13 +23,30 @@ public class PlayerCPIVisual : MonoBehaviour
 
     [SerializeField] private ParticleSystem _sweatingParticle;
     [SerializeField] private float _headChangeSpeed;
+    [SerializeField] Transform StaminaTextPos;
 
     private float _normalizeStamina;
 
+    
 
     private void Update()
     {
         TiredMaterial();
+
+
+
+        if(TreadmillController.Speed > 2 && TreadmillController.Speed < 3)
+        {
+            timer += Time.deltaTime;
+
+            if(timer > 0.5f)
+            {
+                timer = 0;
+                CreateFloatingText("+" + "Stamina", Color.green, 1f);
+            }
+            
+            
+        }
     }
 
 
@@ -75,5 +100,20 @@ public class PlayerCPIVisual : MonoBehaviour
     {
         var emission = _sweatingParticle.emission;
         emission.rateOverTime = 0;
+    }
+
+    public void CreateFloatingText(string s, Color color, float delay)
+    {
+
+        Vector3 offset = new Vector3(1f, -1f, 0);
+        TextMeshPro text = PoolingSystem.Instance.InstantiateAPS("staminaText", StaminaTextPos.position + offset).GetComponent<TextMeshPro>();
+        text.transform.LookAt(Camera.main.transform);
+        text.SetText(s);
+        text.DOFade(1, 0);
+        text.color = color;
+        text.transform.DOMoveY(text.transform.position.y + 1f, delay);
+        text.DOFade(0, delay / 2)
+            .SetDelay(delay / 2)
+            .OnComplete(() => PoolingSystem.Instance.DestroyAPS(text.gameObject));
     }
 }
