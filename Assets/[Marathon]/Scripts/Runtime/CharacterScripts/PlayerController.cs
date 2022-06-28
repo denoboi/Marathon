@@ -12,6 +12,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
     private Stamina _stamina;
     private Player _player;
     private Runner _runner;
+    public bool CountDownMove;
 
     public Runner Runner { get { return _runner == null ? _runner = GetComponent<Runner>() : _runner; } }
 
@@ -49,13 +50,13 @@ public class PlayerController : SplineCharacterMovementController //default olar
             return;
         if (!SplineCharacter.IsControlable)
             return;
+        if (GameManager.Instance.IsCountdown) //CPI
+            return;
 
         //Animation event invoke
         if (Input.GetMouseButtonDown(0))
         {
-            if (!SplineCharacter.IsFinished)
-                TiredRunning();
-
+           
 
             if (Stamina.CurrentStamina <= 50)
                 return;
@@ -120,22 +121,10 @@ public class PlayerController : SplineCharacterMovementController //default olar
         Runner.follow = SplineCharacter.CanMoveForward;
     }
 
-    void TiredRunning()
-    {
-        if(Stamina.CurrentStamina<= 15)
-        {
-
-            //Runner.followSpeed = IdleStat.CurrentValue / 1.2f; //Interface ekleyip yap bunu.
-        }
-        else
-        {
-
-        }
-    }
+}
 
     #endregion
 
   
 
-    
-}
+

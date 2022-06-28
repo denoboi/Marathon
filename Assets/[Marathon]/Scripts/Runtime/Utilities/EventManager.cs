@@ -9,4 +9,6 @@ public static class Events
     public static UnityEvent OnEliminated = new UnityEvent();
     public static UnityEvent OnStaminaLow = new UnityEvent();
     public static UnityEvent OnStaminaNormal = new UnityEvent();
+    public static UnityEvent OnCountdown = new UnityEvent();
+
 }

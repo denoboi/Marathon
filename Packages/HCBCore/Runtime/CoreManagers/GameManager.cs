@@ -54,7 +54,7 @@ namespace HCB.Core
         [HideInInspector]
         public UnityEvent OnStageFail = new UnityEvent();
 
-
+        public bool IsCountdown { get; set; }
         private bool isGameStarted;
         [ReadOnly]
         [ShowInInspector]
@@ -79,7 +79,10 @@ namespace HCB.Core
         {
             if (isGameStarted)
                 return;
+            if (IsCountdown)
+                return;
 
+            IsCountdown = false;
             isGameStarted = true;
             OnGameStart.Invoke();
         }
@@ -88,6 +91,8 @@ namespace HCB.Core
         {
             if (!isGameStarted)
                 return;
+
+            IsCountdown = true;
             isGameStarted = false;
             OnGameEnd.Invoke();
         }

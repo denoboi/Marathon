@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/[Marathon]/Levels/Level 05.unity
     guid: d4fd0e5f8e990d44ea898ed8e9d9140a
+  - enabled: 1
+    path: Assets/[Marathon]/Levels/Level Countdown.unity
+    guid: 13f6dd1ce4b05f347a1123a86c851077
   m_configObjects: {}
