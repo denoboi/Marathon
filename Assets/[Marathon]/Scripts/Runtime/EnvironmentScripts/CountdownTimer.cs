@@ -7,6 +7,10 @@ using HCB.Core;
 
 public class CountdownTimer : MonoBehaviour
 {
+    private void Awake()
+    {
+        countdownDisplay.gameObject.SetActive(true);
+    }
 
     [SerializeField] private float countdownTime ;
     [SerializeField] private TextMeshProUGUI countdownDisplay;
@@ -30,11 +34,9 @@ public class CountdownTimer : MonoBehaviour
 
     private void CountDown()
     {
-       currentCountDownTime = countdownTime; //bu kod sadece 1 kez initialize oldugu icin tekrar atamam gerek
-
+        countdownDisplay.gameObject.SetActive(true);
+        currentCountDownTime = countdownTime; //bu kod sadece 1 kez initialize oldugu icin tekrar atamam gerek
         StopCoroutine();
-
-
         _countDownCoroutine = StartCoroutine(CountDownToStart());
     }
 
@@ -45,17 +47,15 @@ public class CountdownTimer : MonoBehaviour
 
         while (currentCountDownTime > 0)
         {
-          
-
-            GameManager.Instance.IsCountdown = true;
+  
             countdownDisplay.text = currentCountDownTime.ToString();
 
             yield return new WaitForSeconds(1f);
 
+            GameManager.Instance.IsCountdown = true; //Ust objesine koymak gerekiyordu bu scripti, kapatiyorum acamiyodum sonra.
+
             currentCountDownTime--;
 
-            
-            
         }
 
         countdownDisplay.text = "GO!";
@@ -63,13 +63,21 @@ public class CountdownTimer : MonoBehaviour
         EventManager.OnCountDownEnd.Invoke();
 
         yield return new WaitForSeconds(1f);
-        countdownDisplay.gameObject.SetActive(false);
+
+        countdownDisplay.gameObject.SetActive(false); 
+
+        
+        
 
     }
 
     private void StopCoroutine()
     {
         if (_countDownCoroutine != null)
+        {
+            
             StopCoroutine(_countDownCoroutine);
+        }
+            
     }
 }

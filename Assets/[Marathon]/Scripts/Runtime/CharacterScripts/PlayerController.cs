@@ -6,7 +6,8 @@ using HCB.Core;
 using HCB.SplineMovementSystem.Samples;
 using Dreamteck.Forever;
 using HCB.Utilities;
-                    
+using System;
+
 public class PlayerController : SplineCharacterMovementController //default olarak splinemovement sabit hizda
 {
     private SplineCharacterAnimationController _splineCharacterAnimationController;
@@ -15,6 +16,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
     private Runner _runner;
     public bool CountDownMove;
     private bool _isFail;
+    private bool _hasInitialWaitCompleted;
 
     public Runner Runner { get { return _runner == null ? _runner = GetComponent<Runner>() : _runner; } }
 
@@ -25,27 +27,48 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
     public Player Player { get { return _player == null ? _player = GetComponent<Player>() : _player; } }
 
-  
+    protected override void Awake()
+    {
+        SplineCharacter.IsControlable = true; //OnCountDownEnd bittigi zaman sadece calisiyordu.
+        base.Awake();
+    }
 
     protected override void OnEnable()
     {
         //splineCharacterMovementController'daki base bu, once yazarsak bunu aliyor.
         base.OnEnable();
-        
-
+        LevelManager.Instance.OnLevelStart.AddListener(Ready);
+ 
     }
+
 
     protected override void OnDisable()
     {
+        if (Managers.Instance == null)
+            return;
+        LevelManager.Instance.OnLevelStart.RemoveListener(Ready);
         base.OnDisable();
     }
 
     protected override void Update()
     {
+
+        if (!LevelManager.Instance.IsLevelStarted)
+            return;
+        if(!_hasInitialWaitCompleted) //bu bize 1 frame kazandiriyor. GetMousebuttondown'i gormuyor o yuzden bi kez daha tiklamali.
+        {
+            _hasInitialWaitCompleted = true;
+            return;
+        }
+
         Stamina.StaminaRegen();
         Moving();
         base.Update();
-       
+    }
+
+    private void Ready()
+    {
+        SplineCharacterAnimationController.TriggerAnimation("Crouch");
     }
 
     #region Movement
@@ -56,42 +79,22 @@ public class PlayerController : SplineCharacterMovementController //default olar
             return;
         if (!SplineCharacter.IsControlable)
             return;
-       
+
 
         //Animation event invoke
         if (Input.GetMouseButtonDown(0))
         {
             CheckFail();
-
-            if (Stamina.CurrentStamina <= 50)
-                return;
-
-            
+            SplineCharacter.CanMoveForward = true;
         }
-            
 
+       
         if (Input.GetMouseButton(0))
         {
-            //staminaDrain
+            
             Stamina.StaminaDrain();
             
-
-            SplineCharacter.CanMoveForward = true;
-
-            //this is for the update check. 
-            Stamina.IsRegenerated = false;
-
-            //Slide
-            if (SplineCharacter.IsSliding)
-            {
-                Stamina.IsRegenerated = true;
-                _currentSpeed = 15;
-            }
-
-            else
-            {
-                _currentSpeed = 6;
-            }
+            Stamina.IsRegenerated = false; //this is for the update check. 
 
             //Death
             if (Stamina.CurrentStamina <= 0)
@@ -130,12 +133,8 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
 
 
-   
-
     void CheckFail()
     {
-
-        SplineCharacterAnimationController.TriggerAnimation("Crouch");
 
         if (_isFail)
             return;
@@ -144,7 +143,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
         {
             _isFail = true;
             SplineCharacterAnimationController.TriggerAnimation("Fail");
-            Run.After(2f, () => { GameManager.Instance.CompeleteStage(false); });  
+            Run.After(1f, () => { GameManager.Instance.CompeleteStage(false); });  
         }
     }
 }

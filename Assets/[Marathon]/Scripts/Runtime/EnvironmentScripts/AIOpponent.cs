@@ -15,6 +15,17 @@ public class AIOpponent : SplineCharacter
     private float _normalizeStamina;
     private float maximumStamina;
 
+    protected override void OnEnable()
+    {
+        EventManager.OnCountDownEnd.AddListener(OnLevelStart);
+        base.OnEnable();
+    }
+
+    protected override void OnDisable()
+    {
+        EventManager.OnCountDownEnd.RemoveListener(OnLevelStart);
+        base.OnDisable();
+    }
 
     private void Awake()
     {

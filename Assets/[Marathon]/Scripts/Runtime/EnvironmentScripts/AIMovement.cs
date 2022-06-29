@@ -68,8 +68,9 @@ public class AIMovement : SplineCharacterMovementController
 
     protected override void OnEnable()
     {
-        
+        LevelManager.Instance.OnLevelStart.AddListener(Ready);
         LevelManager.Instance.OnLevelFinish.AddListener(AIFinishStop);
+        
         //splineCharacterMovementController'daki base bu, once yazarsak bunu aliyor.
         base.OnEnable();
        
@@ -78,8 +79,9 @@ public class AIMovement : SplineCharacterMovementController
 
     protected override void OnDisable()
     {
-        if (Managers.Instance == null)
+        if (Managers.Instance == null) 
             return;
+        LevelManager.Instance.OnLevelStart.RemoveListener(Ready);
         LevelManager.Instance.OnLevelFinish.RemoveListener(AIFinishStop);
         base.OnDisable();
        
@@ -101,6 +103,11 @@ public class AIMovement : SplineCharacterMovementController
     {
        
         Runner.follow = SplineCharacter.CanMoveForward;
+    }
+
+    private void Ready()
+    {
+        SplineCharacterAnimationController.TriggerAnimation("Crouch");
     }
 
     public void AIMove()
@@ -222,12 +229,10 @@ public class AIMovement : SplineCharacterMovementController
         //    return;
         if (GameManager.Instance.IsCountdown)
         {
-            //SplineCharacter.CanMoveForward = false;
-            //_canMove = true;
+           
         }
 
-        else
-            SplineCharacter.CanMoveForward = true;
+       
 
     }
 
