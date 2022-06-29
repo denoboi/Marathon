@@ -1408,6 +1408,7 @@ MonoBehaviour:
   movementData: {fileID: 11400000, guid: 6dbe3711c4f678f43acb56d576714dc0, type: 2}
   MainCollider: {fileID: 5864566570439654747}
   maxSpeed: 0
+  CountDownMove: 0
 --- !u!114 &5864566569611614000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1475,8 +1476,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   updateMode: 0
-  startPercent: 0.035999998450279236
-  startDistance: 0
+  startPercent: 0.7590000033378601
+  startDistance: 0.47
   startMode: 2
   followSpeed: 8
   follow: 0

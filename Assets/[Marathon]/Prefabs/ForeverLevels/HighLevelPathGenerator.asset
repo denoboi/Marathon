@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd507becd091cc8428db094b5d09d468, type: 3}
-  m_Name: SpiralPathGenerator
+  m_Script: {fileID: 11500000, guid: 7caf1ec1dee72eb41897d5f6a011c9be, type: 3}
+  m_Name: HighLevelPathGenerator
   m_EditorClassIdentifier: 
   pathType: 2
   sampleRate: 10
@@ -29,7 +29,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   customValueInterpolation: 0
-  axis: 1
-  spinRate: 10
-  steepness: 0
-  normalRotation: 0
+  useCustomNormalDirection: 0
+  customNormalDirection: {x: 0, y: 1, z: 0}
+  startOrientation: {x: 4.24, y: 12.21, z: 0}
