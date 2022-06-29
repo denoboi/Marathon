@@ -51,7 +51,8 @@ namespace HCB.SplineMovementSystem
             if (Managers.Instance == null)
                 return;
 
-            LevelManager.Instance.OnLevelStart.AddListener(OnLevelStart);
+            // LevelManager.Instance.OnLevelStart.AddListener(OnLevelStart);
+            EventManager.OnCountDownEnd.AddListener(OnLevelStart);
             GameManager.Instance.OnStageSuccess.AddListener(OnLevelEnd);
             GameManager.Instance.OnStageFail.AddListener(OnLevelEnd);            
         }
@@ -61,7 +62,8 @@ namespace HCB.SplineMovementSystem
             if (Managers.Instance == null)
                 return;
 
-            LevelManager.Instance.OnLevelStart.RemoveListener(OnLevelStart);
+            //LevelManager.Instance.OnLevelStart.RemoveListener(OnLevelStart);
+            EventManager.OnCountDownEnd.AddListener(OnLevelStart); 
             GameManager.Instance.OnStageSuccess.RemoveListener(OnLevelEnd);
             GameManager.Instance.OnStageFail.RemoveListener(OnLevelEnd);
         }
@@ -132,6 +134,7 @@ namespace HCB.SplineMovementSystem
 
         private void OnLevelStart()
         {
+
             IsControlable = true;
             CanMoveForward = true;
         }

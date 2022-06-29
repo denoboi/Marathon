@@ -46,7 +46,7 @@ public class AIMovement : SplineCharacterMovementController
 
     private float _timer = 0;
 
-    private bool _canMove = true;
+    private bool _canMove;
    
     
 
@@ -68,7 +68,7 @@ public class AIMovement : SplineCharacterMovementController
 
     protected override void OnEnable()
     {
-
+        
         LevelManager.Instance.OnLevelFinish.AddListener(AIFinishStop);
         //splineCharacterMovementController'daki base bu, once yazarsak bunu aliyor.
         base.OnEnable();
@@ -78,6 +78,8 @@ public class AIMovement : SplineCharacterMovementController
 
     protected override void OnDisable()
     {
+        if (Managers.Instance == null)
+            return;
         LevelManager.Instance.OnLevelFinish.RemoveListener(AIFinishStop);
         base.OnDisable();
        
@@ -87,7 +89,7 @@ public class AIMovement : SplineCharacterMovementController
     {
         if (_canRegenerate)
             Stamina.StaminaRegen();
-
+        
         AIRightLeft();
         AIMove();
 
@@ -97,6 +99,7 @@ public class AIMovement : SplineCharacterMovementController
 
     public void LateUpdate()
     {
+       
         Runner.follow = SplineCharacter.CanMoveForward;
     }
 
@@ -106,9 +109,9 @@ public class AIMovement : SplineCharacterMovementController
             return;
         if (!SplineCharacter.IsControlable)
             return;
-        
 
 
+        CheckMove();
 
         Stamina.StaminaDrain();
 
@@ -173,7 +176,7 @@ public class AIMovement : SplineCharacterMovementController
     public void AIStop()
     {
         SplineCharacter.CanMoveForward = false;
-        Runner.follow = false;
+       
     }
 
     void AIRightLeft()
@@ -209,8 +212,23 @@ public class AIMovement : SplineCharacterMovementController
     public void AIFinishStop()
     {
         SplineCharacter.CanMoveForward = false;
-        Runner.follow = false;
+        
         SplineCharacter.IsControlable = false;
+    }
+
+    private void CheckMove()
+    {
+        //if (_canMove)
+        //    return;
+        if (GameManager.Instance.IsCountdown)
+        {
+            //SplineCharacter.CanMoveForward = false;
+            //_canMove = true;
+        }
+
+        else
+            SplineCharacter.CanMoveForward = true;
+
     }
 
 

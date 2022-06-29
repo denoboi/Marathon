@@ -65,6 +65,8 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
             if (Stamina.CurrentStamina <= 50)
                 return;
+
+            
         }
             
 
@@ -132,6 +134,9 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
     void CheckFail()
     {
+
+        SplineCharacterAnimationController.TriggerAnimation("Crouch");
+
         if (_isFail)
             return;
 

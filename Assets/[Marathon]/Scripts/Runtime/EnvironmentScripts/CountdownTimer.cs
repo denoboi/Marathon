@@ -60,6 +60,7 @@ public class CountdownTimer : MonoBehaviour
 
         countdownDisplay.text = "GO!";
         GameManager.Instance.IsCountdown = false;
+        EventManager.OnCountDownEnd.Invoke();
 
         yield return new WaitForSeconds(1f);
         countdownDisplay.gameObject.SetActive(false);
