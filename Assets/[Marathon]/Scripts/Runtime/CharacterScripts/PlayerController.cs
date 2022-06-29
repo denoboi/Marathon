@@ -5,6 +5,7 @@ using HCB.SplineMovementSystem;
 using HCB.Core;
 using HCB.SplineMovementSystem.Samples;
 using Dreamteck.Forever;
+using HCB.Utilities;
                     
 public class PlayerController : SplineCharacterMovementController //default olarak splinemovement sabit hizda
 {
@@ -13,6 +14,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
     private Player _player;
     private Runner _runner;
     public bool CountDownMove;
+    private bool _isFail;
 
     public Runner Runner { get { return _runner == null ? _runner = GetComponent<Runner>() : _runner; } }
 
@@ -23,11 +25,14 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
     public Player Player { get { return _player == null ? _player = GetComponent<Player>() : _player; } }
 
+  
 
     protected override void OnEnable()
     {
         //splineCharacterMovementController'daki base bu, once yazarsak bunu aliyor.
         base.OnEnable();
+        
+
     }
 
     protected override void OnDisable()
@@ -40,6 +45,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
         Stamina.StaminaRegen();
         Moving();
         base.Update();
+       
     }
 
     #region Movement
@@ -50,13 +56,12 @@ public class PlayerController : SplineCharacterMovementController //default olar
             return;
         if (!SplineCharacter.IsControlable)
             return;
-        if (GameManager.Instance.IsCountdown) //CPI
-            return;
+       
 
         //Animation event invoke
         if (Input.GetMouseButtonDown(0))
         {
-           
+            CheckFail();
 
             if (Stamina.CurrentStamina <= 50)
                 return;
@@ -102,7 +107,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
         IEnumerator Dead()
         {
             yield return new WaitForSeconds(3.5f);
-            GameManager.Instance.OnStageFail.Invoke();
+            GameManager.Instance.CompeleteStage(false);
         }
 
         
@@ -121,6 +126,22 @@ public class PlayerController : SplineCharacterMovementController //default olar
         Runner.follow = SplineCharacter.CanMoveForward;
     }
 
+
+
+   
+
+    void CheckFail()
+    {
+        if (_isFail)
+            return;
+
+        if (GameManager.Instance.IsCountdown)
+        {
+            _isFail = true;
+            SplineCharacterAnimationController.TriggerAnimation("Fail");
+            Run.After(2f, () => { GameManager.Instance.CompeleteStage(false); });  
+        }
+    }
 }
 
     #endregion

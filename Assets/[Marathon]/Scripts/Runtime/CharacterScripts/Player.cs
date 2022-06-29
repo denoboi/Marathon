@@ -39,6 +39,9 @@ public class Player : SplineCharacter
 
     protected override void OnDisable()
     {
+        if (Managers.Instance == null)
+            return;
+
         base.OnDisable();
         GameManager.Instance.OnStageSuccess.RemoveListener(OnLevelFinish);
         GameManager.Instance.OnStageFail.RemoveListener(OnLevelFinish);

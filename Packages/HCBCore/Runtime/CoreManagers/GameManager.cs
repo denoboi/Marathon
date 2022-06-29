@@ -79,10 +79,9 @@ namespace HCB.Core
         {
             if (isGameStarted)
                 return;
-            if (IsCountdown)
-                return;
+            
 
-            IsCountdown = false;
+            
             isGameStarted = true;
             OnGameStart.Invoke();
         }
@@ -92,7 +91,7 @@ namespace HCB.Core
             if (!isGameStarted)
                 return;
 
-            IsCountdown = true;
+            
             isGameStarted = false;
             OnGameEnd.Invoke();
         }
