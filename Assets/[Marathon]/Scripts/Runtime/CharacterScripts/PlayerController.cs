@@ -131,11 +131,8 @@ public class PlayerController : SplineCharacterMovementController //default olar
         Runner.follow = SplineCharacter.CanMoveForward;
     }
 
-
-
     void CheckFail()
     {
-
         if (_isFail)
             return;
 
