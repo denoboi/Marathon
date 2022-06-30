@@ -753,8 +753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e20956385463d4d8aa4070222c0ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  easeType: 4
-  countdownTime: 3
+  easeType: 9
   countdownDisplay: {fileID: 1310384559}
 --- !u!1 &798767195
 GameObject:
@@ -1345,7 +1344,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ready
+  m_text: '
 
 '
   m_isRightToLeft: 0
@@ -1374,7 +1373,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.65
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

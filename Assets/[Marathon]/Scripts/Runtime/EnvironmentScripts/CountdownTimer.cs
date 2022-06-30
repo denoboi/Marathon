@@ -66,9 +66,6 @@ public class CountdownTimer : MonoBehaviour
 
         countdownDisplay.gameObject.SetActive(false); 
 
-        
-        
-
     }
 
     private void StopCoroutine()

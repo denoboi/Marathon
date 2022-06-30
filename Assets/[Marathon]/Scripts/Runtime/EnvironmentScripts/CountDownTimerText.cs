@@ -48,7 +48,7 @@ public class CountDownTimerText : MonoBehaviour
         isCounting = true;
         StopCoroutine();
 
-        _countDownCoroutine = StartCoroutine(CountDownToStart(2));
+        _countDownCoroutine = StartCoroutine(CountDownToStart(1.5f));
     }
 
 
@@ -57,34 +57,47 @@ public class CountDownTimerText : MonoBehaviour
         yield return null;
 
 
-        while(isCounting)
+        var sequence = DOTween.Sequence();
+
+     
+
+        while (isCounting)
         {
 
-            
-
             GameManager.Instance.IsCountdown = true;
-            
-            countdownDisplay.text = "Ready";
-            _tween = countdownDisplay.gameObject.transform.DOScale(Vector3.one * 2f, 1f).SetEase(easeType);
-            DOTween.Kill(_tween);
 
+            countdownDisplay.text = "Ready";
+            countdownDisplay.gameObject.transform.localScale = Vector3.one * 0.001f; //Vector3.one bazen hata veriyor.
+            
+
+            countdownDisplay.gameObject.transform.DOScale(Vector3.one * 2, waitTime).SetEase(easeType);
             yield return new WaitForSeconds(waitTime);
 
-            
+            countdownDisplay.text = "Set";
+            countdownDisplay.gameObject.transform.localScale = Vector3.zero;
+
+            countdownDisplay.gameObject.transform.DOScale(Vector3.one * 2, waitTime).SetEase(easeType);
+            //_tween = countdownDisplay.gameObject.transform.DOScale(Vector3.one * 2f, 1f).SetEase(easeType).SetAutoKill(true);
+            //DOTween.Kill(_tween);
+
+
+
+
+
+            //_tween.Play();
+
+            yield return new WaitForSeconds(waitTime);
 
             isCounting = false;
 
-            countdownDisplay.text = "Set";
-            _tween.Play();
-
-            yield return new WaitForSeconds(waitTime);
-
-           
-            
         }
 
+
+
         countdownDisplay.text = "GO!";
-        countdownDisplay.gameObject.transform.DOScale(Vector3.forward, 1f).SetEase(easeType);
+        countdownDisplay.gameObject.transform.localScale = Vector3.one * 3f;
+        yield return new WaitForSeconds(0.2f);
+        countdownDisplay.gameObject.transform.DOScale(Vector3.forward, waitTime).SetEase(easeType);
         GameManager.Instance.IsCountdown = false;
         
         EventManager.OnCountDownEnd.Invoke();
