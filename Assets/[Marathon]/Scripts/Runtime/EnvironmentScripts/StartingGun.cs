@@ -20,7 +20,6 @@ public class StartingGun : MonoBehaviour
 
      void StartingGunParticle()
     {
-
         _flareParticle.Play();
     }
 }

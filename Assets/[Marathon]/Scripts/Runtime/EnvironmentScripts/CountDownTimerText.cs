@@ -85,7 +85,7 @@ public class CountDownTimerText : MonoBehaviour
 
         
         countdownDisplay.text = "GO!";
-        StartingGunParticle();
+        EventManager.OnGunShoot.Invoke();
         countdownDisplay.gameObject.transform.localScale = Vector3.one * 3f;
         yield return new WaitForSeconds(0.2f);
         countdownDisplay.gameObject.transform.DOScale(Vector3.forward, waitTime).SetEase(easeType);
