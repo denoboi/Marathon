@@ -12,6 +12,7 @@ public class CountDownTimerText : MonoBehaviour
     [SerializeField] Ease easeType;
 
     private Tween _tween;
+    
 
 
     private void Awake()
@@ -57,10 +58,6 @@ public class CountDownTimerText : MonoBehaviour
         yield return null;
 
 
-        var sequence = DOTween.Sequence();
-
-     
-
         while (isCounting)
         {
 
@@ -68,24 +65,16 @@ public class CountDownTimerText : MonoBehaviour
 
             countdownDisplay.text = "Ready";
             countdownDisplay.gameObject.transform.localScale = Vector3.one * 0.001f; //Vector3.one bazen hata veriyor.
-            
-
+            EventManager.OnCountDownReady.Invoke();
             countdownDisplay.gameObject.transform.DOScale(Vector3.one * 2, waitTime).SetEase(easeType);
             yield return new WaitForSeconds(waitTime);
 
+
+
             countdownDisplay.text = "Set";
             countdownDisplay.gameObject.transform.localScale = Vector3.zero;
-
             countdownDisplay.gameObject.transform.DOScale(Vector3.one * 2, waitTime).SetEase(easeType);
-            //_tween = countdownDisplay.gameObject.transform.DOScale(Vector3.one * 2f, 1f).SetEase(easeType).SetAutoKill(true);
-            //DOTween.Kill(_tween);
-
-
-
-
-
-            //_tween.Play();
-
+            EventManager.OnCountDownSet.Invoke();
             yield return new WaitForSeconds(waitTime);
 
             isCounting = false;
@@ -94,7 +83,9 @@ public class CountDownTimerText : MonoBehaviour
 
 
 
+        
         countdownDisplay.text = "GO!";
+        StartingGunParticle();
         countdownDisplay.gameObject.transform.localScale = Vector3.one * 3f;
         yield return new WaitForSeconds(0.2f);
         countdownDisplay.gameObject.transform.DOScale(Vector3.forward, waitTime).SetEase(easeType);
@@ -115,5 +106,11 @@ public class CountDownTimerText : MonoBehaviour
             StopCoroutine(_countDownCoroutine);
         }
 
+    }
+
+    public void StartingGunParticle()
+    {
+
+        EventManager.OnGunShoot.Invoke();
     }
 }

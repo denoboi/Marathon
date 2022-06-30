@@ -68,7 +68,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
 
     private void Ready()
     {
-        SplineCharacterAnimationController.TriggerAnimation("Crouch");
+        //SplineCharacterAnimationController.TriggerAnimation("Crouch");
     }
 
     #region Movement

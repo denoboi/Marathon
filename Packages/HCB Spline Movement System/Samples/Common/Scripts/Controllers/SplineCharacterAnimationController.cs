@@ -40,6 +40,8 @@ namespace HCB.SplineMovementSystem.Samples
             SplineCharacter.OnCharacterLocationChanged.AddListener(OnCharacterLocationChanged);
             SplineCharacter.OnSlideStart.AddListener(OnSlideStart);
             SplineCharacter.OnSlideStop.AddListener(OnSlideStop);
+            EventManager.OnCountDownReady.AddListener(Crouch);
+            EventManager.OnCountDownSet.AddListener(Crouch2);
         }
 
         private void OnDisable()
@@ -52,6 +54,8 @@ namespace HCB.SplineMovementSystem.Samples
             SplineCharacter.OnCharacterLocationChanged.RemoveListener(OnCharacterLocationChanged);
             SplineCharacter.OnSlideStart.RemoveListener(OnSlideStart);
             SplineCharacter.OnSlideStop.RemoveListener(OnSlideStop);
+            EventManager.OnCountDownReady.RemoveListener(Crouch);
+            EventManager.OnCountDownSet.RemoveListener(Crouch2);
         }
 
         private void Update()
@@ -118,5 +122,16 @@ namespace HCB.SplineMovementSystem.Samples
         {
             Animator.SetBool(ID, value);
         }
+
+        private void Crouch()
+        {
+            Animator.SetTrigger("Crouch");
+        }
+
+        private void Crouch2()
+        {
+            Animator.SetTrigger("Crouch2");
+        }
+
     }
 }

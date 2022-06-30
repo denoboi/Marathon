@@ -14,6 +14,9 @@ namespace HCB.Core
 
         public static UnityEvent OnMoneyEarned = new UnityEvent();
         public static UnityEvent OnCountDownEnd = new UnityEvent();
+        public static UnityEvent OnCountDownReady = new UnityEvent();
+        public static UnityEvent OnCountDownSet = new UnityEvent();
+        public static UnityEvent OnGunShoot = new UnityEvent();
 
         public static StringEvet OnStatUpdated = new StringEvet();
         #region Editor
