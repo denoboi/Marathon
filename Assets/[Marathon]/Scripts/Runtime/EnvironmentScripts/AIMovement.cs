@@ -117,9 +117,6 @@ public class AIMovement : SplineCharacterMovementController
         if (!SplineCharacter.IsControlable)
             return;
 
-
-        CheckMove();
-
         Stamina.StaminaDrain();
 
         if (Stamina.CurrentStamina <= 0)
@@ -221,19 +218,6 @@ public class AIMovement : SplineCharacterMovementController
         SplineCharacter.CanMoveForward = false;
         
         SplineCharacter.IsControlable = false;
-    }
-
-    private void CheckMove()
-    {
-        //if (_canMove)
-        //    return;
-        if (GameManager.Instance.IsCountdown)
-        {
-           
-        }
-
-       
-
     }
 
 

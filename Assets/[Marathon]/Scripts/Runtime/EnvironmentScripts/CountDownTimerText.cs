@@ -31,6 +31,7 @@ public class CountDownTimerText : MonoBehaviour
         LevelManager.Instance.OnLevelStart.AddListener(CountDown);
         LevelManager.Instance.OnLevelFinish.AddListener(StopCoroutine);
         SceneController.Instance.OnSceneLoaded.AddListener(() => isCounting = true);
+        Events.OnCountdownStop.AddListener(StopCoroutine);
     }
 
     private void OnDisable()
@@ -41,6 +42,7 @@ public class CountDownTimerText : MonoBehaviour
         LevelManager.Instance.OnLevelStart.RemoveListener(CountDown);
         LevelManager.Instance.OnLevelFinish.RemoveListener(StopCoroutine); //coroutine durdurmazsak diger levellarda da devam ediyor.
         SceneController.Instance.OnSceneLoaded.RemoveListener(() => isCounting = true);
+        Events.OnCountdownStop.RemoveListener(StopCoroutine);
     }
 
     private void CountDown()
@@ -60,7 +62,7 @@ public class CountDownTimerText : MonoBehaviour
 
         while (isCounting)
         {
-
+            countdownDisplay.gameObject.SetActive(true);
             GameManager.Instance.IsCountdown = true;
 
             countdownDisplay.text = "Ready";
@@ -71,7 +73,7 @@ public class CountDownTimerText : MonoBehaviour
 
 
 
-            countdownDisplay.text = "Set";
+           countdownDisplay.text = "Set";
             countdownDisplay.gameObject.transform.localScale = Vector3.zero;
             countdownDisplay.gameObject.transform.DOScale(Vector3.one * 2, waitTime).SetEase(easeType);
             EventManager.OnCountDownSet.Invoke();
@@ -104,6 +106,7 @@ public class CountDownTimerText : MonoBehaviour
         if (_countDownCoroutine != null)
         {
             StopCoroutine(_countDownCoroutine);
+            countdownDisplay.gameObject.SetActive(false);
         }
 
     }

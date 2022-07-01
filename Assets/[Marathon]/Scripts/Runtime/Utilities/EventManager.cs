@@ -10,5 +10,7 @@ public static class Events
     public static UnityEvent OnStaminaLow = new UnityEvent();
     public static UnityEvent OnStaminaNormal = new UnityEvent();
     public static UnityEvent OnCountdown = new UnityEvent();
+    public static UnityEvent OnCountdownStop = new UnityEvent();
+
 
 }

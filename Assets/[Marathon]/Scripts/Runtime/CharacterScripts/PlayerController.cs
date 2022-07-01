@@ -140,6 +140,7 @@ public class PlayerController : SplineCharacterMovementController //default olar
         {
             _isFail = true;
             SplineCharacterAnimationController.TriggerAnimation("Fail");
+            Events.OnCountdownStop.Invoke();
             Run.After(1f, () => { GameManager.Instance.CompeleteStage(false); });  
         }
     }
